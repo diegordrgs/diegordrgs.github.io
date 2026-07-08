@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diego Rodrigues — Product Designer</title>
+  <meta name="description" content="Product designer from São Paulo, Brazil. 10+ years creating digital products at tech companies and design agencies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;cursor:none}
+    body{font-family:'DM Sans',sans-serif;background:#fff;color:#111}
+
+    .cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:#0a0a0a;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .2s}
+    .cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(17,17,17,0.25);pointer-events:none;z-index:99998;transform:translate(-50%,-50%)}
+    .cursor-dot.hov{width:12px;height:12px;background:#2A5BD7}
+    .cursor-ring.hov{width:50px;height:50px;border-color:rgba(42,91,215,0.2)}
+
+    .pf-nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #e8e8e8;padding:20px 48px;display:flex;align-items:center;justify-content:space-between}
+    .pf-nav-left{display:flex;align-items:baseline;gap:12px}
+    .pf-logo{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:#0a0a0a;text-decoration:none;cursor:none}
+    .pf-nav-sep{color:#ccc;font-size:13px;font-weight:300}
+    .pf-role{font-size:12px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:#767676}
+    .pf-nav ul{display:flex;gap:28px;list-style:none}
+    .pf-nav-link{font-size:12px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:#767676;text-decoration:none;transition:color .2s;cursor:none}
+    .pf-nav-link:hover{color:#0a0a0a}
+    .pf-nav-link.on{color:#2A5BD7;font-weight:500}
+
+    .wrap{width:100%;padding:0 48px}
+
+    .pf-hero{padding:64px 0 72px;max-width:680px}
+    .pf-hero-text{font-family:'Instrument Serif',serif;font-size:64px;font-weight:400;line-height:1.08;letter-spacing:-.03em;color:#111}
+    .pf-hero-text em{font-style:italic}
+    .hw{display:inline;cursor:none}
+    .hw-hl{background:#E8F0FE;color:#2A5BD7;padding:0 5px 2px;border-radius:4px}
+    .hw-img{position:fixed;width:180px;height:124px;border-radius:10px;overflow:hidden;pointer-events:none;opacity:0;transform:scale(0.9) rotate(-2deg);transition:opacity .2s ease,transform .26s cubic-bezier(0.34,1.4,0.64,1);z-index:9990;box-shadow:0 6px 24px rgba(0,0,0,.12)}
+    .hw-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .hw-img.vis{opacity:1;transform:scale(1) rotate(-1.5deg)}
+    .hw-img.alt.vis{transform:scale(1) rotate(1.5deg)}
+
+    .pf-hero-sub{margin-top:28px;font-size:16px;font-weight:300;line-height:1.75;color:#444;max-width:520px}
+    .pf-avail{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-size:13px;color:#444}
+    .pf-dot{width:7px;height:7px;border-radius:50%;background:#2ECC71;box-shadow:0 0 0 3px rgba(46,204,113,.15);flex-shrink:0}
+
+    .pf-divider{border:none;border-top:1px solid #e8e8e8}
+
+    .pf-work{padding:44px 0 88px}
+    .pf-work-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px}
+    .pf-work-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#767676}
+    .pf-work-more{font-size:13px;color:#555;text-decoration:none;transition:color .2s;cursor:none}
+    .pf-work-more:hover{color:#111}
+
+    .pf-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .pf-thumb{border-radius:16px;overflow:hidden;background:#f0f0f0;cursor:none;position:relative;transition:transform .4s cubic-bezier(0.25,0.46,0.45,0.94);aspect-ratio:4/3;display:block;text-decoration:none}
+    .pf-thumb:hover{transform:scale(0.96)}
+    .pf-thumb img,.thumb-canvas{width:100%;height:100%;object-fit:cover;display:block}
+    .pf-thumb-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:20px;background:linear-gradient(to top,rgba(0,0,0,.52) 0%,transparent 55%);opacity:0;transition:opacity .3s ease}
+    .pf-thumb:hover .pf-thumb-overlay{opacity:1}
+    .pf-thumb-cta{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.95);color:#111;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:100px;transform:translateY(6px);transition:transform .3s cubic-bezier(0.34,1.2,0.64,1);white-space:nowrap}
+    .pf-thumb:hover .pf-thumb-cta{transform:translateY(0)}
+
+    .pf-foot{border-top:1px solid #e8e8e8;padding:28px 0;display:flex;align-items:center;justify-content:space-between}
+    .pf-foot-left{display:flex;flex-direction:column;gap:4px}
+    .pf-foot-cta{font-family:'Instrument Serif',serif;font-size:22px;font-weight:400;color:#0a0a0a;letter-spacing:-.02em}
+    .pf-foot-email{font-size:13px;color:#555;text-decoration:none;transition:color .2s;cursor:none}
+    .pf-foot-email:hover{color:#111}
+    .pf-foot-links{display:flex;gap:20px}
+    .pf-foot-links a{font-size:12px;color:#767676;text-decoration:none;transition:color .2s;cursor:none;letter-spacing:.04em}
+    .pf-foot-links a:hover{color:#111}
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="dot"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<nav class="pf-nav">
+  <div class="pf-nav-left">
+    <a class="pf-logo" href="index.html">Diego Rodrigues</a>
+    <span class="pf-nav-sep">·</span>
+    <span class="pf-role">Product Designer</span>
+  </div>
+  <ul>
+    <li><a class="pf-nav-link on" href="index.html">Work</a></li>
+    <li><a class="pf-nav-link" href="index.html">Fun</a></li>
+    <li><a class="pf-nav-link" href="about.html">About</a></li>
+    <li><a class="pf-nav-link" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+  <section class="pf-hero">
+    <p class="pf-hero-text">
+      Hey! I'm Diego —
+      <span class="hw" id="hw1"><span class="hw-hl">Senior Product Designer</span></span>
+      helping companies build
+      <em>digital products</em>
+      that are
+      <span class="hw" id="hw2"><span class="hw-hl">useful and easy to use.</span></span>
+    </p>
+    <p class="pf-hero-sub">10+ years working with tech companies and design agencies in Brazil. I combine user needs with business requirements to create products people actually want to use.</p>
+    <div class="pf-avail"><span class="pf-dot"></span> Available for new projects</div>
+  </section>
+
+  <hr class="pf-divider">
+
+  <section class="pf-work">
+    <div class="pf-work-header">
+      <span class="pf-work-label">Selected work</span>
+      <a class="pf-work-more" href="#">All cases →</a>
+    </div>
+    <div class="pf-grid">
+      <a class="pf-thumb" href="case-somos.html">
+        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Mi Futuro Auto — Kavak">
+        <div class="pf-thumb-overlay"><span class="pf-thumb-cta">View case study ↗</span></div>
+      </a>
+      <a class="pf-thumb" href="case.html">
+        <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&q=80" alt="Trade-in Research — Kavak">
+        <div class="pf-thumb-overlay"><span class="pf-thumb-cta">View case study ↗</span></div>
+      </a>
+      <a class="pf-thumb" href="case.html" id="thumb-animated">
+        <canvas class="thumb-canvas" id="gifCanvas"></canvas>
+        <div class="pf-thumb-overlay"><span class="pf-thumb-cta">View case study ↗</span></div>
+      </a>
+      <a class="pf-thumb" href="case.html">
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80" alt="Somos Educação">
+        <div class="pf-thumb-overlay"><span class="pf-thumb-cta">View case study ↗</span></div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="pf-foot">
+    <div class="pf-foot-left">
+      <p class="pf-foot-cta">Want to work together?</p>
+      <a class="pf-foot-email" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">diegorodrigues@me.com</a>
+    </div>
+    <div class="pf-foot-links">
+      <a href="https://www.linkedin.com/in/diegordrgs/" target="_blank">LinkedIn</a>
+      <a href="https://dribbble.com/diegorodrigues" target="_blank">Dribbble</a>
+    </div>
+  </footer>
+</div>
+
+<div class="hw-img" id="float1"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&q=80" alt=""></div>
+<div class="hw-img alt" id="float2"><img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=400&q=80" alt=""></div>
+
+<script>
+  const dot=document.getElementById('dot'),ring=document.getElementById('ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+  (function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
+  document.querySelectorAll('a,.pf-thumb,.hw').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{dot.classList.add('hov');ring.classList.add('hov')});
+    el.addEventListener('mouseleave',()=>{dot.classList.remove('hov');ring.classList.remove('hov')});
+  });
+  function trackWord(id,fid){
+    const w=document.getElementById(id),f=document.getElementById(fid);
+    if(!w||!f)return;
+    w.addEventListener('mouseenter',()=>f.classList.add('vis'));
+    w.addEventListener('mouseleave',()=>f.classList.remove('vis'));
+    w.addEventListener('mousemove',e=>{f.style.left=(e.clientX+20)+'px';f.style.top=(e.clientY-95)+'px'});
+  }
+  trackWord('hw1','float1');trackWord('hw2','float2');
+
+  const canvas=document.getElementById('gifCanvas');
+  if(canvas){
+    const ctx=canvas.getContext('2d');
+    function resize(){const r=canvas.parentElement.getBoundingClientRect();canvas.width=r.width;canvas.height=r.height}
+    resize();window.addEventListener('resize',resize);
+    let frame=0;
+    const screens=[
+      {label:'Discovery',bg:'#f0f4ff',accent:'#2A5BD7',items:['User interviews','Pain points','Hypothesis']},
+      {label:'Wireframes',bg:'#f5f0ff',accent:'#7c3aed',items:['Low-fi sketches','User flow','IA map']},
+      {label:'Prototype',bg:'#f0fdf4',accent:'#059669',items:['Interactive mock','Test sessions','Iterations']},
+    ];
+    function draw(){
+      const si=Math.floor(frame/60)%3,lf=frame%60,p=lf/60;
+      const s=screens[si],w=canvas.width,h=canvas.height,pad=22;
+      ctx.fillStyle=s.bg;ctx.fillRect(0,0,w,h);
+      ctx.fillStyle=s.accent;ctx.globalAlpha=.08;ctx.fillRect(0,0,w,h);ctx.globalAlpha=1;
+      ctx.fillStyle=s.accent;ctx.font=`600 ${Math.min(w*.052,15)}px 'DM Sans',sans-serif`;ctx.fillText(s.label,pad,pad+16);
+      ctx.fillStyle='#00000012';ctx.fillRect(pad,pad+26,w-pad*2,3);
+      ctx.fillStyle=s.accent;ctx.fillRect(pad,pad+26,(w-pad*2)*Math.min(p*1.2,1),3);
+      const ih=(h-pad*2-46)/3;
+      s.items.forEach((it,i)=>{
+        const y=pad+42+i*ih,ap=Math.min(1,(p*3-i*.9));
+        if(ap<=0)return;
+        ctx.globalAlpha=ap;
+        ctx.fillStyle=s.accent+'18';ctx.beginPath();ctx.roundRect(pad,y,w-pad*2,ih-8,6);ctx.fill();
+        ctx.fillStyle=s.accent;ctx.beginPath();ctx.arc(pad+11,y+(ih-8)/2,3,0,Math.PI*2);ctx.fill();
+        ctx.fillStyle='#333';ctx.font=`300 ${Math.min(w*.035,12)}px 'DM Sans',sans-serif`;
+        ctx.fillText(it,pad+22,y+(ih-8)/2+4);ctx.globalAlpha=1;
+      });
+      frame=(frame+1)%180;requestAnimationFrame(draw);
+    }
+    draw();
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redesigning Onboarding — Diego Rodrigues</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,800;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;cursor:none}
+    body{font-family:'DM Sans',sans-serif;background:#fff;color:#111}
+
+    .cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:#0a0a0a;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .2s}
+    .cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(17,17,17,0.25);pointer-events:none;z-index:99998;transform:translate(-50%,-50%)}
+    .cursor-dot.hov{width:12px;height:12px;background:#2A5BD7}
+    .cursor-ring.hov{width:50px;height:50px;border-color:rgba(42,91,215,0.2)}
+
+    /* NAV — full width, sticky */
+    .pf-nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #e8e8e8;padding:20px 48px;display:flex;align-items:center;justify-content:space-between}
+    .pf-nav-left{display:flex;align-items:baseline;gap:12px}
+    .pf-logo{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:#0a0a0a;text-decoration:none;cursor:none}
+    .pf-nav-sep{color:#ccc;font-size:13px;font-weight:300}
+    .pf-role{font-size:12px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:#767676}
+    .pf-nav ul{display:flex;gap:28px;list-style:none}
+    .pf-nav-link{font-size:12px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:#767676;text-decoration:none;transition:color .2s;cursor:none}
+    .pf-nav-link:hover{color:#0a0a0a}
+    .pf-nav-link.on{color:#2A5BD7;font-weight:500}
+
+    /* LAYOUT */
+    .case-layout{display:grid;grid-template-columns:210px 1fr;width:100%;padding:0 48px}
+
+    /* SIDEBAR */
+    .case-sidebar{padding-top:52px}
+    .sidebar-inner{position:sticky;top:72px}
+    .sidebar-back{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:#555;text-decoration:none;letter-spacing:.04em;margin-bottom:36px;cursor:none;transition:color .2s}
+    .sidebar-back:hover{color:#111}
+    .sidebar-section-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#767676;margin-bottom:12px}
+    .sidebar-nav{display:flex;flex-direction:column;gap:1px}
+    .sidebar-link{font-size:13px;font-weight:300;color:#555;text-decoration:none;padding:7px 0 7px 14px;cursor:none;transition:color .15s,border-color .15s;border-left:2px solid transparent;display:block;line-height:1.3}
+    .sidebar-link:hover{color:#111;border-left-color:#ccc}
+    .sidebar-link.active{color:#111;border-left-color:#111;font-weight:500}
+
+    /* CONTENT */
+    .case-content{padding:52px 0 100px 64px;border-left:1px solid #e8e8e8;min-width:0}
+
+    .case-eyebrow{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#767676;margin-bottom:12px}
+    .case-title{font-family:'Instrument Serif',serif;font-size:62px;font-weight:400;letter-spacing:-.03em;line-height:1.07;color:#0a0a0a;margin-bottom:40px;max-width:560px}
+
+    .case-hero{width:100%;border-radius:16px;overflow:hidden;margin-bottom:40px;background:linear-gradient(135deg,#f5a623 0%,#e88fb3 50%,#b8a9e8 100%);aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+    .case-hero p{font-size:22px;font-weight:600;color:rgba(255,255,255,.92);letter-spacing:-.02em}
+    .case-hero span{font-size:13px;color:rgba(255,255,255,.7);font-weight:300;margin-top:6px;display:block;text-align:center}
+
+    .case-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 0;border-top:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;margin-bottom:64px}
+    .meta-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#767676;margin-bottom:8px}
+    .meta-value{font-size:13px;font-weight:300;color:#333;line-height:1.6}
+
+    .case-section{margin-bottom:72px;scroll-margin-top:84px}
+    .section-tag{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#2A5BD7;margin-bottom:10px}
+    .section-title{font-family:'Instrument Serif',serif;font-size:28px;font-weight:400;letter-spacing:-.02em;line-height:1.25;color:#0a0a0a;margin-bottom:18px}
+    .section-body{font-size:15px;font-weight:300;line-height:1.85;color:#444;max-width:540px}
+    .section-body p{margin-bottom:14px}
+    .section-body p:last-child{margin-bottom:0}
+
+    .insight-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+    .insight-card{background:#f5f5f5;border-radius:12px;padding:20px 22px}
+    .insight-num{font-family:'Instrument Serif',serif;font-size:34px;color:#2A5BD7;margin-bottom:6px;font-style:italic}
+    .insight-text{font-size:13px;font-weight:400;color:#444;line-height:1.5}
+
+    .quote-block{border-left:3px solid #2A5BD7;padding:14px 22px;margin:24px 0;background:#f0f4ff;border-radius:0 10px 10px 0}
+    .quote-text{font-family:'Instrument Serif',serif;font-size:19px;font-style:italic;color:#222;line-height:1.5;margin-bottom:8px}
+    .quote-attr{font-size:12px;color:#555;font-weight:400}
+
+    .step-list{display:flex;flex-direction:column;gap:12px;margin:22px 0}
+    .step-item{display:flex;gap:14px;align-items:flex-start}
+    .step-num{font-size:11px;font-weight:500;color:#2A5BD7;background:#E8F0FE;border-radius:100px;padding:3px 10px;white-space:nowrap;margin-top:2px;flex-shrink:0}
+    .step-text{font-size:14px;font-weight:300;color:#444;line-height:1.65}
+
+    .img-block{width:100%;border-radius:12px;background:#f5f5f5;aspect-ratio:16/8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;margin:24px 0}
+    .img-block span{font-size:11px;color:#555;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+    .img-block small{font-size:11px;color:#767676}
+
+    .case-divider{border:none;border-top:1px solid #e8e8e8;margin:64px 0}
+
+    .next-case{background:#f5f5f5;border-radius:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;cursor:none;transition:background .2s;text-decoration:none}
+    .next-case:hover{background:#ececec}
+    .next-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#767676;margin-bottom:8px}
+    .next-title{font-family:'Instrument Serif',serif;font-size:22px;font-weight:400;color:#0a0a0a}
+    .next-arrow{font-size:22px;color:#555}
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="dot"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<nav class="pf-nav">
+  <div class="pf-nav-left">
+    <a class="pf-logo" href="index.html">Diego Rodrigues</a>
+    <span class="pf-nav-sep">·</span>
+    <span class="pf-role">Product Designer</span>
+  </div>
+  <ul>
+    <li><a class="pf-nav-link on" href="index.html">Work</a></li>
+    <li><a class="pf-nav-link" href="index.html">Fun</a></li>
+    <li><a class="pf-nav-link" href="about.html">About</a></li>
+    <li><a class="pf-nav-link" href="#">Resume</a></li>
+  </ul>
+</nav>
+
+<div class="case-layout">
+  <aside class="case-sidebar">
+    <div class="sidebar-inner">
+      <a class="sidebar-back" href="index.html">← All work</a>
+      <p class="sidebar-section-label">Contents</p>
+      <nav class="sidebar-nav">
+        <a class="sidebar-link active" href="#overview">Overview</a>
+        <a class="sidebar-link" href="#problem">Problem</a>
+        <a class="sidebar-link" href="#research">Research</a>
+        <a class="sidebar-link" href="#process">Process</a>
+        <a class="sidebar-link" href="#solution">Solution</a>
+        <a class="sidebar-link" href="#outcomes">Outcomes</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="case-content">
+    <p class="case-eyebrow">B2B SaaS · Product Design · 2024</p>
+    <h1 class="case-title">Redesigning onboarding for a complex B2B platform</h1>
+
+    <div class="case-hero">
+      <div style="text-align:center">
+        <p>Onboarding Redesign</p>
+        <span>B2B SaaS · 2024</span>
+      </div>
+    </div>
+
+    <div class="case-meta">
+      <div><p class="meta-label">Role</p><p class="meta-value">Lead Product Designer</p></div>
+      <div><p class="meta-label">Timeline</p><p class="meta-value">Mar – May 2024<br>8 weeks</p></div>
+      <div><p class="meta-label">Team</p><p class="meta-value">1 Designer<br>2 PMs · 4 Eng</p></div>
+      <div><p class="meta-label">Skills</p><p class="meta-value">Research<br>Interaction Design<br>Prototyping</p></div>
+    </div>
+
+    <section class="case-section" id="overview">
+      <p class="section-tag">Overview</p>
+      <h2 class="section-title">How do you guide enterprise users through a product that does everything?</h2>
+      <div class="section-body">
+        <p>The platform had over 40 features. New users were expected to figure it out on their own. Activation rates were dropping and support tickets were climbing. We had 8 weeks to fix onboarding.</p>
+        <p>My role was to lead the full design process — from discovery to a tested, developer-ready prototype.</p>
+      </div>
+    </section>
+
+    <section class="case-section" id="problem">
+      <p class="section-tag">Problem</p>
+      <h2 class="section-title">Users were dropping before they saw the value</h2>
+      <div class="section-body">
+        <p>Data showed that 62% of new users never completed their first meaningful action. Most left within the first session, overwhelmed by choice with no clear starting point.</p>
+      </div>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <p class="insight-num">62%</p>
+          <p class="insight-text">of users never completed a first meaningful action</p>
+        </div>
+        <div class="insight-card">
+          <p class="insight-num">4.1×</p>
+          <p class="insight-text">more support tickets from users in their first week</p>
+        </div>
+      </div>
+      <div class="quote-block">
+        <p class="quote-text">"I opened the dashboard and had no idea where to start. I spent 20 minutes clicking around and just closed the tab."</p>
+        <p class="quote-attr">— User interview, participant 3</p>
+      </div>
+    </section>
+
+    <section class="case-section" id="research">
+      <p class="section-tag">Research</p>
+      <h2 class="section-title">Understanding the gap between what we built and how people think</h2>
+      <div class="section-body">
+        <p>We ran 12 user interviews across 3 customer segments — ops managers, finance leads, and IT admins. We also analysed session recordings and mapped where users were exiting.</p>
+      </div>
+      <div class="img-block">
+        <span>Affinity map — research synthesis</span>
+        <small>Replace with actual image</small>
+      </div>
+      <div class="section-body">
+        <p>Three patterns emerged: users didn't understand the product's mental model, couldn't tell what was optional vs. required, and had no sense of progress during setup.</p>
+      </div>
+    </section>
+
+    <section class="case-section" id="process">
+      <p class="section-tag">Process</p>
+      <h2 class="section-title">From 23 ideas to one testable prototype in three weeks</h2>
+      <div class="section-body">
+        <p>We ran a design sprint to generate and pressure-test directions quickly. I built three concepts and tested them with 6 users before committing to one direction.</p>
+      </div>
+      <div class="step-list">
+        <div class="step-item"><span class="step-num">Week 1–2</span><span class="step-text">Discovery — interviews, session recordings, support ticket analysis, stakeholder alignment</span></div>
+        <div class="step-item"><span class="step-num">Week 3–4</span><span class="step-text">Ideation sprint — HMW exercises, sketches, 3 prototype directions</span></div>
+        <div class="step-item"><span class="step-num">Week 5–6</span><span class="step-text">Usability testing — 6 participants, 2 rounds, major pivot on step 3</span></div>
+        <div class="step-item"><span class="step-num">Week 7–8</span><span class="step-text">Final design, developer handoff, documentation</span></div>
+      </div>
+      <div class="img-block">
+        <span>Prototype iterations — v1 vs v3</span>
+        <small>Replace with actual image</small>
+      </div>
+    </section>
+
+    <section class="case-section" id="solution">
+      <p class="section-tag">Solution</p>
+      <h2 class="section-title">A role-based onboarding that meets users where they are</h2>
+      <div class="section-body">
+        <p>Instead of a generic walkthrough, we built a short intake flow that identifies the user's role and primary goal. The dashboard then surfaces only what's relevant — hiding complexity until users are ready.</p>
+        <p>We also added a persistent progress indicator and a "quick win" prompt on the first session — a small task designed to show value in under 5 minutes.</p>
+      </div>
+      <div class="img-block">
+        <span>Final design — role selection &amp; personalised dashboard</span>
+        <small>Replace with actual image</small>
+      </div>
+    </section>
+
+    <section class="case-section" id="outcomes">
+      <p class="section-tag">Outcomes</p>
+      <h2 class="section-title">Shipped, measured, and still improving</h2>
+      <div class="section-body">
+        <p>The new onboarding shipped 3 months after kickoff. Results came in within the first 30 days.</p>
+      </div>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <p class="insight-num">+38%</p>
+          <p class="insight-text">increase in first-session activation rate</p>
+        </div>
+        <div class="insight-card">
+          <p class="insight-num">−41%</p>
+          <p class="insight-text">drop in onboarding-related support tickets</p>
+        </div>
+      </div>
+      <div class="section-body" style="margin-top:18px">
+        <p>The core learning: enterprise users don't need fewer features — they need a clearer path to the one that matters right now. Progressive disclosure, not simplification.</p>
+      </div>
+    </section>
+
+    <hr class="case-divider">
+
+    <a class="next-case" href="case.html">
+      <div>
+        <p class="next-label">Next case</p>
+        <p class="next-title">Health tracking for chronic patients</p>
+      </div>
+      <span class="next-arrow">→</span>
+    </a>
+  </main>
+</div>
+
+<script>
+  const dot=document.getElementById('dot'),ring=document.getElementById('ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+  (function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
+  document.querySelectorAll('a').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{dot.classList.add('hov');ring.classList.add('hov')});
+    el.addEventListener('mouseleave',()=>{dot.classList.remove('hov');ring.classList.remove('hov')});
+  });
+
+  // Sidebar scroll spy
+  const sectionIds=['overview','problem','research','process','solution','outcomes'];
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
+        const l=document.querySelector(`.sidebar-link[href="#${e.target.id}"]`);
+        if(l)l.classList.add('active');
+      }
+    });
+  },{rootMargin:'-15% 0px -75% 0px'});
+  sectionIds.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});
+
+  document.querySelectorAll('.sidebar-link').forEach(link=>{
+    link.addEventListener('click',e=>{
+      e.preventDefault();
+      const id=link.getAttribute('href').replace('#','');
+      const el=document.getElementById(id);
+      if(el)el.scrollIntoView({behavior:'smooth'});
+    });
+  });
+</script>
+</body>
+</html>

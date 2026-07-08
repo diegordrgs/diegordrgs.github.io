@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Somos Educação — Diego Rodrigues</title>
+  <meta name="description" content="UX Case: Boletim+, a product for Somos Educação that helps teachers and coordinators plan an academic year.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;cursor:none}
+    body{font-family:'DM Sans',sans-serif;background:#fff;color:#111}
+
+    .cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:#0a0a0a;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .2s}
+    .cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(17,17,17,0.25);pointer-events:none;z-index:99998;transform:translate(-50%,-50%)}
+    .cursor-dot.hov{width:12px;height:12px;background:#2A5BD7}
+    .cursor-ring.hov{width:50px;height:50px;border-color:rgba(42,91,215,0.2)}
+
+    /* NAV */
+    .pf-nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #e8e8e8;padding:20px 48px;display:flex;align-items:center;justify-content:space-between}
+    .pf-nav-left{display:flex;align-items:baseline;gap:12px}
+    .pf-logo{font-size:13px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:#0a0a0a;text-decoration:none;cursor:none}
+    .pf-nav-sep{color:#ccc;font-size:13px;font-weight:300}
+    .pf-role{font-size:12px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:#767676}
+    .pf-nav ul{display:flex;gap:28px;list-style:none}
+    .pf-nav-link{font-size:12px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:#767676;text-decoration:none;transition:color .2s;cursor:none}
+    .pf-nav-link:hover{color:#0a0a0a}
+    .pf-nav-link.on{color:#2A5BD7;font-weight:500}
+
+    /* LAYOUT */
+    .case-layout{display:grid;grid-template-columns:210px 1fr;width:100%;padding:0 48px}
+
+    /* SIDEBAR */
+    .case-sidebar{padding-top:52px}
+    .sidebar-inner{position:sticky;top:72px}
+    .sidebar-back{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:#555;text-decoration:none;letter-spacing:.04em;margin-bottom:36px;cursor:none;transition:color .2s;display:block}
+    .sidebar-back:hover{color:#111}
+    .sidebar-section-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#767676;margin-bottom:12px}
+    .sidebar-nav{display:flex;flex-direction:column;gap:1px}
+    .sidebar-link{font-size:13px;font-weight:300;color:#555;text-decoration:none;padding:7px 0 7px 14px;cursor:none;transition:color .15s,border-color .15s;border-left:2px solid transparent;display:block;line-height:1.3}
+    .sidebar-link:hover{color:#111;border-left-color:#ccc}
+    .sidebar-link.active{color:#111;border-left-color:#111;font-weight:500}
+
+    /* CONTENT */
+    .case-content{padding:52px 0 100px 64px;border-left:1px solid #e8e8e8;min-width:0}
+
+    .case-eyebrow{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#767676;margin-bottom:12px}
+    .case-title{font-family:'Instrument Serif',serif;font-size:62px;font-weight:400;letter-spacing:-.03em;line-height:1.07;color:#0a0a0a;margin-bottom:40px;max-width:680px}
+
+    /* HERO IMAGE */
+    .case-hero{width:100%;border-radius:16px;overflow:hidden;margin-bottom:40px;background:#5B2D8E;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative}
+    .case-hero-inner{text-align:center}
+    .case-hero-inner p{font-size:28px;font-weight:600;color:rgba(255,255,255,.92);letter-spacing:-.02em}
+    .case-hero-inner span{font-size:14px;color:rgba(255,255,255,.65);font-weight:300;margin-top:8px;display:block}
+    .case-hero-badge{position:absolute;top:20px;left:24px;background:rgba(255,255,255,.15);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.2);padding:5px 12px;border-radius:100px;font-size:11px;font-weight:500;color:rgba(255,255,255,.8);letter-spacing:.06em;text-transform:uppercase}
+
+    /* META */
+    .case-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 0;border-top:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;margin-bottom:64px}
+    .meta-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#767676;margin-bottom:8px}
+    .meta-value{font-size:13px;font-weight:300;color:#333;line-height:1.6}
+
+    /* SECTIONS */
+    .case-section{margin-bottom:72px;scroll-margin-top:84px}
+    .section-tag{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#2A5BD7;margin-bottom:10px}
+    .section-title{font-family:'Instrument Serif',serif;font-size:32px;font-weight:400;letter-spacing:-.02em;line-height:1.2;color:#0a0a0a;margin-bottom:18px}
+    .section-body{font-size:15px;font-weight:300;line-height:1.85;color:#444;max-width:580px}
+    .section-body p{margin-bottom:14px}
+    .section-body p:last-child{margin-bottom:0}
+    .section-body strong{font-weight:500;color:#222}
+
+    /* IMAGE BLOCKS */
+    .img-block{width:100%;border-radius:12px;overflow:hidden;margin:28px 0;background:#f5f5f5}
+    .img-block img{width:100%;display:block}
+    .img-caption{font-size:12px;color:#767676;margin-top:8px;font-style:italic}
+
+    .img-placeholder{width:100%;border-radius:12px;background:#f5f5f5;aspect-ratio:16/8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;margin:28px 0}
+    .img-placeholder span{font-size:11px;color:#555;letter-spacing:.06em;text-transform:uppercase;font-weight:500}
+
+    /* GOALS GRID */
+    .goals-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0;max-width:560px}
+    .goal-item{background:#f5f5f5;border-radius:10px;padding:16px 18px;font-size:14px;font-weight:400;color:#333;display:flex;align-items:center;gap:10px}
+    .goal-dot{width:6px;height:6px;border-radius:50%;background:#2A5BD7;flex-shrink:0}
+
+    /* METHODS */
+    .method-list{display:flex;flex-direction:column;gap:10px;margin:24px 0;max-width:400px}
+    .method-item{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#f5f5f5;border-radius:10px}
+    .method-num{font-size:11px;font-weight:500;color:#2A5BD7;background:#E8F0FE;padding:2px 8px;border-radius:100px;white-space:nowrap}
+    .method-name{font-size:14px;font-weight:400;color:#333}
+
+    /* PROCESS STEPS */
+    .step-list{display:flex;flex-direction:column;gap:10px;margin:24px 0}
+    .step-item{display:flex;gap:14px;align-items:flex-start}
+    .step-num{font-size:11px;font-weight:500;color:#2A5BD7;background:#E8F0FE;border-radius:100px;padding:3px 10px;white-space:nowrap;margin-top:2px;flex-shrink:0}
+    .step-text{font-size:14px;font-weight:300;color:#444;line-height:1.65}
+
+    /* OUTCOMES */
+    .outcome-list{display:flex;flex-direction:column;gap:10px;margin:24px 0;max-width:560px}
+    .outcome-item{display:flex;align-items:flex-start;gap:12px;padding:16px 18px;border-radius:10px;background:#f0fdf4;border:1px solid #d1fae5}
+    .outcome-check{font-size:16px;flex-shrink:0;margin-top:1px}
+    .outcome-text{font-size:14px;font-weight:400;color:#166534;line-height:1.5}
+    .outcome-text strong{font-weight:600}
+
+    /* LEARNINGS */
+    .learning-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:24px 0}
+    .learning-card{background:#f5f5f5;border-radius:12px;padding:20px 20px}
+    .learning-num{font-family:'Instrument Serif',serif;font-size:32px;color:#2A5BD7;margin-bottom:8px;font-style:italic}
+    .learning-text{font-size:14px;font-weight:400;color:#333;line-height:1.5}
+
+    /* DIVIDER */
+    .case-divider{border:none;border-top:1px solid #e8e8e8;margin:64px 0}
+
+    /* NEXT */
+    .next-case{background:#f5f5f5;border-radius:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;cursor:none;transition:background .2s;text-decoration:none}
+    .next-case:hover{background:#ececec}
+    .next-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#767676;margin-bottom:8px}
+    .next-title{font-family:'Instrument Serif',serif;font-size:22px;font-weight:400;color:#0a0a0a}
+    .next-arrow{font-size:22px;color:#555}
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="dot"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<nav class="pf-nav">
+  <div class="pf-nav-left">
+    <a class="pf-logo" href="index.html">Diego Rodrigues</a>
+    <span class="pf-nav-sep">·</span>
+    <span class="pf-role">Product Designer</span>
+  </div>
+  <ul>
+    <li><a class="pf-nav-link on" href="index.html">Work</a></li>
+    <li><a class="pf-nav-link" href="index.html">Fun</a></li>
+    <li><a class="pf-nav-link" href="about.html">About</a></li>
+    <li><a class="pf-nav-link" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="case-layout">
+  <aside class="case-sidebar">
+    <div class="sidebar-inner">
+      <a class="sidebar-back" href="index.html">← All work</a>
+      <p class="sidebar-section-label">Contents</p>
+      <nav class="sidebar-nav">
+        <a class="sidebar-link active" href="#overview">Overview</a>
+        <a class="sidebar-link" href="#problem">Problem</a>
+        <a class="sidebar-link" href="#goals">Goals</a>
+        <a class="sidebar-link" href="#research">Research</a>
+        <a class="sidebar-link" href="#process">Process</a>
+        <a class="sidebar-link" href="#design">Design</a>
+        <a class="sidebar-link" href="#outcomes">Outcomes</a>
+        <a class="sidebar-link" href="#learnings">Learnings</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="case-content">
+
+    <p class="case-eyebrow">EdTech · End-to-end Product Design · Somos Educação</p>
+    <h1 class="case-title">Boletim+: helping schools plan smarter, not harder</h1>
+
+    <div class="case-hero">
+      <span class="case-hero-badge">UX Case Study</span>
+      <div class="case-hero-inner">
+        <p>Boletim+</p>
+        <span>Somos Educação · Academic Management Platform</span>
+      </div>
+    </div>
+
+    <div class="case-meta">
+      <div><p class="meta-label">Role</p><p class="meta-value">Product Designer<br>End-to-end</p></div>
+      <div><p class="meta-label">Company</p><p class="meta-value">Somos Educação<br>(MJV)</p></div>
+      <div><p class="meta-label">Methods</p><p class="meta-value">Interviews · Focus group<br>Journey map · Prototyping</p></div>
+      <div><p class="meta-label">Tools</p><p class="meta-value">Figma<br>Design System (Appolo)</p></div>
+    </div>
+
+    <!-- OVERVIEW -->
+    <section class="case-section" id="overview">
+      <p class="section-tag">Overview</p>
+      <h2 class="section-title">A platform for teachers who never asked to become spreadsheet experts</h2>
+      <div class="section-body">
+        <p>Boletim+ is a product of Somos Educação that <strong>helps teachers and coordinators plan an academic year, organise grades and calculate averages</strong>. Many of the product's users have limited technical experience — and the goal was to let them plan their work thoroughly without fighting the tool to do it.</p>
+        <p>I joined as the product designer, leading the process from discovery to final screens and design system — working closely with POs, developers and school stakeholders throughout.</p>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="case-section" id="problem">
+      <p class="section-tag">Problem</p>
+      <h2 class="section-title">Every school had its own system. None of them worked well together.</h2>
+      <div class="section-body">
+        <p>Somos Educação manages several schools across Brazil. Each school had its own academic structure — different grade systems, different calendars, different workflows. There was no centralised way to track any of it.</p>
+        <p>The day-to-day reality meant coordinators were relying on <strong>external spreadsheets, losing data, and working with no traceability</strong>. There was no overview of the academic process — and no way to scale that oversight across dozens of institutions.</p>
+      </div>
+
+      <div class="img-placeholder">
+        <span>Problem mapping — workshop with stakeholders</span>
+      </div>
+    </section>
+
+    <!-- GOALS -->
+    <section class="case-section" id="goals">
+      <p class="section-tag">Goals</p>
+      <h2 class="section-title">Once we understood the problems, we set our targets</h2>
+      <div class="section-body">
+        <p>With the problem landscape clear, we defined what the product needed to be — not just functionally, but as a principle for every design decision.</p>
+      </div>
+      <div class="goals-grid">
+        <div class="goal-item"><span class="goal-dot"></span>Flexible for every school's structure</div>
+        <div class="goal-item"><span class="goal-dot"></span>Meet the needs of different user roles</div>
+        <div class="goal-item"><span class="goal-dot"></span>Easy to use without technical background</div>
+        <div class="goal-item"><span class="goal-dot"></span>Consistent across all flows</div>
+        <div class="goal-item"><span class="goal-dot"></span>Scalable as the product grows</div>
+        <div class="goal-item"><span class="goal-dot"></span>Enable full traceability</div>
+        <div class="goal-item"><span class="goal-dot"></span>Eliminate the use of external software</div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="case-section" id="research">
+      <p class="section-tag">Research</p>
+      <h2 class="section-title">Going into the schools to understand how people actually worked</h2>
+      <div class="section-body">
+        <p>Together with team members, POs, developers and stakeholders, we ran a product discovery process to understand real workflows. We wanted to know <strong>how users worked, what software they used, what structures they needed to create, and what made their jobs harder</strong>.</p>
+      </div>
+
+      <div class="method-list">
+        <div class="method-item"><span class="method-num">01</span><span class="method-name">Interviews — individual sessions with teachers and coordinators</span></div>
+        <div class="method-item"><span class="method-num">02</span><span class="method-name">Focus groups — cross-school collaborative sessions</span></div>
+        <div class="method-item"><span class="method-num">03</span><span class="method-name">Personas — based on synthesis of research findings</span></div>
+        <div class="method-item"><span class="method-num">04</span><span class="method-name">Journey map — full academic year mapped end-to-end</span></div>
+      </div>
+
+      <div class="img-placeholder">
+        <span>Research session — focus group with school staff</span>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="case-section" id="process">
+      <p class="section-tag">Process</p>
+      <h2 class="section-title">From journey map to validated prototype, step by step</h2>
+      <div class="section-body">
+        <p>We mapped the full journey of use to understand where the platform could meet users' needs — and to find future product opportunities. The journey map helped us find touch points, define the scope of work, and set priorities for what to prototype first.</p>
+      </div>
+
+      <div class="img-placeholder">
+        <span>Journey map — academic year workflow across school roles</span>
+      </div>
+
+      <div class="section-body" style="margin-top:24px">
+        <p>After the discovery stage, I built the first wireframes and prototypes. We introduced these to stakeholders and to the schools themselves, so users could validate our direction and we could move forward with confidence.</p>
+      </div>
+
+      <div class="step-list" style="margin-top:20px">
+        <div class="step-item"><span class="step-num">Discovery</span><span class="step-text">Interviews, focus groups, competitive research, stakeholder workshops</span></div>
+        <div class="step-item"><span class="step-num">Synthesis</span><span class="step-text">Personas, journey map, scope definition, prioritisation</span></div>
+        <div class="step-item"><span class="step-num">Wireframes</span><span class="step-text">Low-fidelity prototypes presented to stakeholders and validated with schools</span></div>
+        <div class="step-item"><span class="step-num">Visual Design</span><span class="step-text">High-fidelity screens, component library, and design system in Figma</span></div>
+        <div class="step-item"><span class="step-num">Handoff</span><span class="step-text">Developer support, QA, and continuous iteration after launch</span></div>
+      </div>
+
+      <div class="img-placeholder" style="margin-top:28px">
+        <span>Wireframes — early prototypes for stakeholder validation</span>
+      </div>
+    </section>
+
+    <!-- DESIGN -->
+    <section class="case-section" id="design">
+      <p class="section-tag">Design</p>
+      <h2 class="section-title">Building a visual identity and component system from the ground up</h2>
+      <div class="section-body">
+        <p>When the time came for final screens, I created the visual identity and the first components using Figma, with three guiding principles: <strong>accessibility, consistency, and natural language</strong> — making sure the interface spoke the same way users did.</p>
+        <p>The company only had basic documentation for colours and typography. I created all the components from scratch and established how they behaved across states and contexts.</p>
+        <p>As new products were planned for the future, I also started building a design system called <strong>Appolo</strong> — a scalable foundation that could serve the whole product family.</p>
+      </div>
+
+      <div class="img-placeholder">
+        <span>Final screens — Boletim+ visual design &amp; component system</span>
+      </div>
+
+      <div class="img-placeholder">
+        <span>Appolo Design System — component library in Figma</span>
+      </div>
+    </section>
+
+    <!-- OUTCOMES -->
+    <section class="case-section" id="outcomes">
+      <p class="section-tag">Outcomes</p>
+      <h2 class="section-title">Less friction, fewer errors, and a product that earned trust</h2>
+      <div class="section-body">
+        <p>After launching the first version, we continued gathering user feedback to improve and monitor performance. I worked closely with developers throughout, answering questions and testing features as they were released.</p>
+      </div>
+      <div class="outcome-list">
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text">Very low learning curve — teachers adopted it quickly with minimal training</span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text"><strong>Creating a structure went from days to about 40 minutes</strong></span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text">Happy customers — positive feedback from schools across the network</span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text">Significant decrease in error rate across academic records</span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text">Traceability became easy — problems could be found and fixed quickly</span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text">Due to the product's success, new products were proposed off the back of it</span></div>
+      </div>
+    </section>
+
+    <!-- LEARNINGS -->
+    <section class="case-section" id="learnings">
+      <p class="section-tag">Learnings</p>
+      <h2 class="section-title">What this project taught me</h2>
+      <div class="learning-grid">
+        <div class="learning-card">
+          <p class="learning-num">01</p>
+          <p class="learning-text"><strong>Think about tomorrow.</strong> Designing for one product while building the foundation for several others requires a different kind of thinking — every decision has further consequences.</p>
+        </div>
+        <div class="learning-card">
+          <p class="learning-num">02</p>
+          <p class="learning-text"><strong>Speak their language.</strong> Users who aren't technically trained aren't a limitation — they're your best teachers. The clearest UX insights came from listening carefully to how they described their own work.</p>
+        </div>
+        <div class="learning-card">
+          <p class="learning-num">03</p>
+          <p class="learning-text"><strong>Think twice before adding a new feature.</strong> Every addition has a cost in complexity. The best features we shipped were the ones we resisted adding for as long as possible.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="case-divider">
+
+    <a class="next-case" href="case.html">
+      <div>
+        <p class="next-label">Next case</p>
+        <p class="next-title">Mi Futuro Auto — Kavak</p>
+      </div>
+      <span class="next-arrow">→</span>
+    </a>
+
+  </main>
+</div>
+
+<script>
+  const dot=document.getElementById('dot'),ring=document.getElementById('ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+  (function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
+  document.querySelectorAll('a').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{dot.classList.add('hov');ring.classList.add('hov')});
+    el.addEventListener('mouseleave',()=>{dot.classList.remove('hov');ring.classList.remove('hov')});
+  });
+
+  const sectionIds=['overview','problem','goals','research','process','design','outcomes','learnings'];
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        document.querySelectorAll('.sidebar-link').forEach(l=>l.classList.remove('active'));
+        const l=document.querySelector(`.sidebar-link[href="#${e.target.id}"]`);
+        if(l)l.classList.add('active');
+      }
+    });
+  },{rootMargin:'-15% 0px -75% 0px'});
+  sectionIds.forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el)});
+
+  document.querySelectorAll('.sidebar-link').forEach(link=>{
+    link.addEventListener('click',e=>{
+      e.preventDefault();
+      const id=link.getAttribute('href').replace('#','');
+      const el=document.getElementById(id);
+      if(el)el.scrollIntoView({behavior:'smooth'});
+    });
+  });
+</script>
+</body>
+</html>

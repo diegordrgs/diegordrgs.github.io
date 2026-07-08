@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Diego Rodrigues</title>
+  <meta name="description" content="Product designer from São Paulo, Brazil. 10+ years creating digital products at tech companies and design agencies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;cursor:none}
+    body{font-family:'DM Sans',sans-serif;background:#fff;color:#111}
+
+    .cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:#0a0a0a;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .2s}
+    .cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(17,17,17,0.25);pointer-events:none;z-index:99998;transform:translate(-50%,-50%)}
+    .cursor-dot.hov{width:12px;height:12px;background:#2A5BD7}
+    .cursor-ring.hov{width:50px;height:50px;border-color:rgba(42,91,215,0.2)}
+
+    /* NAV */
+    .pf-nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid #e8e8e8;padding:20px 48px;display:flex;align-items:center;justify-content:space-between}
+    .pf-nav-left{display:flex;align-items:baseline;gap:12px}
+    .pf-logo{font-size:13px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:#0a0a0a;text-decoration:none;cursor:none}
+    .pf-nav-sep{color:#ccc;font-size:13px;font-weight:300}
+    .pf-role{font-size:12px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:#767676}
+    .pf-nav ul{display:flex;gap:28px;list-style:none}
+    .pf-nav-link{font-size:12px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:#767676;text-decoration:none;transition:color .2s;cursor:none}
+    .pf-nav-link:hover{color:#0a0a0a}
+    .pf-nav-link.on{color:#2A5BD7;font-weight:500}
+
+    /* ── HERO ── */
+    .about-hero{padding:64px 48px 0;display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:start}
+    .about-photo{width:100%;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:#f0f0f0}
+    .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .about-intro-right{padding-top:4px}
+    .about-name{font-family:'Instrument Serif',serif;font-size:52px;font-weight:400;letter-spacing:-.03em;line-height:1.06;margin-bottom:6px;color:#0a0a0a}
+    .about-role-line{font-size:15px;color:#555;font-weight:400;margin-bottom:36px}
+    .about-bio{font-size:17px;font-weight:300;line-height:1.8;color:#333;margin-bottom:20px}
+    .about-bio strong{font-weight:500;color:#111}
+    .about-cv-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:#111;text-decoration:none;border-bottom:1px solid #555;padding-bottom:2px;transition:border-color .2s;cursor:none;margin-top:8px}
+    .about-cv-link:hover{border-color:#111}
+
+    /* skills — sits inside right column, aligned to content */
+    .about-skills{margin-top:40px;padding-top:36px;border-top:1px solid #e8e8e8}
+    .skills-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#767676;margin-bottom:20px}
+    .skills-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+    .skill-item{padding:16px 0;border-bottom:1px solid #e8e8e8}
+    .skill-name{font-family:'Instrument Serif',serif;font-size:20px;font-weight:400;color:#0a0a0a;margin-bottom:4px}
+    .skill-detail{font-size:12px;color:#555;font-weight:400}
+
+    /* ── DARK BAND ── */
+    .dark-band{background:#111;padding:72px 48px;margin-top:72px}
+    .dark-band-inner{display:grid;grid-template-columns:300px 1fr;gap:72px}
+    /* left column: same width as photo above → aligns grid */
+    .dark-band-left{display:flex;flex-direction:column;justify-content:flex-start;padding-top:4px}
+    .dark-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#555;margin-bottom:16px}
+    .dark-quote{font-family:'Instrument Serif',serif;font-size:30px;font-weight:400;line-height:1.25;color:#fff;letter-spacing:-.02em}
+    .dark-quote em{font-style:italic;color:rgba(255,255,255,.6)}
+
+    /* right column: two cols for exp + edu */
+    .dark-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+
+    .col-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#555;margin-bottom:24px}
+
+    .exp-item{margin-bottom:28px;display:grid;grid-template-columns:100px 1fr;gap:12px}
+    .exp-item:last-child{margin-bottom:0}
+    .exp-period{font-size:12px;color:#555;font-weight:400;line-height:1.5;padding-top:3px}
+    .exp-title{font-family:'Instrument Serif',serif;font-size:22px;font-weight:400;color:#fff;margin-bottom:2px;letter-spacing:-.01em}
+    .exp-role{font-size:13px;font-weight:300;color:#777}
+
+    .edu-item{margin-bottom:24px;display:grid;grid-template-columns:100px 1fr;gap:12px}
+    .edu-item:last-child{margin-bottom:0}
+    .edu-period{font-size:12px;color:#555;font-weight:400;line-height:1.5;padding-top:3px}
+    .edu-degree{font-size:11px;font-weight:500;color:#555;letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+    .edu-title{font-family:'Instrument Serif',serif;font-size:20px;font-weight:400;color:#fff;letter-spacing:-.01em}
+
+    /* ── PHOTO SECTION ── */
+    .photo-section{padding:80px 48px 88px;overflow:hidden}
+    .photo-section-header{margin-bottom:48px}
+    .photo-section-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#767676;margin-bottom:10px}
+    .photo-section-title{font-family:'Instrument Serif',serif;font-size:40px;font-weight:400;letter-spacing:-.02em;color:#0a0a0a;line-height:1.1}
+    .photo-section-title em{font-style:italic;color:#555}
+
+    /* cursive handwritten label */
+    .photo-cursive{font-family:'Instrument Serif',serif;font-style:italic;font-size:52px;font-weight:400;color:#0a0a0a;line-height:1;margin-bottom:40px;letter-spacing:-.02em}
+
+    /* uniform polaroids, no hover, contained */
+    .photo-strip{display:flex;align-items:center;gap:24px;width:100%}
+
+    .polaroid{background:#fff;padding:10px 10px 32px;box-shadow:0 2px 18px rgba(0,0,0,.11);flex:1;min-width:0}
+    .polaroid img{display:block;object-fit:cover;width:100%;aspect-ratio:4/5}
+
+    .polaroid.p1{transform:rotate(-3deg)}
+    .polaroid.p2{transform:rotate(1.5deg)}
+    .polaroid.p3{transform:rotate(-2deg)}
+    .polaroid.p4{transform:rotate(2.5deg)}
+    .polaroid.p5{transform:rotate(-1.5deg)}
+
+    /* ── CONTACT ROW ── */
+    .contact-row{border-top:1px solid #e8e8e8;padding:40px 48px;display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:center}
+    .contact-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#767676;margin-bottom:12px}
+    .contact-links{display:flex;flex-direction:column;gap:10px}
+    .contact-links a{font-size:15px;font-weight:300;color:#333;text-decoration:none;border-bottom:1px solid transparent;padding-bottom:1px;transition:color .2s,border-color .2s;width:fit-content;cursor:none}
+    .contact-links a:hover{color:#111;border-color:#555}
+
+    /* ── FOOTER ── */
+    .pf-foot{border-top:1px solid #e8e8e8;padding:28px 48px;display:flex;align-items:center;justify-content:space-between}
+    .pf-foot-left{display:flex;flex-direction:column;gap:4px}
+    .pf-foot-cta{font-family:'Instrument Serif',serif;font-size:22px;font-weight:400;color:#0a0a0a;letter-spacing:-.02em}
+    .pf-foot-email{font-size:13px;color:#555;text-decoration:none;transition:color .2s;cursor:none}
+    .pf-foot-email:hover{color:#111}
+    .pf-foot-links{display:flex;gap:20px}
+    .pf-foot-links a{font-size:12px;color:#767676;text-decoration:none;transition:color .2s;cursor:none;letter-spacing:.04em}
+    .pf-foot-links a:hover{color:#111}
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="dot"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<nav class="pf-nav">
+  <div class="pf-nav-left">
+    <a class="pf-logo" href="index.html">Diego Rodrigues</a>
+    <span class="pf-nav-sep">·</span>
+    <span class="pf-role">Product Designer</span>
+  </div>
+  <ul>
+    <li><a class="pf-nav-link" href="index.html">Work</a></li>
+    <li><a class="pf-nav-link" href="index.html">Fun</a></li>
+    <li><a class="pf-nav-link on" href="about.html">About</a></li>
+    <li><a class="pf-nav-link" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="about-hero">
+  <div class="about-photo">
+    <img src="IMG_2022.JPG" alt="Diego Rodrigues">
+  </div>
+  <div class="about-intro-right">
+    <h1 class="about-name">Diego Rodrigues</h1>
+    <p class="about-role-line">Senior Product Designer · São Paulo, Brazil</p>
+
+    <p class="about-bio">Hi! I'm Diego, a Product Designer from São Paulo, Brazil. With <strong>more than ten years of experience</strong> at tech companies and design agencies, I've helped create products and find innovative solutions to business problems.</p>
+    <p class="about-bio">My main goal is to create visually appealing and easy-to-use digital products by <strong>combining user needs with business requirements</strong> — end-to-end, from discovery to delivery.</p>
+
+    <a href="mailto:diegorodrigues@me.com?subject=Portfolio Contact" class="about-cv-link">Get in touch ↗</a>
+
+    <div class="about-skills">
+      <p class="skills-label">I know a thing or two about</p>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <p class="skill-name">UX/UI Design</p>
+          <p class="skill-detail">Prototypes</p>
+        </div>
+        <div class="skill-item">
+          <p class="skill-name">End-to-end process</p>
+          <p class="skill-detail">User testing</p>
+        </div>
+        <div class="skill-item">
+          <p class="skill-name">UX Research</p>
+          <p class="skill-detail">Design system</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── DARK BAND: Experience + Education ── -->
+<div class="dark-band">
+  <div class="dark-band-inner">
+
+    <div class="dark-band-left">
+      <p class="dark-label">Background</p>
+      <p class="dark-quote">Designing for people,<br>one <em>complex problem</em><br>at a time.</p>
+    </div>
+
+    <div class="dark-cols">
+      <div>
+        <p class="col-label">Experience</p>
+        <div class="exp-item">
+          <span class="exp-period">2022 — Now</span>
+          <div>
+            <p class="exp-title">Kavak</p>
+            <p class="exp-role">Sr. Product Designer</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <span class="exp-period">2020 — 2022</span>
+          <div>
+            <p class="exp-title">Kestraa</p>
+            <p class="exp-role">Sr. Product Designer</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <span class="exp-period">2018 — 2019</span>
+          <div>
+            <p class="exp-title">MJV / Bayer</p>
+            <p class="exp-role">UX Designer</p>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="col-label">Education</p>
+        <div class="edu-item">
+          <span class="edu-period">2019 — 2021</span>
+          <div>
+            <p class="edu-degree">Postgraduate</p>
+            <p class="edu-title">Strategic Design</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <span class="edu-period">2012 — 2016</span>
+          <div>
+            <p class="edu-degree">Bachelor's Degree</p>
+            <p class="edu-title">Advertising</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── PHOTO SECTION ── -->
+<div class="photo-section">
+  <p class="photo-section-label">Beyond design</p>
+  <p class="photo-cursive">running &amp; photography</p>
+
+  <div class="photo-strip">
+    <!-- Replace each src with your own photos -->
+    <div class="polaroid p1">
+      <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=480&q=85" alt="Photography">
+    </div>
+    <div class="polaroid p2">
+      <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=480&q=85" alt="Travel">
+    </div>
+    <div class="polaroid p3">
+      <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=480&q=85" alt="Running">
+    </div>
+    <div class="polaroid p4">
+      <img src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?w=480&q=85" alt="Travel">
+    </div>
+    <div class="polaroid p5">
+      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=480&q=85" alt="Photography">
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<div class="contact-row">
+  <div>
+    <p class="contact-label">Contact</p>
+  </div>
+  <div class="contact-links">
+    <a href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">diegorodrigues@me.com</a>
+    <a href="https://www.linkedin.com/in/diegordrgs/" target="_blank">LinkedIn</a>
+    <a href="https://dribbble.com/diegorodrigues" target="_blank">Dribbble</a>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="pf-foot">
+  <div class="pf-foot-left">
+    <p class="pf-foot-cta">Want to work together?</p>
+    <a class="pf-foot-email" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">diegorodrigues@me.com</a>
+  </div>
+  <div class="pf-foot-links">
+    <a href="https://www.linkedin.com/in/diegordrgs/" target="_blank">LinkedIn</a>
+    <a href="https://dribbble.com/diegorodrigues" target="_blank">Dribbble</a>
+  </div>
+</footer>
+
+<script>
+  const dot=document.getElementById('dot'),ring=document.getElementById('ring');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+  (function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
+  document.querySelectorAll('a,.polaroid').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{dot.classList.add('hov');ring.classList.add('hov')});
+    el.addEventListener('mouseleave',()=>{dot.classList.remove('hov');ring.classList.remove('hov')});
+  });
+</script>
+</body>
+</html>
