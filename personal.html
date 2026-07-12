@@ -46,6 +46,7 @@
     .theme-toggle .icon-moon{display:none}
     [data-theme="dark"] .theme-toggle .icon-sun{display:none}
     [data-theme="dark"] .theme-toggle .icon-moon{display:block}
+    .nav-toggle-item{display:flex;align-items:center}
 
     .wrap{width:100%;padding:0 48px}
 
@@ -72,11 +73,10 @@
     .pf-foot-links a:hover{color:var(--text)}
 
     @media (max-width:900px){.fun-grid{columns:2 220px}}
-    @media (max-width:560px){.fun-grid{columns:1}}
+    @media (max-width:560px){.fun-grid{columns:2 130px;column-gap:10px}}
 
     @media (max-width:640px){
       .pf-nav{padding:16px 20px;flex-wrap:wrap;row-gap:10px}
-      .pf-nav-sep,.pf-role{display:none}
       .pf-nav ul{gap:14px;flex-wrap:wrap}
       .pf-nav-link{font-size:11px}
       .wrap{padding:0 20px}
@@ -109,7 +109,7 @@
     <li><a class="pf-nav-link on" href="personal.html">Personal</a></li>
     <li><a class="pf-nav-link" href="about.html">About</a></li>
     <li><a class="pf-nav-link" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">Contact</a></li>
-    <li>
+    <li class="nav-toggle-item">
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
