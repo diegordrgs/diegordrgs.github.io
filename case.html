@@ -109,6 +109,27 @@
     .next-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
     .next-title{font-family:'Cabinet Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--text-strong)}
     .next-arrow{font-size:22px;color:var(--text-secondary)}
+
+    @media (max-width:900px){
+      .pf-nav{padding:16px 20px;flex-wrap:wrap;row-gap:10px}
+      .pf-nav-sep,.pf-role{display:none}
+      .pf-nav ul{gap:14px;flex-wrap:wrap}
+      .pf-nav-link{font-size:11px}
+
+      .case-layout{grid-template-columns:1fr;padding:0 20px}
+      .case-sidebar{padding-top:24px}
+      .sidebar-inner{position:static}
+      .sidebar-nav{flex-direction:row;flex-wrap:wrap;gap:8px 16px}
+      .sidebar-link{padding:0;border-left:none;border-bottom:2px solid transparent}
+      .sidebar-link:hover{border-left-color:transparent;border-bottom-color:var(--border-light)}
+      .sidebar-link.active{border-left-color:transparent;border-bottom-color:var(--text)}
+
+      .case-content{padding:32px 0 56px 0;border-left:none}
+      .case-title{font-size:clamp(30px,9vw,62px);max-width:100%}
+      .case-meta{grid-template-columns:1fr 1fr;gap:20px 16px;margin-bottom:40px}
+      .insight-grid{grid-template-columns:1fr}
+      .next-case{flex-direction:column;align-items:flex-start;gap:14px;padding:24px 22px}
+    }
   </style>
 </head>
 <body>

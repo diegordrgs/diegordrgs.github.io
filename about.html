@@ -74,7 +74,7 @@
 
     /* ── DARK BAND ── */
     .dark-band{background:var(--dark-band-bg);padding:72px 48px;margin-top:72px;transition:background .2s}
-    .dark-band-inner{display:grid;grid-template-columns:300px 1fr;gap:72px}
+    .dark-band-inner{display:grid;grid-template-columns:300px 1fr;gap:72px;min-width:0}
     /* left column: same width as photo above → aligns grid */
     .dark-band-left{display:flex;flex-direction:column;justify-content:flex-start;padding-top:4px}
     .dark-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-band-label);margin-bottom:16px}
@@ -82,20 +82,21 @@
     .dark-quote em{font-style:italic;color:var(--dark-band-text-dim)}
 
     /* right column: two cols for exp + edu */
-    .dark-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+    .dark-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;min-width:0}
+    .dark-cols > div{min-width:0}
 
     .col-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-band-label);margin-bottom:24px}
 
-    .exp-item{margin-bottom:28px;display:grid;grid-template-columns:100px 1fr;gap:12px}
+    .exp-item{margin-bottom:28px;display:grid;grid-template-columns:100px 1fr;gap:12px;min-width:0}
     .exp-item:last-child{margin-bottom:0}
     .exp-period{font-size:12px;color:var(--dark-band-label);font-weight:400;line-height:1.5;padding-top:3px}
     .exp-title{font-family:'Cabinet Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--dark-band-text);margin-bottom:2px;letter-spacing:-.01em}
     .exp-role{font-size:13px;font-weight:300;color:var(--dark-band-role)}
 
-    .edu-item{margin-bottom:24px;display:grid;grid-template-columns:100px 1fr;gap:12px}
+    .edu-item{margin-bottom:24px;display:grid;grid-template-columns:100px 1fr;gap:12px;min-width:0}
     .edu-item:last-child{margin-bottom:0}
     .edu-period{font-size:12px;color:var(--dark-band-label);font-weight:400;line-height:1.5;padding-top:3px}
-    .edu-degree{font-size:11px;font-weight:500;color:var(--dark-band-label);letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+    .edu-degree{font-size:11px;font-weight:500;color:var(--dark-band-label);letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px;overflow-wrap:break-word}
     .edu-title{font-family:'Cabinet Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--dark-band-text);letter-spacing:-.01em}
 
     /* ── PHOTO SECTION ── */
@@ -136,6 +137,36 @@
     .pf-foot-links{display:flex;gap:20px}
     .pf-foot-links a{font-size:12px;color:var(--text-muted);text-decoration:none;transition:color .2s;cursor:none;letter-spacing:.04em}
     .pf-foot-links a:hover{color:var(--text)}
+
+    @media (max-width:640px){
+      .pf-nav{padding:16px 20px;flex-wrap:wrap;row-gap:10px}
+      .pf-nav-sep,.pf-role{display:none}
+      .pf-nav ul{gap:14px;flex-wrap:wrap}
+      .pf-nav-link{font-size:11px}
+
+      .about-hero{padding:40px 20px 0;grid-template-columns:1fr;gap:24px}
+      .about-name{font-size:clamp(32px,10vw,52px)}
+      .about-skills{margin-top:32px;padding-top:28px}
+      .skills-grid{grid-template-columns:1fr 1fr;gap:20px 0}
+
+      .dark-band{padding:40px 20px;margin-top:40px}
+      .dark-band-inner{grid-template-columns:1fr;gap:32px}
+      .dark-quote{font-size:24px}
+      .dark-cols{grid-template-columns:1fr;gap:28px}
+
+      .photo-section{padding:48px 20px 56px}
+      .photo-cursive{font-size:36px;margin-bottom:28px}
+      .photo-strip{overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch}
+      .polaroid{flex:0 0 140px}
+
+      .contact-row{padding:28px 20px;grid-template-columns:1fr;gap:16px}
+      .pf-foot{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:16px}
+    }
+
+    @media (max-width:900px){
+      .dark-band-inner{grid-template-columns:1fr;gap:32px}
+      .dark-cols{grid-template-columns:1fr;gap:28px}
+    }
   </style>
 </head>
 <body>
