@@ -62,6 +62,7 @@
     .about-role-line{font-size:15px;color:var(--text-secondary);font-weight:400;margin-bottom:36px}
     .about-bio{font-size:17px;font-weight:300;line-height:1.8;color:var(--text-body);margin-bottom:20px}
     .about-bio strong{font-weight:500;color:var(--text)}
+    .inline-glyph{display:inline-block;width:1.7em;height:1.7em;object-fit:cover;border-radius:.25em;vertical-align:middle;margin:0 .05em;transform:translateY(-.1em)}
     .about-cv-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--text);text-decoration:none;border-bottom:1px solid var(--text-secondary);padding-bottom:2px;transition:border-color .2s;cursor:none;margin-top:8px}
     .about-cv-link:hover{border-color:var(--text)}
 
@@ -145,10 +146,13 @@
       .pf-nav-link{font-size:11px}
 
       .about-hero{padding:40px 20px 0;grid-template-columns:1fr;gap:24px}
-      .about-photo{order:2}
-      .about-intro-right{order:1}
-      .about-name{font-size:clamp(32px,10vw,52px)}
-      .about-skills{margin-top:32px;padding-top:28px}
+      .about-intro-right{display:contents}
+      .about-name{order:1;font-size:clamp(32px,10vw,52px)}
+      .about-role-line{order:2}
+      .about-bio{order:3}
+      .about-cv-link{order:4}
+      .about-photo{order:5}
+      .about-skills{order:6;margin-top:32px;padding-top:28px}
       .skills-grid{grid-template-columns:1fr 1fr;gap:20px 0}
 
       .dark-band{padding:40px 20px;margin-top:40px}
@@ -212,8 +216,8 @@
     <h1 class="about-name">Diego Rodrigues</h1>
     <p class="about-role-line">Senior Product Designer · São Paulo, Brazil</p>
 
-    <p class="about-bio">Hi! I'm Diego, a Product Designer from São Paulo, Brazil. With <strong>more than ten years of experience</strong> at tech companies and design agencies, I've helped create products and find innovative solutions to business problems.</p>
-    <p class="about-bio">My main goal is to create visually appealing and easy-to-use digital products by <strong>combining user needs with business requirements</strong> — end-to-end, from discovery to delivery.</p>
+    <p class="about-bio">Hi! I'm Diego, a Product Designer from São Paulo, Brazil <img class="inline-glyph" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=200&q=80" alt="">. With <strong>more than ten years of experience</strong> at tech companies and design agencies, I've helped create products and find innovative solutions to business problems.</p>
+    <p class="about-bio">My main goal is to create visually appealing and easy-to-use digital products <img class="inline-glyph" src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=200&q=80" alt=""> by <strong>combining user needs with business requirements</strong> — end-to-end, from discovery to delivery.</p>
 
     <a href="mailto:diegorodrigues@me.com?subject=Portfolio Contact" class="about-cv-link">Get in touch ↗</a>
 
