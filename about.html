@@ -18,14 +18,12 @@
       --border:#e8e8e8;--border-light:#ccc;--surface:#f0f0f0;--nav-bg:rgba(255,255,255,.96);
       --accent:#2A5BD7;--cursor:#0a0a0a;--cursor-ring:rgba(17,17,17,.25);--accent-ring:rgba(42,91,215,.2);
       --dark-band-bg:#111;--dark-band-text:#fff;--dark-band-text-dim:rgba(255,255,255,.6);--dark-band-label:#555;--dark-band-role:#777;
-      --polaroid-bg:#fff;--polaroid-shadow:rgba(0,0,0,.11);
     }
     :root[data-theme="dark"]{
       --bg:#0c0c0c;--text:#e6e6e6;--text-strong:#f5f5f5;--text-secondary:#b0b0b0;--text-muted:#8a8a8a;--text-body:#c4c4c4;
       --border:#2a2a2a;--border-light:#444;--surface:#1a1a1a;--nav-bg:rgba(12,12,12,.85);
       --accent:#5b8def;--cursor:#f5f5f5;--cursor-ring:rgba(255,255,255,.3);--accent-ring:rgba(91,141,239,.3);
       --dark-band-bg:#161616;--dark-band-text:#f5f5f5;--dark-band-text-dim:rgba(245,245,245,.6);--dark-band-label:#999;--dark-band-role:#8a8a8a;
-      --polaroid-bg:#1a1a1a;--polaroid-shadow:rgba(0,0,0,.4);
     }
     *{box-sizing:border-box;margin:0;padding:0;cursor:none}
     body{font-family:'Cabinet Grotesk',sans-serif;background:var(--bg);color:var(--text);transition:background .2s,color .2s}
@@ -111,17 +109,9 @@
     /* cursive handwritten label */
     .photo-cursive{font-family:'Cabinet Grotesk',sans-serif;font-style:italic;font-size:52px;font-weight:700;color:var(--text-strong);line-height:1;margin-bottom:40px;letter-spacing:-.02em}
 
-    /* uniform polaroids, no hover, contained */
-    .photo-strip{display:flex;align-items:center;gap:24px;width:100%}
-
-    .polaroid{background:var(--polaroid-bg);padding:10px 10px 32px;box-shadow:0 2px 18px var(--polaroid-shadow);flex:1;min-width:0}
-    .polaroid img{display:block;object-fit:cover;width:100%;aspect-ratio:4/5}
-
-    .polaroid.p1{transform:rotate(-3deg)}
-    .polaroid.p2{transform:rotate(1.5deg)}
-    .polaroid.p3{transform:rotate(-2deg)}
-    .polaroid.p4{transform:rotate(2.5deg)}
-    .polaroid.p5{transform:rotate(-1.5deg)}
+    /* plain photo grid, no frames or effects */
+    .photo-grid{columns:3 220px;column-gap:8px}
+    .photo-grid img{width:100%;display:block;margin-bottom:8px}
 
     /* ── CONTACT ROW ── */
     .contact-row{border-top:1px solid var(--border);padding:40px 48px;display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:center}
@@ -162,8 +152,8 @@
 
       .photo-section{padding:48px 20px 56px}
       .photo-cursive{font-size:36px;margin-bottom:28px}
-      .photo-strip{overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch}
-      .polaroid{flex:0 0 140px}
+      .photo-grid{columns:2 140px;column-gap:6px}
+      .photo-grid img{margin-bottom:6px}
 
       .contact-row{padding:28px 20px;grid-template-columns:1fr;gap:16px}
       .pf-foot{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:16px}
@@ -303,23 +293,15 @@
   <p class="photo-section-label">Beyond design</p>
   <p class="photo-cursive">running &amp; photography</p>
 
-  <div class="photo-strip">
+  <div class="photo-grid">
     <!-- Replace each src with your own photos -->
-    <div class="polaroid p1">
-      <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=480&q=85" alt="Photography">
-    </div>
-    <div class="polaroid p2">
-      <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=480&q=85" alt="Travel">
-    </div>
-    <div class="polaroid p3">
-      <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=480&q=85" alt="Running">
-    </div>
-    <div class="polaroid p4">
-      <img src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?w=480&q=85" alt="Travel">
-    </div>
-    <div class="polaroid p5">
-      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=480&q=85" alt="Photography">
-    </div>
+    <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=480&q=85" alt="Photography">
+    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=480&q=85" alt="Travel">
+    <img src="https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?w=480&q=85" alt="Skateboarding">
+    <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=480&q=85" alt="Running">
+    <img src="https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?w=480&q=85" alt="Travel">
+    <img src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=480&q=85" alt="Vinyl">
+    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=480&q=85" alt="Photography">
   </div>
 </div>
 
@@ -352,7 +334,7 @@
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
   (function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
-  document.querySelectorAll('a,.polaroid,.theme-toggle').forEach(el=>{
+  document.querySelectorAll('a,.theme-toggle').forEach(el=>{
     el.addEventListener('mouseenter',()=>{dot.classList.add('hov');ring.classList.add('hov')});
     el.addEventListener('mouseleave',()=>{dot.classList.remove('hov');ring.classList.remove('hov')});
   });
