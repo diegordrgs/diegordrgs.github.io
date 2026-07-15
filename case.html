@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Redesigning Onboarding — Diego Rodrigues</title>
+  <title data-en="Redesigning Onboarding — Diego Rodrigues">Redesenhando o Onboarding — Diego Rodrigues</title>
   <style>
     @font-face{
       font-family:'Cabinet Grotesk';
@@ -49,6 +49,8 @@
     [data-theme="dark"] .theme-toggle .icon-sun{display:none}
     [data-theme="dark"] .theme-toggle .icon-moon{display:block}
     .nav-toggle-item{display:flex;align-items:center}
+    .lang-toggle{background:none;border:none;padding:0;margin:0;font-family:'Cabinet Grotesk',sans-serif;font-size:11px;font-weight:500;letter-spacing:.05em;color:var(--text-muted);cursor:none;transition:color .2s}
+    .lang-toggle:hover{color:var(--text-strong)}
 
     /* LAYOUT */
     .case-layout{display:grid;grid-template-columns:210px 1fr;width:100%;padding:0 48px}
@@ -148,13 +150,16 @@
   <div class="pf-nav-left">
     <a class="pf-logo" href="index.html">Diego Rodrigues</a>
     <span class="pf-nav-sep">·</span>
-    <span class="pf-role">Product Designer</span>
+    <span class="pf-role" data-en="Product Designer">Designer de Produto</span>
   </div>
   <ul>
-    <li><a class="pf-nav-link on" href="index.html">Work</a></li>
-    <li><a class="pf-nav-link" href="personal.html">Personal</a></li>
-    <li><a class="pf-nav-link" href="about.html">About</a></li>
-    <li><a class="pf-nav-link" href="#">Resume</a></li>
+    <li><a class="pf-nav-link on" href="index.html" data-en="Work">Trabalho</a></li>
+    <li><a class="pf-nav-link" href="personal.html" data-en="Personal">Pessoal</a></li>
+    <li><a class="pf-nav-link" href="about.html" data-en="About">Sobre</a></li>
+    <li><a class="pf-nav-link" href="#" data-en="Resume">Currículo</a></li>
+    <li class="nav-toggle-item">
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
+    </li>
     <li class="nav-toggle-item">
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
@@ -167,132 +172,132 @@
 <div class="case-layout">
   <aside class="case-sidebar">
     <div class="sidebar-inner">
-      <a class="sidebar-back" href="index.html">← All work</a>
-      <p class="sidebar-section-label">Contents</p>
+      <a class="sidebar-back" href="index.html" data-en="← All work">← Todos os trabalhos</a>
+      <p class="sidebar-section-label" data-en="Contents">Conteúdo</p>
       <nav class="sidebar-nav">
-        <a class="sidebar-link active" href="#overview">Overview</a>
-        <a class="sidebar-link" href="#problem">Problem</a>
-        <a class="sidebar-link" href="#research">Research</a>
-        <a class="sidebar-link" href="#process">Process</a>
-        <a class="sidebar-link" href="#solution">Solution</a>
-        <a class="sidebar-link" href="#outcomes">Outcomes</a>
+        <a class="sidebar-link active" href="#overview" data-en="Overview">Visão geral</a>
+        <a class="sidebar-link" href="#problem" data-en="Problem">Problema</a>
+        <a class="sidebar-link" href="#research" data-en="Research">Pesquisa</a>
+        <a class="sidebar-link" href="#process" data-en="Process">Processo</a>
+        <a class="sidebar-link" href="#solution" data-en="Solution">Solução</a>
+        <a class="sidebar-link" href="#outcomes" data-en="Outcomes">Resultados</a>
       </nav>
     </div>
   </aside>
 
   <main class="case-content">
-    <p class="case-eyebrow">B2B SaaS · Product Design · 2024</p>
-    <h1 class="case-title">Redesigning onboarding for a complex B2B platform</h1>
+    <p class="case-eyebrow" data-en="B2B SaaS · Product Design · 2024">B2B SaaS · Design de Produto · 2024</p>
+    <h1 class="case-title" data-en="Redesigning onboarding for a complex B2B platform">Redesenhando o onboarding de uma plataforma B2B complexa</h1>
 
     <div class="case-hero">
       <div style="text-align:center">
-        <p>Onboarding Redesign</p>
+        <p data-en="Onboarding Redesign">Redesign do Onboarding</p>
         <span>B2B SaaS · 2024</span>
       </div>
     </div>
 
     <div class="case-meta">
-      <div><p class="meta-label">Role</p><p class="meta-value">Lead Product Designer</p></div>
-      <div><p class="meta-label">Timeline</p><p class="meta-value">Mar – May 2024<br>8 weeks</p></div>
-      <div><p class="meta-label">Team</p><p class="meta-value">1 Designer<br>2 PMs · 4 Eng</p></div>
-      <div><p class="meta-label">Skills</p><p class="meta-value">Research<br>Interaction Design<br>Prototyping</p></div>
+      <div><p class="meta-label" data-en="Role">Função</p><p class="meta-value" data-en="Lead Product Designer">Designer de Produto Líder</p></div>
+      <div><p class="meta-label" data-en="Timeline">Cronograma</p><p class="meta-value" data-en="Mar – May 2024<br>8 weeks">Mar – Mai 2024<br>8 semanas</p></div>
+      <div><p class="meta-label" data-en="Team">Equipe</p><p class="meta-value" data-en="1 Designer<br>2 PMs · 4 Eng">1 Designer<br>2 PMs · 4 Devs</p></div>
+      <div><p class="meta-label" data-en="Skills">Habilidades</p><p class="meta-value" data-en="Research<br>Interaction Design<br>Prototyping">Pesquisa<br>Design de Interação<br>Prototipagem</p></div>
     </div>
 
     <section class="case-section" id="overview">
-      <p class="section-tag">Overview</p>
-      <h2 class="section-title">How do you guide enterprise users through a product that does everything?</h2>
+      <p class="section-tag" data-en="Overview">Visão Geral</p>
+      <h2 class="section-title" data-en="How do you guide enterprise users through a product that does everything?">Como guiar usuários corporativos por um produto que faz de tudo?</h2>
       <div class="section-body">
-        <p>The platform had over 40 features. New users were expected to figure it out on their own. Activation rates were dropping and support tickets were climbing. We had 8 weeks to fix onboarding.</p>
-        <p>My role was to lead the full design process — from discovery to a tested, developer-ready prototype.</p>
+        <p data-en="The platform had over 40 features. New users were expected to figure it out on their own. Activation rates were dropping and support tickets were climbing. We had 8 weeks to fix onboarding.">A plataforma tinha mais de 40 funcionalidades. Esperava-se que os novos usuários descobrissem tudo sozinhos. As taxas de ativação estavam caindo e os chamados de suporte, subindo. Tínhamos 8 semanas para consertar o onboarding.</p>
+        <p data-en="My role was to lead the full design process — from discovery to a tested, developer-ready prototype.">Meu papel era liderar todo o processo de design — da descoberta a um protótipo testado e pronto para desenvolvimento.</p>
       </div>
     </section>
 
     <section class="case-section" id="problem">
-      <p class="section-tag">Problem</p>
-      <h2 class="section-title">Users were dropping before they saw the value</h2>
+      <p class="section-tag" data-en="Problem">Problema</p>
+      <h2 class="section-title" data-en="Users were dropping before they saw the value">Usuários desistiam antes de ver o valor</h2>
       <div class="section-body">
-        <p>Data showed that 62% of new users never completed their first meaningful action. Most left within the first session, overwhelmed by choice with no clear starting point.</p>
+        <p data-en="Data showed that 62% of new users never completed their first meaningful action. Most left within the first session, overwhelmed by choice with no clear starting point.">Os dados mostravam que 62% dos novos usuários nunca completavam sua primeira ação relevante. A maioria saía já na primeira sessão, sobrecarregada de opções e sem um ponto de partida claro.</p>
       </div>
       <div class="insight-grid">
         <div class="insight-card">
           <p class="insight-num">62%</p>
-          <p class="insight-text">of users never completed a first meaningful action</p>
+          <p class="insight-text" data-en="of users never completed a first meaningful action">dos usuários nunca completaram uma primeira ação relevante</p>
         </div>
         <div class="insight-card">
           <p class="insight-num">4.1×</p>
-          <p class="insight-text">more support tickets from users in their first week</p>
+          <p class="insight-text" data-en="more support tickets from users in their first week">mais chamados de suporte de usuários na primeira semana</p>
         </div>
       </div>
       <div class="quote-block">
-        <p class="quote-text">"I opened the dashboard and had no idea where to start. I spent 20 minutes clicking around and just closed the tab."</p>
-        <p class="quote-attr">— User interview, participant 3</p>
+        <p class="quote-text" data-en="&quot;I opened the dashboard and had no idea where to start. I spent 20 minutes clicking around and just closed the tab.&quot;">"Abri o painel e não fazia ideia de onde começar. Passei 20 minutos clicando por aí e simplesmente fechei a aba."</p>
+        <p class="quote-attr" data-en="— User interview, participant 3">— Entrevista com usuário, participante 3</p>
       </div>
     </section>
 
     <section class="case-section" id="research">
-      <p class="section-tag">Research</p>
-      <h2 class="section-title">Understanding the gap between what we built and how people think</h2>
+      <p class="section-tag" data-en="Research">Pesquisa</p>
+      <h2 class="section-title" data-en="Understanding the gap between what we built and how people think">Entendendo o abismo entre o que construímos e como as pessoas pensam</h2>
       <div class="section-body">
-        <p>We ran 12 user interviews across 3 customer segments — ops managers, finance leads, and IT admins. We also analysed session recordings and mapped where users were exiting.</p>
+        <p data-en="We ran 12 user interviews across 3 customer segments — ops managers, finance leads, and IT admins. We also analysed session recordings and mapped where users were exiting.">Fizemos 12 entrevistas com usuários em 3 segmentos de clientes — gerentes de operações, líderes financeiros e administradores de TI. Também analisamos gravações de sessões e mapeamos onde os usuários abandonavam.</p>
       </div>
       <div class="img-block">
-        <span>Affinity map — research synthesis</span>
-        <small>Replace with actual image</small>
+        <span data-en="Affinity map — research synthesis">Mapa de afinidade — síntese da pesquisa</span>
+        <small data-en="Replace with actual image">Substituir pela imagem real</small>
       </div>
       <div class="section-body">
-        <p>Three patterns emerged: users didn't understand the product's mental model, couldn't tell what was optional vs. required, and had no sense of progress during setup.</p>
+        <p data-en="Three patterns emerged: users didn't understand the product's mental model, couldn't tell what was optional vs. required, and had no sense of progress during setup.">Três padrões surgiram: os usuários não entendiam o modelo mental do produto, não conseguiam distinguir o que era opcional do obrigatório, e não tinham noção de progresso durante a configuração.</p>
       </div>
     </section>
 
     <section class="case-section" id="process">
-      <p class="section-tag">Process</p>
-      <h2 class="section-title">From 23 ideas to one testable prototype in three weeks</h2>
+      <p class="section-tag" data-en="Process">Processo</p>
+      <h2 class="section-title" data-en="From 23 ideas to one testable prototype in three weeks">De 23 ideias a um protótipo testável em três semanas</h2>
       <div class="section-body">
-        <p>We ran a design sprint to generate and pressure-test directions quickly. I built three concepts and tested them with 6 users before committing to one direction.</p>
+        <p data-en="We ran a design sprint to generate and pressure-test directions quickly. I built three concepts and tested them with 6 users before committing to one direction.">Fizemos um design sprint para gerar e testar direções rapidamente. Construí três conceitos e os testei com 6 usuários antes de decidir por uma direção.</p>
       </div>
       <div class="step-list">
-        <div class="step-item"><span class="step-num">Week 1–2</span><span class="step-text">Discovery — interviews, session recordings, support ticket analysis, stakeholder alignment</span></div>
-        <div class="step-item"><span class="step-num">Week 3–4</span><span class="step-text">Ideation sprint — HMW exercises, sketches, 3 prototype directions</span></div>
-        <div class="step-item"><span class="step-num">Week 5–6</span><span class="step-text">Usability testing — 6 participants, 2 rounds, major pivot on step 3</span></div>
-        <div class="step-item"><span class="step-num">Week 7–8</span><span class="step-text">Final design, developer handoff, documentation</span></div>
+        <div class="step-item"><span class="step-num" data-en="Week 1–2">Semana 1–2</span><span class="step-text" data-en="Discovery — interviews, session recordings, support ticket analysis, stakeholder alignment">Descoberta — entrevistas, gravações de sessão, análise de chamados de suporte, alinhamento com stakeholders</span></div>
+        <div class="step-item"><span class="step-num" data-en="Week 3–4">Semana 3–4</span><span class="step-text" data-en="Ideation sprint — HMW exercises, sketches, 3 prototype directions">Sprint de ideação — exercícios HMW, esboços, 3 direções de protótipo</span></div>
+        <div class="step-item"><span class="step-num" data-en="Week 5–6">Semana 5–6</span><span class="step-text" data-en="Usability testing — 6 participants, 2 rounds, major pivot on step 3">Teste de usabilidade — 6 participantes, 2 rodadas, grande pivô na etapa 3</span></div>
+        <div class="step-item"><span class="step-num" data-en="Week 7–8">Semana 7–8</span><span class="step-text" data-en="Final design, developer handoff, documentation">Design final, handoff para desenvolvimento, documentação</span></div>
       </div>
       <div class="img-block">
-        <span>Prototype iterations — v1 vs v3</span>
-        <small>Replace with actual image</small>
+        <span data-en="Prototype iterations — v1 vs v3">Iterações do protótipo — v1 vs v3</span>
+        <small data-en="Replace with actual image">Substituir pela imagem real</small>
       </div>
     </section>
 
     <section class="case-section" id="solution">
-      <p class="section-tag">Solution</p>
-      <h2 class="section-title">A role-based onboarding that meets users where they are</h2>
+      <p class="section-tag" data-en="Solution">Solução</p>
+      <h2 class="section-title" data-en="A role-based onboarding that meets users where they are">Um onboarding baseado em papéis que encontra o usuário onde ele está</h2>
       <div class="section-body">
-        <p>Instead of a generic walkthrough, we built a short intake flow that identifies the user's role and primary goal. The dashboard then surfaces only what's relevant — hiding complexity until users are ready.</p>
-        <p>We also added a persistent progress indicator and a "quick win" prompt on the first session — a small task designed to show value in under 5 minutes.</p>
+        <p data-en="Instead of a generic walkthrough, we built a short intake flow that identifies the user's role and primary goal. The dashboard then surfaces only what's relevant — hiding complexity until users are ready.">Em vez de um passo a passo genérico, criamos um fluxo curto de entrada que identifica o papel e o objetivo principal do usuário. O painel então mostra só o que é relevante — escondendo complexidade até o usuário estar pronto.</p>
+        <p data-en="We also added a persistent progress indicator and a &quot;quick win&quot; prompt on the first session — a small task designed to show value in under 5 minutes.">Também adicionamos um indicador de progresso persistente e um incentivo de "vitória rápida" na primeira sessão — uma pequena tarefa pensada para mostrar valor em menos de 5 minutos.</p>
       </div>
       <div class="img-block">
-        <span>Final design — role selection &amp; personalised dashboard</span>
-        <small>Replace with actual image</small>
+        <span data-en="Final design — role selection &amp; personalised dashboard">Design final — seleção de papel e painel personalizado</span>
+        <small data-en="Replace with actual image">Substituir pela imagem real</small>
       </div>
     </section>
 
     <section class="case-section" id="outcomes">
-      <p class="section-tag">Outcomes</p>
-      <h2 class="section-title">Shipped, measured, and still improving</h2>
+      <p class="section-tag" data-en="Outcomes">Resultados</p>
+      <h2 class="section-title" data-en="Shipped, measured, and still improving">Lançado, medido e em constante melhoria</h2>
       <div class="section-body">
-        <p>The new onboarding shipped 3 months after kickoff. Results came in within the first 30 days.</p>
+        <p data-en="The new onboarding shipped 3 months after kickoff. Results came in within the first 30 days.">O novo onboarding foi lançado 3 meses após o início do projeto. Os resultados apareceram nos primeiros 30 dias.</p>
       </div>
       <div class="insight-grid">
         <div class="insight-card">
           <p class="insight-num">+38%</p>
-          <p class="insight-text">increase in first-session activation rate</p>
+          <p class="insight-text" data-en="increase in first-session activation rate">de aumento na taxa de ativação na primeira sessão</p>
         </div>
         <div class="insight-card">
           <p class="insight-num">−41%</p>
-          <p class="insight-text">drop in onboarding-related support tickets</p>
+          <p class="insight-text" data-en="drop in onboarding-related support tickets">de queda nos chamados de suporte relacionados ao onboarding</p>
         </div>
       </div>
       <div class="section-body" style="margin-top:18px">
-        <p>The core learning: enterprise users don't need fewer features — they need a clearer path to the one that matters right now. Progressive disclosure, not simplification.</p>
+        <p data-en="The core learning: enterprise users don't need fewer features — they need a clearer path to the one that matters right now. Progressive disclosure, not simplification.">O principal aprendizado: usuários corporativos não precisam de menos funcionalidades — precisam de um caminho mais claro até a que importa agora. Divulgação progressiva, não simplificação.</p>
       </div>
     </section>
 
@@ -300,8 +305,8 @@
 
     <a class="next-case" href="case.html">
       <div>
-        <p class="next-label">Next case</p>
-        <p class="next-title">Health tracking for chronic patients</p>
+        <p class="next-label" data-en="Next case">Próximo case</p>
+        <p class="next-title" data-en="Health tracking for chronic patients">Monitoramento de saúde para pacientes crônicos</p>
       </div>
       <span class="next-arrow">→</span>
     </a>
@@ -313,7 +318,7 @@
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
   (function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
-  document.querySelectorAll('a,.theme-toggle').forEach(el=>{
+  document.querySelectorAll('a,.theme-toggle,.lang-toggle').forEach(el=>{
     el.addEventListener('mouseenter',()=>{dot.classList.add('hov');ring.classList.add('hov')});
     el.addEventListener('mouseleave',()=>{dot.classList.remove('hov');ring.classList.remove('hov')});
   });
@@ -327,6 +332,43 @@
       root.setAttribute('data-theme',isDark?'light':'dark');
       localStorage.setItem('theme',isDark?'light':'dark');
     });
+  })();
+
+  (function(){
+    function applyLang(lang){
+      document.documentElement.lang=lang;
+      document.querySelectorAll('[data-en]').forEach(el=>{
+        if(el.dataset.pt===undefined)el.dataset.pt=el.innerHTML;
+        el.innerHTML=lang==='en'?el.dataset.en:el.dataset.pt;
+      });
+      const titleEl=document.querySelector('title[data-en]');
+      if(titleEl){
+        if(titleEl.dataset.pt===undefined)titleEl.dataset.pt=titleEl.textContent;
+        titleEl.textContent=lang==='en'?titleEl.dataset.en:titleEl.dataset.pt;
+      }
+      const metaDesc=document.querySelector('meta[name="description"][data-en]');
+      if(metaDesc){
+        if(metaDesc.dataset.pt===undefined)metaDesc.dataset.pt=metaDesc.getAttribute('content');
+        metaDesc.setAttribute('content',lang==='en'?metaDesc.dataset.en:metaDesc.dataset.pt);
+      }
+      const langBtn=document.getElementById('langToggle');
+      if(langBtn)langBtn.textContent=lang==='en'?'PT':'EN';
+      localStorage.setItem('lang',lang);
+    }
+    function detectLang(){
+      const saved=localStorage.getItem('lang');
+      if(saved)return saved;
+      const nav=(navigator.language||navigator.userLanguage||'pt').toLowerCase();
+      return nav.startsWith('en')?'en':'pt';
+    }
+    applyLang(detectLang());
+    const btn=document.getElementById('langToggle');
+    if(btn){
+      btn.addEventListener('click',()=>{
+        const isEn=document.documentElement.lang==='en';
+        applyLang(isEn?'pt':'en');
+      });
+    }
   })();
 
   // Sidebar scroll spy

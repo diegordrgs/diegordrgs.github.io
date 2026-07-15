@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Somos Educação — Diego Rodrigues</title>
-  <meta name="description" content="UX Case: Boletim+, a product for Somos Educação that helps teachers and coordinators plan an academic year.">
+  <meta name="description" data-en="UX Case: Boletim+, a product for Somos Educação that helps teachers and coordinators plan an academic year." content="Case de UX: Boletim+, um produto da Somos Educação que ajuda professores e coordenadores a planejar o ano letivo.">
   <style>
     @font-face{
       font-family:'Cabinet Grotesk';
@@ -52,6 +52,8 @@
     [data-theme="dark"] .theme-toggle .icon-sun{display:none}
     [data-theme="dark"] .theme-toggle .icon-moon{display:block}
     .nav-toggle-item{display:flex;align-items:center}
+    .lang-toggle{background:none;border:none;padding:0;margin:0;font-family:'Cabinet Grotesk',sans-serif;font-size:11px;font-weight:500;letter-spacing:.05em;color:var(--text-muted);cursor:none;transition:color .2s}
+    .lang-toggle:hover{color:var(--text-strong)}
 
     /* LAYOUT */
     .case-layout{display:grid;grid-template-columns:210px 1fr;width:100%;padding:0 48px}
@@ -180,13 +182,16 @@
   <div class="pf-nav-left">
     <a class="pf-logo" href="index.html">Diego Rodrigues</a>
     <span class="pf-nav-sep">·</span>
-    <span class="pf-role">Product Designer</span>
+    <span class="pf-role" data-en="Product Designer">Designer de Produto</span>
   </div>
   <ul>
-    <li><a class="pf-nav-link on" href="index.html">Work</a></li>
-    <li><a class="pf-nav-link" href="personal.html">Personal</a></li>
-    <li><a class="pf-nav-link" href="about.html">About</a></li>
-    <li><a class="pf-nav-link" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">Contact</a></li>
+    <li><a class="pf-nav-link on" href="index.html" data-en="Work">Trabalho</a></li>
+    <li><a class="pf-nav-link" href="personal.html" data-en="Personal">Pessoal</a></li>
+    <li><a class="pf-nav-link" href="about.html" data-en="About">Sobre</a></li>
+    <li><a class="pf-nav-link" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact" data-en="Contact">Contato</a></li>
+    <li class="nav-toggle-item">
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
+    </li>
     <li class="nav-toggle-item">
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
@@ -199,184 +204,184 @@
 <div class="case-layout">
   <aside class="case-sidebar">
     <div class="sidebar-inner">
-      <a class="sidebar-back" href="index.html">← All work</a>
-      <p class="sidebar-section-label">Contents</p>
+      <a class="sidebar-back" href="index.html" data-en="← All work">← Todos os trabalhos</a>
+      <p class="sidebar-section-label" data-en="Contents">Conteúdo</p>
       <nav class="sidebar-nav">
-        <a class="sidebar-link active" href="#overview">Overview</a>
-        <a class="sidebar-link" href="#problem">Problem</a>
-        <a class="sidebar-link" href="#goals">Goals</a>
-        <a class="sidebar-link" href="#research">Research</a>
-        <a class="sidebar-link" href="#process">Process</a>
+        <a class="sidebar-link active" href="#overview" data-en="Overview">Visão geral</a>
+        <a class="sidebar-link" href="#problem" data-en="Problem">Problema</a>
+        <a class="sidebar-link" href="#goals" data-en="Goals">Objetivos</a>
+        <a class="sidebar-link" href="#research" data-en="Research">Pesquisa</a>
+        <a class="sidebar-link" href="#process" data-en="Process">Processo</a>
         <a class="sidebar-link" href="#design">Design</a>
-        <a class="sidebar-link" href="#outcomes">Outcomes</a>
-        <a class="sidebar-link" href="#learnings">Learnings</a>
+        <a class="sidebar-link" href="#outcomes" data-en="Outcomes">Resultados</a>
+        <a class="sidebar-link" href="#learnings" data-en="Learnings">Aprendizados</a>
       </nav>
     </div>
   </aside>
 
   <main class="case-content">
 
-    <p class="case-eyebrow">EdTech · End-to-end Product Design · Somos Educação</p>
-    <h1 class="case-title">Boletim+: helping schools plan smarter, not harder</h1>
+    <p class="case-eyebrow" data-en="EdTech · End-to-end Product Design · Somos Educação">EdTech · Design de Produto Ponta a Ponta · Somos Educação</p>
+    <h1 class="case-title" data-en="Boletim+: helping schools plan smarter, not harder">Boletim+: ajudando escolas a planejar melhor, não mais difícil</h1>
 
     <div class="case-hero">
-      <span class="case-hero-badge">UX Case Study</span>
+      <span class="case-hero-badge" data-en="UX Case Study">Case de UX</span>
       <div class="case-hero-inner">
         <p>Boletim+</p>
-        <span>Somos Educação · Academic Management Platform</span>
+        <span data-en="Somos Educação · Academic Management Platform">Somos Educação · Plataforma de Gestão Acadêmica</span>
       </div>
     </div>
 
     <div class="case-meta">
-      <div><p class="meta-label">Role</p><p class="meta-value">Product Designer<br>End-to-end</p></div>
-      <div><p class="meta-label">Company</p><p class="meta-value">Somos Educação<br>(MJV)</p></div>
-      <div><p class="meta-label">Methods</p><p class="meta-value">Interviews · Focus group<br>Journey map · Prototyping</p></div>
-      <div><p class="meta-label">Tools</p><p class="meta-value">Figma<br>Design System (Appolo)</p></div>
+      <div><p class="meta-label" data-en="Role">Função</p><p class="meta-value" data-en="Product Designer<br>End-to-end">Designer de Produto<br>Ponta a ponta</p></div>
+      <div><p class="meta-label" data-en="Company">Empresa</p><p class="meta-value">Somos Educação<br>(MJV)</p></div>
+      <div><p class="meta-label" data-en="Methods">Métodos</p><p class="meta-value" data-en="Interviews · Focus group<br>Journey map · Prototyping">Entrevistas · Focus group<br>Jornada do usuário · Prototipagem</p></div>
+      <div><p class="meta-label" data-en="Tools">Ferramentas</p><p class="meta-value">Figma<br>Design System (Appolo)</p></div>
     </div>
 
     <!-- OVERVIEW -->
     <section class="case-section" id="overview">
-      <p class="section-tag">Overview</p>
-      <h2 class="section-title">A platform for teachers who never asked to become spreadsheet experts</h2>
+      <p class="section-tag" data-en="Overview">Visão Geral</p>
+      <h2 class="section-title" data-en="A platform for teachers who never asked to become spreadsheet experts">Uma plataforma para professores que nunca pediram para virar experts em planilhas</h2>
       <div class="section-body">
-        <p>Boletim+ is a product of Somos Educação that <strong>helps teachers and coordinators plan an academic year, organise grades and calculate averages</strong>. Many of the product's users have limited technical experience — and the goal was to let them plan their work thoroughly without fighting the tool to do it.</p>
-        <p>I joined as the product designer, leading the process from discovery to final screens and design system — working closely with POs, developers and school stakeholders throughout.</p>
+        <p data-en="Boletim+ is a product of Somos Educação that <strong>helps teachers and coordinators plan an academic year, organise grades and calculate averages</strong>. Many of the product's users have limited technical experience — and the goal was to let them plan their work thoroughly without fighting the tool to do it.">Boletim+ é um produto da Somos Educação que <strong>ajuda professores e coordenadores a planejar o ano letivo, organizar notas e calcular médias</strong>. Muitos usuários do produto têm experiência técnica limitada — e o objetivo era permitir que planejassem seu trabalho a fundo sem precisar brigar com a ferramenta para isso.</p>
+        <p data-en="I joined as the product designer, leading the process from discovery to final screens and design system — working closely with POs, developers and school stakeholders throughout.">Entrei como o designer de produto, liderando o processo da descoberta até as telas finais e o design system — trabalhando de perto com POs, desenvolvedores e stakeholders das escolas durante todo o projeto.</p>
       </div>
     </section>
 
     <!-- PROBLEM -->
     <section class="case-section" id="problem">
-      <p class="section-tag">Problem</p>
-      <h2 class="section-title">Every school had its own system. None of them worked well together.</h2>
+      <p class="section-tag" data-en="Problem">Problema</p>
+      <h2 class="section-title" data-en="Every school had its own system. None of them worked well together.">Cada escola tinha seu próprio sistema. Nenhum deles funcionava bem em conjunto.</h2>
       <div class="section-body">
-        <p>Somos Educação manages several schools across Brazil. Each school had its own academic structure — different grade systems, different calendars, different workflows. There was no centralised way to track any of it.</p>
-        <p>The day-to-day reality meant coordinators were relying on <strong>external spreadsheets, losing data, and working with no traceability</strong>. There was no overview of the academic process — and no way to scale that oversight across dozens of institutions.</p>
+        <p data-en="Somos Educação manages several schools across Brazil. Each school had its own academic structure — different grade systems, different calendars, different workflows. There was no centralised way to track any of it.">A Somos Educação administra várias escolas pelo Brasil. Cada escola tinha sua própria estrutura acadêmica — sistemas de notas diferentes, calendários diferentes, fluxos de trabalho diferentes. Não havia uma forma centralizada de acompanhar nada disso.</p>
+        <p data-en="The day-to-day reality meant coordinators were relying on <strong>external spreadsheets, losing data, and working with no traceability</strong>. There was no overview of the academic process — and no way to scale that oversight across dozens of institutions.">No dia a dia, isso significava que os coordenadores dependiam de <strong>planilhas externas, perdiam dados e trabalhavam sem rastreabilidade</strong>. Não havia uma visão geral do processo acadêmico — nem como escalar essa supervisão para dezenas de instituições.</p>
       </div>
 
       <div class="img-placeholder">
-        <span>Problem mapping — workshop with stakeholders</span>
+        <span data-en="Problem mapping — workshop with stakeholders">Mapeamento do problema — workshop com stakeholders</span>
       </div>
     </section>
 
     <!-- GOALS -->
     <section class="case-section" id="goals">
-      <p class="section-tag">Goals</p>
-      <h2 class="section-title">Once we understood the problems, we set our targets</h2>
+      <p class="section-tag" data-en="Goals">Objetivos</p>
+      <h2 class="section-title" data-en="Once we understood the problems, we set our targets">Depois de entender os problemas, definimos nossas metas</h2>
       <div class="section-body">
-        <p>With the problem landscape clear, we defined what the product needed to be — not just functionally, but as a principle for every design decision.</p>
+        <p data-en="With the problem landscape clear, we defined what the product needed to be — not just functionally, but as a principle for every design decision.">Com o cenário de problemas claro, definimos o que o produto precisava ser — não só funcionalmente, mas como princípio para cada decisão de design.</p>
       </div>
       <div class="goals-grid">
-        <div class="goal-item"><span class="goal-dot"></span>Flexible for every school's structure</div>
-        <div class="goal-item"><span class="goal-dot"></span>Meet the needs of different user roles</div>
-        <div class="goal-item"><span class="goal-dot"></span>Easy to use without technical background</div>
-        <div class="goal-item"><span class="goal-dot"></span>Consistent across all flows</div>
-        <div class="goal-item"><span class="goal-dot"></span>Scalable as the product grows</div>
-        <div class="goal-item"><span class="goal-dot"></span>Enable full traceability</div>
-        <div class="goal-item"><span class="goal-dot"></span>Eliminate the use of external software</div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Flexible for every school's structure">Flexível para a estrutura de cada escola</span></div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Meet the needs of different user roles">Atender às necessidades de diferentes perfis de usuário</span></div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Easy to use without technical background">Fácil de usar sem conhecimento técnico</span></div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Consistent across all flows">Consistente em todos os fluxos</span></div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Scalable as the product grows">Escalável conforme o produto cresce</span></div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Enable full traceability">Permitir rastreabilidade completa</span></div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Eliminate the use of external software">Eliminar o uso de softwares externos</span></div>
       </div>
     </section>
 
     <!-- RESEARCH -->
     <section class="case-section" id="research">
-      <p class="section-tag">Research</p>
-      <h2 class="section-title">Going into the schools to understand how people actually worked</h2>
+      <p class="section-tag" data-en="Research">Pesquisa</p>
+      <h2 class="section-title" data-en="Going into the schools to understand how people actually worked">Indo até as escolas para entender como as pessoas realmente trabalhavam</h2>
       <div class="section-body">
-        <p>Together with team members, POs, developers and stakeholders, we ran a product discovery process to understand real workflows. We wanted to know <strong>how users worked, what software they used, what structures they needed to create, and what made their jobs harder</strong>.</p>
+        <p data-en="Together with team members, POs, developers and stakeholders, we ran a product discovery process to understand real workflows. We wanted to know <strong>how users worked, what software they used, what structures they needed to create, and what made their jobs harder</strong>.">Junto com membros do time, POs, desenvolvedores e stakeholders, conduzimos um processo de descoberta de produto para entender os fluxos de trabalho reais. Queríamos saber <strong>como os usuários trabalhavam, quais softwares usavam, quais estruturas precisavam criar e o que tornava o trabalho deles mais difícil</strong>.</p>
       </div>
 
       <div class="method-list">
-        <div class="method-item"><span class="method-num">01</span><span class="method-name">Interviews — individual sessions with teachers and coordinators</span></div>
-        <div class="method-item"><span class="method-num">02</span><span class="method-name">Focus groups — cross-school collaborative sessions</span></div>
-        <div class="method-item"><span class="method-num">03</span><span class="method-name">Personas — based on synthesis of research findings</span></div>
-        <div class="method-item"><span class="method-num">04</span><span class="method-name">Journey map — full academic year mapped end-to-end</span></div>
+        <div class="method-item"><span class="method-num">01</span><span class="method-name" data-en="Interviews — individual sessions with teachers and coordinators">Entrevistas — sessões individuais com professores e coordenadores</span></div>
+        <div class="method-item"><span class="method-num">02</span><span class="method-name" data-en="Focus groups — cross-school collaborative sessions">Focus groups — sessões colaborativas entre escolas</span></div>
+        <div class="method-item"><span class="method-num">03</span><span class="method-name" data-en="Personas — based on synthesis of research findings">Personas — baseadas na síntese dos achados da pesquisa</span></div>
+        <div class="method-item"><span class="method-num">04</span><span class="method-name" data-en="Journey map — full academic year mapped end-to-end">Jornada do usuário — todo o ano letivo mapeado de ponta a ponta</span></div>
       </div>
 
       <div class="img-placeholder">
-        <span>Research session — focus group with school staff</span>
+        <span data-en="Research session — focus group with school staff">Sessão de pesquisa — focus group com a equipe da escola</span>
       </div>
     </section>
 
     <!-- PROCESS -->
     <section class="case-section" id="process">
-      <p class="section-tag">Process</p>
-      <h2 class="section-title">From journey map to validated prototype, step by step</h2>
+      <p class="section-tag" data-en="Process">Processo</p>
+      <h2 class="section-title" data-en="From journey map to validated prototype, step by step">Da jornada do usuário ao protótipo validado, passo a passo</h2>
       <div class="section-body">
-        <p>We mapped the full journey of use to understand where the platform could meet users' needs — and to find future product opportunities. The journey map helped us find touch points, define the scope of work, and set priorities for what to prototype first.</p>
+        <p data-en="We mapped the full journey of use to understand where the platform could meet users' needs — and to find future product opportunities. The journey map helped us find touch points, define the scope of work, and set priorities for what to prototype first.">Mapeamos toda a jornada de uso para entender onde a plataforma poderia atender às necessidades dos usuários — e encontrar oportunidades futuras para o produto. A jornada nos ajudou a encontrar pontos de contato, definir o escopo do trabalho e priorizar o que prototipar primeiro.</p>
       </div>
 
       <div class="img-placeholder">
-        <span>Journey map — academic year workflow across school roles</span>
+        <span data-en="Journey map — academic year workflow across school roles">Jornada do usuário — fluxo do ano letivo entre os perfis da escola</span>
       </div>
 
       <div class="section-body" style="margin-top:24px">
-        <p>After the discovery stage, I built the first wireframes and prototypes. We introduced these to stakeholders and to the schools themselves, so users could validate our direction and we could move forward with confidence.</p>
+        <p data-en="After the discovery stage, I built the first wireframes and prototypes. We introduced these to stakeholders and to the schools themselves, so users could validate our direction and we could move forward with confidence.">Depois da etapa de descoberta, construí os primeiros wireframes e protótipos. Apresentamos isso aos stakeholders e às próprias escolas, para que os usuários pudessem validar nossa direção e pudéssemos avançar com confiança.</p>
       </div>
 
       <div class="step-list" style="margin-top:20px">
-        <div class="step-item"><span class="step-num">Discovery</span><span class="step-text">Interviews, focus groups, competitive research, stakeholder workshops</span></div>
-        <div class="step-item"><span class="step-num">Synthesis</span><span class="step-text">Personas, journey map, scope definition, prioritisation</span></div>
-        <div class="step-item"><span class="step-num">Wireframes</span><span class="step-text">Low-fidelity prototypes presented to stakeholders and validated with schools</span></div>
-        <div class="step-item"><span class="step-num">Visual Design</span><span class="step-text">High-fidelity screens, component library, and design system in Figma</span></div>
-        <div class="step-item"><span class="step-num">Handoff</span><span class="step-text">Developer support, QA, and continuous iteration after launch</span></div>
+        <div class="step-item"><span class="step-num" data-en="Discovery">Descoberta</span><span class="step-text" data-en="Interviews, focus groups, competitive research, stakeholder workshops">Entrevistas, focus groups, pesquisa competitiva, workshops com stakeholders</span></div>
+        <div class="step-item"><span class="step-num" data-en="Synthesis">Síntese</span><span class="step-text" data-en="Personas, journey map, scope definition, prioritisation">Personas, jornada do usuário, definição de escopo, priorização</span></div>
+        <div class="step-item"><span class="step-num">Wireframes</span><span class="step-text" data-en="Low-fidelity prototypes presented to stakeholders and validated with schools">Protótipos de baixa fidelidade apresentados aos stakeholders e validados com as escolas</span></div>
+        <div class="step-item"><span class="step-num" data-en="Visual Design">Design Visual</span><span class="step-text" data-en="High-fidelity screens, component library, and design system in Figma">Telas de alta fidelidade, biblioteca de componentes e design system no Figma</span></div>
+        <div class="step-item"><span class="step-num">Handoff</span><span class="step-text" data-en="Developer support, QA, and continuous iteration after launch">Suporte ao desenvolvimento, QA e iteração contínua após o lançamento</span></div>
       </div>
 
       <div class="img-placeholder" style="margin-top:28px">
-        <span>Wireframes — early prototypes for stakeholder validation</span>
+        <span data-en="Wireframes — early prototypes for stakeholder validation">Wireframes — protótipos iniciais para validação com stakeholders</span>
       </div>
     </section>
 
     <!-- DESIGN -->
     <section class="case-section" id="design">
       <p class="section-tag">Design</p>
-      <h2 class="section-title">Building a visual identity and component system from the ground up</h2>
+      <h2 class="section-title" data-en="Building a visual identity and component system from the ground up">Construindo uma identidade visual e um sistema de componentes do zero</h2>
       <div class="section-body">
-        <p>When the time came for final screens, I created the visual identity and the first components using Figma, with three guiding principles: <strong>accessibility, consistency, and natural language</strong> — making sure the interface spoke the same way users did.</p>
-        <p>The company only had basic documentation for colours and typography. I created all the components from scratch and established how they behaved across states and contexts.</p>
-        <p>As new products were planned for the future, I also started building a design system called <strong>Appolo</strong> — a scalable foundation that could serve the whole product family.</p>
+        <p data-en="When the time came for final screens, I created the visual identity and the first components using Figma, with three guiding principles: <strong>accessibility, consistency, and natural language</strong> — making sure the interface spoke the same way users did.">Quando chegou a hora das telas finais, criei a identidade visual e os primeiros componentes usando o Figma, com três princípios norteadores: <strong>acessibilidade, consistência e linguagem natural</strong> — garantindo que a interface falasse a mesma língua dos usuários.</p>
+        <p data-en="The company only had basic documentation for colours and typography. I created all the components from scratch and established how they behaved across states and contexts.">A empresa só tinha uma documentação básica de cores e tipografia. Criei todos os componentes do zero e defini como eles se comportavam em diferentes estados e contextos.</p>
+        <p data-en="As new products were planned for the future, I also started building a design system called <strong>Appolo</strong> — a scalable foundation that could serve the whole product family.">Como novos produtos estavam planejados para o futuro, também comecei a construir um design system chamado <strong>Appolo</strong> — uma base escalável que pudesse atender a toda a família de produtos.</p>
       </div>
 
       <div class="img-placeholder">
-        <span>Final screens — Boletim+ visual design &amp; component system</span>
+        <span data-en="Final screens — Boletim+ visual design &amp; component system">Telas finais — design visual do Boletim+ e sistema de componentes</span>
       </div>
 
       <div class="img-placeholder">
-        <span>Appolo Design System — component library in Figma</span>
+        <span data-en="Appolo Design System — component library in Figma">Design System Appolo — biblioteca de componentes no Figma</span>
       </div>
     </section>
 
     <!-- OUTCOMES -->
     <section class="case-section" id="outcomes">
-      <p class="section-tag">Outcomes</p>
-      <h2 class="section-title">Less friction, fewer errors, and a product that earned trust</h2>
+      <p class="section-tag" data-en="Outcomes">Resultados</p>
+      <h2 class="section-title" data-en="Less friction, fewer errors, and a product that earned trust">Menos fricção, menos erros e um produto que conquistou confiança</h2>
       <div class="section-body">
-        <p>After launching the first version, we continued gathering user feedback to improve and monitor performance. I worked closely with developers throughout, answering questions and testing features as they were released.</p>
+        <p data-en="After launching the first version, we continued gathering user feedback to improve and monitor performance. I worked closely with developers throughout, answering questions and testing features as they were released.">Depois de lançar a primeira versão, continuamos coletando feedback dos usuários para melhorar e monitorar o desempenho. Trabalhei de perto com os desenvolvedores durante todo o processo, respondendo dúvidas e testando funcionalidades conforme eram lançadas.</p>
       </div>
       <div class="outcome-list">
-        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text">Very low learning curve — teachers adopted it quickly with minimal training</span></div>
-        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text"><strong>Creating a structure went from days to about 40 minutes</strong></span></div>
-        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text">Happy customers — positive feedback from schools across the network</span></div>
-        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text">Significant decrease in error rate across academic records</span></div>
-        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text">Traceability became easy — problems could be found and fixed quickly</span></div>
-        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text">Due to the product's success, new products were proposed off the back of it</span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text" data-en="Very low learning curve — teachers adopted it quickly with minimal training">Curva de aprendizado muito baixa — professores adotaram rápido com pouquíssimo treinamento</span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text" data-en="<strong>Creating a structure went from days to about 40 minutes</strong>"><strong>Criar uma estrutura passou de dias para cerca de 40 minutos</strong></span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text" data-en="Happy customers — positive feedback from schools across the network">Clientes satisfeitos — feedback positivo das escolas em toda a rede</span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text" data-en="Significant decrease in error rate across academic records">Queda significativa na taxa de erros nos registros acadêmicos</span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text" data-en="Traceability became easy — problems could be found and fixed quickly">Rastreabilidade ficou fácil — problemas podiam ser encontrados e corrigidos rapidamente</span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text" data-en="Due to the product's success, new products were proposed off the back of it">Devido ao sucesso do produto, novos produtos foram propostos a partir dele</span></div>
       </div>
     </section>
 
     <!-- LEARNINGS -->
     <section class="case-section" id="learnings">
-      <p class="section-tag">Learnings</p>
-      <h2 class="section-title">What this project taught me</h2>
+      <p class="section-tag" data-en="Learnings">Aprendizados</p>
+      <h2 class="section-title" data-en="What this project taught me">O que esse projeto me ensinou</h2>
       <div class="learning-grid">
         <div class="learning-card">
           <p class="learning-num">01</p>
-          <p class="learning-text"><strong>Think about tomorrow.</strong> Designing for one product while building the foundation for several others requires a different kind of thinking — every decision has further consequences.</p>
+          <p class="learning-text" data-en="<strong>Think about tomorrow.</strong> Designing for one product while building the foundation for several others requires a different kind of thinking — every decision has further consequences."><strong>Pense no amanhã.</strong> Desenhar para um produto enquanto constrói a base para vários outros exige um tipo diferente de raciocínio — cada decisão tem consequências mais adiante.</p>
         </div>
         <div class="learning-card">
           <p class="learning-num">02</p>
-          <p class="learning-text"><strong>Speak their language.</strong> Users who aren't technically trained aren't a limitation — they're your best teachers. The clearest UX insights came from listening carefully to how they described their own work.</p>
+          <p class="learning-text" data-en="<strong>Speak their language.</strong> Users who aren't technically trained aren't a limitation — they're your best teachers. The clearest UX insights came from listening carefully to how they described their own work."><strong>Fale a língua deles.</strong> Usuários sem formação técnica não são uma limitação — são seus melhores professores. Os insights de UX mais claros vieram de ouvir com atenção como eles descreviam o próprio trabalho.</p>
         </div>
         <div class="learning-card">
           <p class="learning-num">03</p>
-          <p class="learning-text"><strong>Think twice before adding a new feature.</strong> Every addition has a cost in complexity. The best features we shipped were the ones we resisted adding for as long as possible.</p>
+          <p class="learning-text" data-en="<strong>Think twice before adding a new feature.</strong> Every addition has a cost in complexity. The best features we shipped were the ones we resisted adding for as long as possible."><strong>Pense duas vezes antes de adicionar uma funcionalidade nova.</strong> Toda adição tem um custo em complexidade. As melhores funcionalidades que lançamos foram as que resistimos em adicionar pelo máximo de tempo possível.</p>
         </div>
       </div>
     </section>
@@ -385,7 +390,7 @@
 
     <a class="next-case" href="case.html">
       <div>
-        <p class="next-label">Next case</p>
+        <p class="next-label" data-en="Next case">Próximo case</p>
         <p class="next-title">Mi Futuro Auto — Kavak</p>
       </div>
       <span class="next-arrow">→</span>
@@ -399,7 +404,7 @@
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
   (function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
-  document.querySelectorAll('a,.theme-toggle').forEach(el=>{
+  document.querySelectorAll('a,.theme-toggle,.lang-toggle').forEach(el=>{
     el.addEventListener('mouseenter',()=>{dot.classList.add('hov');ring.classList.add('hov')});
     el.addEventListener('mouseleave',()=>{dot.classList.remove('hov');ring.classList.remove('hov')});
   });
@@ -413,6 +418,43 @@
       root.setAttribute('data-theme',isDark?'light':'dark');
       localStorage.setItem('theme',isDark?'light':'dark');
     });
+  })();
+
+  (function(){
+    function applyLang(lang){
+      document.documentElement.lang=lang;
+      document.querySelectorAll('[data-en]').forEach(el=>{
+        if(el.dataset.pt===undefined)el.dataset.pt=el.innerHTML;
+        el.innerHTML=lang==='en'?el.dataset.en:el.dataset.pt;
+      });
+      const titleEl=document.querySelector('title[data-en]');
+      if(titleEl){
+        if(titleEl.dataset.pt===undefined)titleEl.dataset.pt=titleEl.textContent;
+        titleEl.textContent=lang==='en'?titleEl.dataset.en:titleEl.dataset.pt;
+      }
+      const metaDesc=document.querySelector('meta[name="description"][data-en]');
+      if(metaDesc){
+        if(metaDesc.dataset.pt===undefined)metaDesc.dataset.pt=metaDesc.getAttribute('content');
+        metaDesc.setAttribute('content',lang==='en'?metaDesc.dataset.en:metaDesc.dataset.pt);
+      }
+      const langBtn=document.getElementById('langToggle');
+      if(langBtn)langBtn.textContent=lang==='en'?'PT':'EN';
+      localStorage.setItem('lang',lang);
+    }
+    function detectLang(){
+      const saved=localStorage.getItem('lang');
+      if(saved)return saved;
+      const nav=(navigator.language||navigator.userLanguage||'pt').toLowerCase();
+      return nav.startsWith('en')?'en':'pt';
+    }
+    applyLang(detectLang());
+    const btn=document.getElementById('langToggle');
+    if(btn){
+      btn.addEventListener('click',()=>{
+        const isEn=document.documentElement.lang==='en';
+        applyLang(isEn?'pt':'en');
+      });
+    }
   })();
 
   const sectionIds=['overview','problem','goals','research','process','design','outcomes','learnings'];

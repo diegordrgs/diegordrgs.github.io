@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Diego Rodrigues — Product Designer</title>
-  <meta name="description" content="Product designer from São Paulo, Brazil. 10+ years creating digital products at tech companies and design agencies.">
+  <title data-en="Diego Rodrigues — Product Designer">Diego Rodrigues — Designer de Produto</title>
+  <meta name="description" data-en="Product designer from São Paulo, Brazil. 10+ years creating digital products at tech companies and design agencies." content="Designer de produto de São Paulo, Brasil. Mais de 10 anos criando produtos digitais em empresas de tecnologia e agências de design.">
   <style>
     @font-face{
       font-family:'Cabinet Grotesk';
@@ -49,6 +49,8 @@
     [data-theme="dark"] .theme-toggle .icon-sun{display:none}
     [data-theme="dark"] .theme-toggle .icon-moon{display:block}
     .nav-toggle-item{display:flex;align-items:center}
+    .lang-toggle{background:none;border:none;padding:0;margin:0;font-family:'Cabinet Grotesk',sans-serif;font-size:11px;font-weight:500;letter-spacing:.05em;color:var(--text-muted);cursor:none;transition:color .2s}
+    .lang-toggle:hover{color:var(--text-strong)}
 
     .wrap{width:100%;padding:0 48px}
 
@@ -124,13 +126,16 @@
   <div class="pf-nav-left">
     <a class="pf-logo" href="index.html">Diego Rodrigues</a>
     <span class="pf-nav-sep">·</span>
-    <span class="pf-role">Product Designer</span>
+    <span class="pf-role" data-en="Product Designer">Designer de Produto</span>
   </div>
   <ul>
-    <li><a class="pf-nav-link on" href="index.html">Work</a></li>
-    <li><a class="pf-nav-link" href="personal.html">Personal</a></li>
-    <li><a class="pf-nav-link" href="about.html">About</a></li>
-    <li><a class="pf-nav-link" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">Contact</a></li>
+    <li><a class="pf-nav-link on" href="index.html" data-en="Work">Trabalho</a></li>
+    <li><a class="pf-nav-link" href="personal.html" data-en="Personal">Pessoal</a></li>
+    <li><a class="pf-nav-link" href="about.html" data-en="About">Sobre</a></li>
+    <li><a class="pf-nav-link" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact" data-en="Contact">Contato</a></li>
+    <li class="nav-toggle-item">
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
+    </li>
     <li class="nav-toggle-item">
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
@@ -143,49 +148,49 @@
 <div class="wrap">
   <section class="pf-hero">
     <p class="pf-hero-text">
-      Hey! I'm Diego —
-      <span class="hw" id="hw1"><span class="hw-hl">Senior Product Designer</span></span>
-      helping companies build
+      <span data-en="Hey! I'm Diego —">Oi! Eu sou o Diego —</span>
+      <span class="hw" id="hw1"><span class="hw-hl" data-en="Senior Product Designer">Designer de Produto Sênior</span></span>
+      <span data-en="helping companies build">ajudando empresas a construir</span>
       <img class="inline-glyph" src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=200&q=80" alt="">
-      <em>digital products</em>
-      that are
-      <span class="hw" id="hw2"><span class="hw-hl">useful and easy to use.</span></span>
+      <em data-en="digital products">produtos digitais</em>
+      <span data-en="that are">que sejam</span>
+      <span class="hw" id="hw2"><span class="hw-hl" data-en="useful and easy to use.">úteis e fáceis de usar.</span></span>
       <img class="inline-glyph" src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=200&q=80" alt="">
     </p>
-    <p class="pf-hero-sub">10+ years working with tech companies and design agencies in Brazil. I combine user needs with business requirements to create products people actually want to use.</p>
-    <div class="pf-avail"><span class="pf-dot"></span> Available for new projects</div>
+    <p class="pf-hero-sub" data-en="10+ years working with tech companies and design agencies in Brazil. I combine user needs with business requirements to create products people actually want to use.">Mais de 10 anos trabalhando com empresas de tecnologia e agências de design no Brasil. Eu combino as necessidades dos usuários com os requisitos de negócio para criar produtos que as pessoas realmente querem usar.</p>
+    <div class="pf-avail"><span class="pf-dot"></span> <span data-en="Available for new projects">Disponível para novos projetos</span></div>
   </section>
 
   <hr class="pf-divider">
 
   <section class="pf-work">
     <div class="pf-work-header">
-      <span class="pf-work-label">Selected work</span>
-      <a class="pf-work-more" href="#">All cases →</a>
+      <span class="pf-work-label" data-en="Selected work">Trabalhos selecionados</span>
+      <a class="pf-work-more" href="#" data-en="All cases →">Todos os cases →</a>
     </div>
     <div class="pf-grid">
       <a class="pf-thumb" href="case-somos.html">
         <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Mi Futuro Auto — Kavak">
-        <div class="pf-thumb-overlay"><span class="pf-thumb-cta">View case study ↗</span></div>
+        <div class="pf-thumb-overlay"><span class="pf-thumb-cta" data-en="View case study ↗">Ver case study ↗</span></div>
       </a>
       <a class="pf-thumb" href="case.html">
         <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&q=80" alt="Trade-in Research — Kavak">
-        <div class="pf-thumb-overlay"><span class="pf-thumb-cta">View case study ↗</span></div>
+        <div class="pf-thumb-overlay"><span class="pf-thumb-cta" data-en="View case study ↗">Ver case study ↗</span></div>
       </a>
       <a class="pf-thumb" href="case.html" id="thumb-animated">
         <canvas class="thumb-canvas" id="gifCanvas"></canvas>
-        <div class="pf-thumb-overlay"><span class="pf-thumb-cta">View case study ↗</span></div>
+        <div class="pf-thumb-overlay"><span class="pf-thumb-cta" data-en="View case study ↗">Ver case study ↗</span></div>
       </a>
       <a class="pf-thumb" href="case.html">
         <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80" alt="Somos Educação">
-        <div class="pf-thumb-overlay"><span class="pf-thumb-cta">View case study ↗</span></div>
+        <div class="pf-thumb-overlay"><span class="pf-thumb-cta" data-en="View case study ↗">Ver case study ↗</span></div>
       </a>
     </div>
   </section>
 
   <footer class="pf-foot">
     <div class="pf-foot-left">
-      <p class="pf-foot-cta">Want to work together?</p>
+      <p class="pf-foot-cta" data-en="Want to work together?">Vamos trabalhar juntos?</p>
       <a class="pf-foot-email" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">diegorodrigues@me.com</a>
     </div>
     <div class="pf-foot-links">
@@ -203,7 +208,7 @@
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
   (function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
-  document.querySelectorAll('a,.pf-thumb,.hw,.theme-toggle').forEach(el=>{
+  document.querySelectorAll('a,.pf-thumb,.hw,.theme-toggle,.lang-toggle').forEach(el=>{
     el.addEventListener('mouseenter',()=>{dot.classList.add('hov');ring.classList.add('hov')});
     el.addEventListener('mouseleave',()=>{dot.classList.remove('hov');ring.classList.remove('hov')});
   });
@@ -217,6 +222,45 @@
       root.setAttribute('data-theme',isDark?'light':'dark');
       localStorage.setItem('theme',isDark?'light':'dark');
     });
+  })();
+
+  let onLangChange=null;
+  (function(){
+    function applyLang(lang){
+      document.documentElement.lang=lang;
+      document.querySelectorAll('[data-en]').forEach(el=>{
+        if(el.dataset.pt===undefined)el.dataset.pt=el.innerHTML;
+        el.innerHTML=lang==='en'?el.dataset.en:el.dataset.pt;
+      });
+      const titleEl=document.querySelector('title[data-en]');
+      if(titleEl){
+        if(titleEl.dataset.pt===undefined)titleEl.dataset.pt=titleEl.textContent;
+        titleEl.textContent=lang==='en'?titleEl.dataset.en:titleEl.dataset.pt;
+      }
+      const metaDesc=document.querySelector('meta[name="description"][data-en]');
+      if(metaDesc){
+        if(metaDesc.dataset.pt===undefined)metaDesc.dataset.pt=metaDesc.getAttribute('content');
+        metaDesc.setAttribute('content',lang==='en'?metaDesc.dataset.en:metaDesc.dataset.pt);
+      }
+      const langBtn=document.getElementById('langToggle');
+      if(langBtn)langBtn.textContent=lang==='en'?'PT':'EN';
+      if(onLangChange)onLangChange(lang);
+      localStorage.setItem('lang',lang);
+    }
+    function detectLang(){
+      const saved=localStorage.getItem('lang');
+      if(saved)return saved;
+      const nav=(navigator.language||navigator.userLanguage||'pt').toLowerCase();
+      return nav.startsWith('en')?'en':'pt';
+    }
+    applyLang(detectLang());
+    const btn=document.getElementById('langToggle');
+    if(btn){
+      btn.addEventListener('click',()=>{
+        const isEn=document.documentElement.lang==='en';
+        applyLang(isEn?'pt':'en');
+      });
+    }
   })();
   function trackWord(id,fid){
     const w=document.getElementById(id),f=document.getElementById(fid);
@@ -233,11 +277,20 @@
     function resize(){const r=canvas.parentElement.getBoundingClientRect();canvas.width=r.width;canvas.height=r.height}
     resize();window.addEventListener('resize',resize);
     let frame=0;
-    const screens=[
-      {label:'Discovery',bg:'#f0f4ff',accent:'#2A5BD7',items:['User interviews','Pain points','Hypothesis']},
-      {label:'Wireframes',bg:'#f5f0ff',accent:'#7c3aed',items:['Low-fi sketches','User flow','IA map']},
-      {label:'Prototype',bg:'#f0fdf4',accent:'#059669',items:['Interactive mock','Test sessions','Iterations']},
-    ];
+    const screensByLang={
+      pt:[
+        {label:'Descoberta',bg:'#f0f4ff',accent:'#2A5BD7',items:['Entrevistas','Pontos de dor','Hipótese']},
+        {label:'Wireframes',bg:'#f5f0ff',accent:'#7c3aed',items:['Esboços','Fluxo de usuário','Mapa de IA']},
+        {label:'Protótipo',bg:'#f0fdf4',accent:'#059669',items:['Mock interativo','Testes','Iterações']},
+      ],
+      en:[
+        {label:'Discovery',bg:'#f0f4ff',accent:'#2A5BD7',items:['User interviews','Pain points','Hypothesis']},
+        {label:'Wireframes',bg:'#f5f0ff',accent:'#7c3aed',items:['Low-fi sketches','User flow','IA map']},
+        {label:'Prototype',bg:'#f0fdf4',accent:'#059669',items:['Interactive mock','Test sessions','Iterations']},
+      ],
+    };
+    let screens=screensByLang[document.documentElement.lang]||screensByLang.pt;
+    onLangChange=lang=>{screens=screensByLang[lang]||screensByLang.pt};
     function draw(){
       const si=Math.floor(frame/60)%3,lf=frame%60,p=lf/60;
       const s=screens[si],w=canvas.width,h=canvas.height,pad=22;
