@@ -52,8 +52,11 @@
     [data-theme="dark"] .theme-toggle .icon-sun{display:none}
     [data-theme="dark"] .theme-toggle .icon-moon{display:block}
     .nav-toggle-item{display:flex;align-items:center}
-    .lang-toggle{background:none;border:none;padding:0;margin:0;font-family:'Cabinet Grotesk',sans-serif;font-size:11px;font-weight:500;letter-spacing:.05em;color:var(--text-muted);cursor:none;transition:color .2s}
-    .lang-toggle:hover{color:var(--text-strong)}
+    .lang-switch{display:flex;align-items:center;gap:6px}
+    .lang-option{background:none;border:none;padding:0;margin:0;font-family:'Cabinet Grotesk',sans-serif;font-size:10px;font-weight:500;letter-spacing:.05em;color:var(--text-muted);cursor:none;transition:color .2s}
+    .lang-option:hover{color:var(--text-strong)}
+    .lang-option.active{color:var(--text-strong);font-weight:700}
+    .lang-sep{font-size:10px;color:var(--border-light)}
 
     /* LAYOUT */
     .case-layout{display:grid;grid-template-columns:210px 1fr;width:100%;padding:0 48px}
@@ -190,7 +193,11 @@
     <li><a class="pf-nav-link" href="about.html" data-en="About">Sobre</a></li>
     <li><a class="pf-nav-link" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact" data-en="Contact">Contato</a></li>
     <li class="nav-toggle-item">
-      <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
+      <span class="lang-switch">
+        <button class="lang-option" data-lang="pt" type="button" aria-label="Português">PT</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-option" data-lang="en" type="button" aria-label="English">EN</button>
+      </span>
     </li>
     <li class="nav-toggle-item">
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
@@ -404,7 +411,7 @@
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
   (function anim(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
-  document.querySelectorAll('a,.theme-toggle,.lang-toggle').forEach(el=>{
+  document.querySelectorAll('a,.theme-toggle,.lang-option').forEach(el=>{
     el.addEventListener('mouseenter',()=>{dot.classList.add('hov');ring.classList.add('hov')});
     el.addEventListener('mouseleave',()=>{dot.classList.remove('hov');ring.classList.remove('hov')});
   });
@@ -437,8 +444,9 @@
         if(metaDesc.dataset.pt===undefined)metaDesc.dataset.pt=metaDesc.getAttribute('content');
         metaDesc.setAttribute('content',lang==='en'?metaDesc.dataset.en:metaDesc.dataset.pt);
       }
-      const langBtn=document.getElementById('langToggle');
-      if(langBtn)langBtn.textContent=lang==='en'?'PT':'EN';
+      document.querySelectorAll('.lang-option').forEach(b=>{
+        b.classList.toggle('active',b.dataset.lang===lang);
+      });
       localStorage.setItem('lang',lang);
     }
     function detectLang(){
@@ -448,13 +456,9 @@
       return nav.startsWith('en')?'en':'pt';
     }
     applyLang(detectLang());
-    const btn=document.getElementById('langToggle');
-    if(btn){
-      btn.addEventListener('click',()=>{
-        const isEn=document.documentElement.lang==='en';
-        applyLang(isEn?'pt':'en');
-      });
-    }
+    document.querySelectorAll('.lang-option').forEach(btn=>{
+      btn.addEventListener('click',()=>applyLang(btn.dataset.lang));
+    });
   })();
 
   const sectionIds=['overview','problem','goals','research','process','design','outcomes','learnings'];
