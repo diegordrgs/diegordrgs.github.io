@@ -1,0 +1,113 @@
+:root{
+  --text-body:#333;
+  --dark-band-bg:#111;--dark-band-text:#fff;--dark-band-text-dim:rgba(255,255,255,.6);--dark-band-label:#555;--dark-band-role:#777;
+}
+:root[data-theme="dark"]{
+  --dark-band-bg:#161616;--dark-band-text:#f5f5f5;--dark-band-text-dim:rgba(245,245,245,.6);--dark-band-label:#999;--dark-band-role:#8a8a8a;
+}
+
+/* ── HERO ── */
+.about-hero{padding:64px 48px 0;display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:start}
+.about-photo{width:100%;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:var(--surface)}
+.about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.about-intro-right{padding-top:4px}
+.about-name{font-family:'Cabinet Grotesk',sans-serif;font-size:52px;font-weight:700;letter-spacing:-.03em;line-height:1.06;margin-bottom:6px;color:var(--text-strong)}
+.about-role-line{font-size:15px;color:var(--text-secondary);font-weight:400;margin-bottom:36px}
+.about-bio{font-size:17px;font-weight:300;line-height:1.8;color:var(--text-body);margin-bottom:20px}
+.about-bio strong{font-weight:500;color:var(--text)}
+.inline-glyph{display:inline-block;width:1.7em;height:1.7em;object-fit:cover;border-radius:.25em;vertical-align:middle;margin:0 .05em;transform:translateY(-.1em)}
+.about-cv-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--text);text-decoration:none;border-bottom:1px solid var(--text-secondary);padding-bottom:2px;transition:border-color .2s;cursor:none;margin-top:8px}
+.about-cv-link:hover{border-color:var(--text)}
+
+/* skills — sits inside right column, aligned to content */
+.about-skills{margin-top:40px;padding-top:36px;border-top:1px solid var(--border)}
+.skills-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:20px}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+.skill-item{padding:16px 0;border-bottom:1px solid var(--border)}
+.skill-name{font-family:'Cabinet Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--text-strong);margin-bottom:4px}
+.skill-detail{font-size:12px;color:var(--text-secondary);font-weight:400}
+
+/* ── DARK BAND ── */
+.dark-band{background:var(--dark-band-bg);padding:72px 48px;margin-top:72px;transition:background .2s}
+.dark-band-inner{display:grid;grid-template-columns:300px 1fr;gap:72px;min-width:0}
+/* left column: same width as photo above → aligns grid */
+.dark-band-left{display:flex;flex-direction:column;justify-content:flex-start;padding-top:4px}
+.dark-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-band-label);margin-bottom:16px}
+.dark-quote{font-family:'Cabinet Grotesk',sans-serif;font-size:30px;font-weight:700;line-height:1.25;color:var(--dark-band-text);letter-spacing:-.02em}
+.dark-quote em{font-style:italic;color:var(--dark-band-text-dim)}
+
+/* right column: two cols for exp + edu */
+.dark-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;min-width:0}
+.dark-cols > div{min-width:0}
+
+.col-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-band-label);margin-bottom:24px}
+
+.exp-item{margin-bottom:28px;display:grid;grid-template-columns:100px 1fr;gap:12px;min-width:0}
+.exp-item:last-child{margin-bottom:0}
+.exp-period{font-size:12px;color:var(--dark-band-label);font-weight:400;line-height:1.5;padding-top:3px}
+.exp-title{font-family:'Cabinet Grotesk',sans-serif;font-size:22px;font-weight:700;color:var(--dark-band-text);margin-bottom:2px;letter-spacing:-.01em}
+.exp-role{font-size:13px;font-weight:300;color:var(--dark-band-role)}
+
+.edu-item{margin-bottom:24px;display:grid;grid-template-columns:100px 1fr;gap:12px;min-width:0}
+.edu-item:last-child{margin-bottom:0}
+.edu-period{font-size:12px;color:var(--dark-band-label);font-weight:400;line-height:1.5;padding-top:3px}
+.edu-degree{font-size:11px;font-weight:500;color:var(--dark-band-label);letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px;overflow-wrap:break-word}
+.edu-title{font-family:'Cabinet Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--dark-band-text);letter-spacing:-.01em}
+
+/* ── PHOTO SECTION ── */
+.photo-section{padding:80px 48px 88px;overflow:hidden}
+.photo-section-header{margin-bottom:48px}
+.photo-section-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+.photo-section-title{font-family:'Cabinet Grotesk',sans-serif;font-size:40px;font-weight:700;letter-spacing:-.02em;color:var(--text-strong);line-height:1.1}
+.photo-section-title em{font-style:italic;color:var(--text-secondary)}
+
+/* cursive handwritten label */
+.photo-cursive{font-family:'Cabinet Grotesk',sans-serif;font-style:italic;font-size:52px;font-weight:700;color:var(--text-strong);line-height:1;margin-bottom:40px;letter-spacing:-.02em}
+
+/* plain photo grid, no frames or effects */
+.photo-grid{columns:3 220px;column-gap:8px}
+.photo-grid img{width:100%;display:block;margin-bottom:8px}
+
+/* ── CONTACT ROW ── */
+.contact-row{border-top:1px solid var(--border);padding:40px 48px;display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:center}
+.contact-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+.contact-links{display:flex;flex-direction:column;gap:10px}
+.contact-links a{font-size:15px;font-weight:300;color:var(--text-body);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:1px;transition:color .2s,border-color .2s;width:fit-content;cursor:none}
+.contact-links a:hover{color:var(--text);border-color:var(--text-secondary)}
+
+/* ── FOOTER (page uses direct padding instead of .wrap) ── */
+.pf-foot{padding:28px 48px}
+
+@media (max-width:640px){
+  .pf-nav{padding:16px 20px}
+  .pf-nav>ul{display:none}
+  .menu-toggle{display:flex}
+
+  .about-hero{padding:40px 20px 0;grid-template-columns:1fr;gap:24px}
+  .about-intro-right{display:contents}
+  .about-name{order:1;font-size:clamp(32px,10vw,52px)}
+  .about-role-line{order:2}
+  .about-bio{order:3}
+  .about-cv-link{order:4}
+  .about-photo{order:5}
+  .about-skills{order:6;margin-top:32px;padding-top:28px}
+  .skills-grid{grid-template-columns:1fr 1fr;gap:20px 0}
+
+  .dark-band{padding:40px 20px;margin-top:40px}
+  .dark-band-inner{grid-template-columns:1fr;gap:32px}
+  .dark-quote{font-size:24px}
+  .dark-cols{grid-template-columns:1fr;gap:28px}
+
+  .photo-section{padding:48px 20px 56px}
+  .photo-cursive{font-size:36px;margin-bottom:28px}
+  .photo-grid{columns:2 140px;column-gap:6px}
+  .photo-grid img{margin-bottom:6px}
+
+  .contact-row{padding:28px 20px;grid-template-columns:1fr;gap:16px}
+  .pf-foot{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:16px}
+}
+
+@media (max-width:900px){
+  .dark-band-inner{grid-template-columns:1fr;gap:32px}
+  .dark-cols{grid-template-columns:1fr;gap:28px}
+}
