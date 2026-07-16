@@ -55,6 +55,17 @@
     .lang-option.active{color:var(--text-strong);font-weight:700}
     .lang-sep{font-size:10px;color:var(--border-light)}
 
+    .menu-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:22px;height:16px;background:none;border:none;padding:0;cursor:none}
+    .menu-toggle span{display:block;width:100%;height:1.5px;background:var(--text-strong)}
+    .mobile-menu{position:fixed;inset:0;z-index:400;background:var(--bg);display:flex;flex-direction:column;padding:20px 24px;visibility:hidden;opacity:0;transition:opacity .3s ease,visibility .3s ease}
+    .mobile-menu.open{visibility:visible;opacity:1}
+    .mobile-menu-top{display:flex;align-items:center;justify-content:space-between}
+    .menu-close{background:none;border:none;padding:0;width:24px;height:24px;color:var(--text-strong);cursor:none;font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center}
+    .mobile-menu-links{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:52px}
+    .mobile-menu-links a{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(30px,10vw,42px);font-weight:700;letter-spacing:-.02em;color:var(--text-strong);text-decoration:none;cursor:none}
+    .mobile-menu-links a.on{color:var(--accent)}
+    .mobile-menu-bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid var(--border)}
+
     /* LAYOUT */
     .case-layout{display:grid;grid-template-columns:210px 1fr;width:100%;padding:0 48px}
 
@@ -117,9 +128,9 @@
     .next-arrow{font-size:22px;color:var(--text-secondary)}
 
     @media (max-width:900px){
-      .pf-nav{padding:16px 20px;flex-wrap:wrap;row-gap:10px}
-      .pf-nav ul{gap:14px;flex-wrap:wrap}
-      .pf-nav-link{font-size:11px}
+      .pf-nav{padding:16px 20px}
+      .pf-nav>ul{display:none}
+      .menu-toggle{display:flex}
 
       .case-layout{grid-template-columns:1fr;padding:0 20px}
       .case-sidebar{padding-top:24px}
@@ -174,7 +185,32 @@
       </button>
     </li>
   </ul>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <a class="pf-logo" href="index.html">Diego Rodrigues</a>
+    <button class="menu-close" id="menuClose" type="button" aria-label="Close menu">&times;</button>
+  </div>
+  <ul class="mobile-menu-links">
+    <li><a class="on" href="index.html" data-en="Work">Trabalho</a></li>
+    <li><a href="personal.html" data-en="Personal">Pessoal</a></li>
+    <li><a href="about.html" data-en="About">Sobre</a></li>
+    <li><a href="#" data-en="Resume">Currículo</a></li>
+  </ul>
+  <div class="mobile-menu-bottom">
+    <span class="lang-switch">
+      <button class="lang-option" data-lang="pt" type="button" aria-label="Português">PT</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-option" data-lang="en" type="button" aria-label="English">EN</button>
+    </span>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+  </div>
+</div>
 
 <div class="case-layout">
   <aside class="case-sidebar">
@@ -331,14 +367,29 @@
   });
 
   (function(){
-    const btn=document.getElementById('themeToggle');
-    if(!btn)return;
+    const btns=document.querySelectorAll('.theme-toggle');
+    if(!btns.length)return;
     const root=document.documentElement;
-    btn.addEventListener('click',()=>{
-      const isDark=root.getAttribute('data-theme')==='dark';
-      root.setAttribute('data-theme',isDark?'light':'dark');
-      localStorage.setItem('theme',isDark?'light':'dark');
+    btns.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const isDark=root.getAttribute('data-theme')==='dark';
+        root.setAttribute('data-theme',isDark?'light':'dark');
+        localStorage.setItem('theme',isDark?'light':'dark');
+      });
     });
+  })();
+
+  (function(){
+    const menuToggle=document.getElementById('menuToggle');
+    const menuClose=document.getElementById('menuClose');
+    const mobileMenu=document.getElementById('mobileMenu');
+    if(!menuToggle||!mobileMenu)return;
+    function openMenu(){mobileMenu.classList.add('open');document.body.style.overflow='hidden'}
+    function closeMenu(){mobileMenu.classList.remove('open');document.body.style.overflow=''}
+    menuToggle.addEventListener('click',openMenu);
+    if(menuClose)menuClose.addEventListener('click',closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+    window.addEventListener('resize',()=>{if(window.innerWidth>900)closeMenu()});
   })();
 
   (function(){
