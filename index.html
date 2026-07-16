@@ -89,15 +89,16 @@
     .pf-thumb{border-radius:16px;overflow:hidden;background:var(--surface);cursor:none;position:relative;display:block;text-decoration:none}
     .pf-thumb img,.thumb-canvas{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(0.25,0.46,0.45,0.94)}
     .pf-thumb:hover img,.pf-thumb:hover .thumb-canvas{transform:scale(1.045)}
-    .pf-thumb-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:18px 20px;background:linear-gradient(to top,var(--thumb-scrim) 0%,var(--thumb-scrim) 20%,transparent 68%)}
-    .pf-thumb-info{display:flex;flex-direction:column;gap:8px;width:100%}
-    .pf-thumb-title{font-family:'Cabinet Grotesk',sans-serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:-.01em;line-height:1.25;margin:0}
+    .pf-thumb-desc-wrap{position:absolute;top:0;left:0;right:0;padding:20px;background:linear-gradient(to bottom,var(--thumb-scrim) 0%,transparent 80%);opacity:0;transition:opacity .4s ease;pointer-events:none}
+    .pf-thumb:hover .pf-thumb-desc-wrap{opacity:1}
+    .pf-thumb-desc{margin:0;font-size:13px;line-height:1.55;color:#fff;max-width:82%}
+    .pf-thumb-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:16px 18px;background:linear-gradient(to top,var(--thumb-scrim) 0%,var(--thumb-scrim) 16%,transparent 60%)}
+    .pf-thumb-info{display:flex;flex-direction:column;width:100%}
+    .pf-thumb-title{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(19px,2.3vw,29px);font-weight:700;color:#fff;letter-spacing:-.01em;line-height:1.15;margin:0 0 10px}
     .pf-thumb-tags{display:flex;flex-wrap:wrap;gap:6px}
     .pf-tag{font-size:9.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);padding:4px 10px;border-radius:100px}
-    .pf-thumb-desc{font-size:12px;line-height:1.5;color:rgba(255,255,255,.85);max-width:90%;max-height:0;opacity:0;overflow:hidden;margin:0;transition:max-height .35s ease,opacity .25s ease}
-    .pf-thumb:hover .pf-thumb-desc{max-height:70px;opacity:1}
-    .pf-thumb-cta{display:inline-flex;align-items:center;gap:7px;background:var(--thumb-cta-bg);color:var(--thumb-cta-text);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:100px;width:fit-content;opacity:0;transform:translateY(6px);transition:transform .3s cubic-bezier(0.34,1.2,0.64,1),opacity .25s ease;white-space:nowrap}
-    .pf-thumb:hover .pf-thumb-cta{transform:translateY(0);opacity:1}
+    .pf-thumb-cta{display:inline-flex;align-items:center;gap:7px;background:var(--thumb-cta-bg);color:var(--thumb-cta-text);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:100px;width:fit-content;opacity:0;max-height:0;margin-top:0;overflow:hidden;transform:translateY(6px);transition:transform .3s cubic-bezier(0.34,1.2,0.64,1),opacity .25s ease,max-height .3s ease,margin-top .3s ease;white-space:nowrap}
+    .pf-thumb:hover .pf-thumb-cta{transform:translateY(0);opacity:1;max-height:40px;margin-top:10px}
 
     .pf-foot{border-top:1px solid var(--border);padding:28px 0;display:flex;align-items:center;justify-content:space-between}
     .pf-foot-left{display:flex;flex-direction:column;gap:4px}
@@ -188,6 +189,9 @@
     <div class="pf-grid">
       <a class="pf-thumb" href="case-somos.html">
         <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80" alt="Mi Futuro Auto — Kavak">
+        <div class="pf-thumb-desc-wrap">
+          <p class="pf-thumb-desc" data-en="Research and redesign of the auto financing flow to simplify the purchase journey.">Pesquisa e redesign do fluxo de financiamento automotivo para simplificar a jornada de compra.</p>
+        </div>
         <div class="pf-thumb-overlay">
           <div class="pf-thumb-info">
             <h3 class="pf-thumb-title">Mi Futuro Auto — Kavak</h3>
@@ -196,13 +200,15 @@
               <span class="pf-tag" data-en="Research">Pesquisa</span>
               <span class="pf-tag" data-en="Web">Web</span>
             </div>
-            <p class="pf-thumb-desc" data-en="Research and redesign of the auto financing flow to simplify the purchase journey.">Pesquisa e redesign do fluxo de financiamento automotivo para simplificar a jornada de compra.</p>
             <span class="pf-thumb-cta" data-en="View case study ↗">Ver case study ↗</span>
           </div>
         </div>
       </a>
       <a class="pf-thumb" href="case.html">
         <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&q=80" alt="Trade-in Research — Kavak">
+        <div class="pf-thumb-desc-wrap">
+          <p class="pf-thumb-desc" data-en="User research to redesign the used-vehicle trade-in evaluation flow.">Investigação de usuários para redesenhar a avaliação de troca de veículos usados.</p>
+        </div>
         <div class="pf-thumb-overlay">
           <div class="pf-thumb-info">
             <h3 class="pf-thumb-title">Trade-in Research — Kavak</h3>
@@ -211,13 +217,15 @@
               <span class="pf-tag" data-en="Research">Pesquisa</span>
               <span class="pf-tag" data-en="Web">Web</span>
             </div>
-            <p class="pf-thumb-desc" data-en="User research to redesign the used-vehicle trade-in evaluation flow.">Investigação de usuários para redesenhar a avaliação de troca de veículos usados.</p>
             <span class="pf-thumb-cta" data-en="View case study ↗">Ver case study ↗</span>
           </div>
         </div>
       </a>
       <a class="pf-thumb" href="case.html" id="thumb-animated">
         <canvas class="thumb-canvas" id="gifCanvas"></canvas>
+        <div class="pf-thumb-desc-wrap">
+          <p class="pf-thumb-desc" data-en="Onboarding redesign, from discovery to wireframes, to reduce sign-up drop-off.">Reformulação do onboarding, do discovery ao wireframe, para reduzir o abandono no cadastro.</p>
+        </div>
         <div class="pf-thumb-overlay">
           <div class="pf-thumb-info">
             <h3 class="pf-thumb-title" data-en="Onboarding Flow — Kavak">Fluxo de Onboarding — Kavak</h3>
@@ -226,13 +234,15 @@
               <span class="pf-tag">Onboarding</span>
               <span class="pf-tag">Web</span>
             </div>
-            <p class="pf-thumb-desc" data-en="Onboarding redesign, from discovery to wireframes, to reduce sign-up drop-off.">Reformulação do onboarding, do discovery ao wireframe, para reduzir o abandono no cadastro.</p>
             <span class="pf-thumb-cta" data-en="View case study ↗">Ver case study ↗</span>
           </div>
         </div>
       </a>
       <a class="pf-thumb" href="case.html">
         <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&q=80" alt="Somos Educação">
+        <div class="pf-thumb-desc-wrap">
+          <p class="pf-thumb-desc" data-en="Redesign of the Boletim+ content platform for teachers and school administrators.">Redesign da plataforma de conteúdo Boletim+ para professores e gestores escolares.</p>
+        </div>
         <div class="pf-thumb-overlay">
           <div class="pf-thumb-info">
             <h3 class="pf-thumb-title">Somos Educação</h3>
@@ -241,7 +251,6 @@
               <span class="pf-tag">EdTech</span>
               <span class="pf-tag">Web</span>
             </div>
-            <p class="pf-thumb-desc" data-en="Redesign of the Boletim+ content platform for teachers and school administrators.">Redesign da plataforma de conteúdo Boletim+ para professores e gestores escolares.</p>
             <span class="pf-thumb-cta" data-en="View case study ↗">Ver case study ↗</span>
           </div>
         </div>
