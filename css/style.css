@@ -25,7 +25,7 @@ body{font-family:'Cabinet Grotesk',sans-serif;background:var(--bg);color:var(--t
 
 .pf-nav{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:20px 48px;display:flex;align-items:center;justify-content:space-between}
 .pf-nav-left{display:flex;align-items:baseline;gap:12px}
-.pf-logo{font-family:'Cabinet Grotesk',sans-serif;font-size:13px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:var(--text-strong);text-decoration:none;cursor:none}
+.pf-logo{font-family:'Cabinet Grotesk',sans-serif;font-size:12px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:var(--text-strong);text-decoration:none;cursor:none}
 .pf-nav-sep{color:var(--border-light);font-size:13px;font-weight:300}
 .pf-role{font-size:12px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted)}
 .pf-nav ul{display:flex;align-items:center;gap:28px;list-style:none}
@@ -40,7 +40,7 @@ body{font-family:'Cabinet Grotesk',sans-serif;background:var(--bg);color:var(--t
 [data-theme="dark"] .theme-toggle .icon-moon{display:block}
 .nav-toggle-item{display:flex;align-items:center}
 .lang-switch{display:flex;align-items:center;gap:6px}
-.lang-option{background:none;border:none;padding:0;margin:0;font-family:'Cabinet Grotesk',sans-serif;font-size:10px;font-weight:500;letter-spacing:.05em;color:var(--text-muted);cursor:none;transition:color .2s}
+.lang-option{background:none;border:none;padding:0;margin:0;font-family:'Cabinet Grotesk',sans-serif;font-size:12px;font-weight:500;letter-spacing:.05em;color:var(--text-muted);cursor:none;transition:color .2s}
 .lang-option:hover{color:var(--text-strong)}
 .lang-option.active{color:var(--text-strong);font-weight:700}
 .lang-sep{font-size:10px;color:var(--border-light)}
