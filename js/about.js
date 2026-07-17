@@ -5,7 +5,7 @@
 
   photos.forEach(photo=>{
     const rect=photo.getBoundingClientRect();
-    let x=rect.left,y=rect.top;
+    let x=rect.left+window.scrollX,y=rect.top+window.scrollY;
     photo.style.left=x+'px';
     photo.style.top=y+'px';
     photo.style.right='auto';
