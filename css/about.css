@@ -6,17 +6,6 @@
   --dark-band-bg:#161616;--dark-band-text:#f5f5f5;--dark-band-text-dim:rgba(245,245,245,.6);--dark-band-label:#999;--dark-band-role:#8a8a8a;
 }
 
-/* ── SCATTERED DRAGGABLE PHOTOS ── */
-.drag-layer{position:absolute;top:0;left:0;right:0;z-index:300;pointer-events:none}
-.drag-photo{position:absolute;pointer-events:auto;cursor:grab;touch-action:none;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:box-shadow .2s ease}
-.drag-photo img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;-webkit-user-drag:none}
-.drag-photo:active{cursor:grabbing;box-shadow:0 18px 40px rgba(0,0,0,.35)}
-.drag-photo.dragging{transition:none}
-
-@media (max-width:1023px){
-  .drag-layer{display:none}
-}
-
 /* ── HERO ── */
 .about-hero{padding:64px 48px 0;display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:start}
 .about-photo{width:100%;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:var(--surface)}
@@ -65,6 +54,24 @@
 .edu-degree{font-size:11px;font-weight:500;color:var(--dark-band-label);letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px;overflow-wrap:break-word}
 .edu-title{font-family:'Cabinet Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--dark-band-text);letter-spacing:-.01em}
 
+/* ── CURRENTLY READING ── */
+.reading-section{padding:72px 48px 0;display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:start}
+.reading-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);padding-top:4px}
+
+.reading-card{display:flex;align-items:center;gap:40px;padding:36px;border-radius:16px;background:var(--surface)}
+
+.book-cover{position:relative;flex-shrink:0;width:112px;height:164px;border-radius:4px 8px 8px 4px;background:linear-gradient(150deg,#B5522F,#8C3A22);box-shadow:0 16px 32px rgba(0,0,0,.22),3px 3px 0 rgba(0,0,0,.06);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:14px}
+.book-cover::after{content:'';position:absolute;right:-5px;top:5px;bottom:5px;width:5px;border-radius:0 3px 3px 0;background:repeating-linear-gradient(to bottom,#f3ede3 0,#f3ede3 2px,#d8cfc0 2px,#d8cfc0 3px)}
+.book-cover-title{font-family:'Cabinet Grotesk',sans-serif;font-style:italic;font-weight:700;font-size:19px;line-height:1.15;letter-spacing:-.01em;color:#f5ede2}
+.book-cover-author{margin-top:14px;font-size:9px;font-weight:500;letter-spacing:.12em;color:rgba(245,237,226,.75)}
+
+.reading-book-title{font-family:'Cabinet Grotesk',sans-serif;font-size:26px;font-weight:700;letter-spacing:-.02em;color:var(--text-strong);margin-bottom:4px}
+.reading-book-author{font-size:14px;color:var(--text-secondary);font-weight:300;margin-bottom:24px}
+.reading-follow-label{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+.reading-links{display:flex;flex-wrap:wrap;gap:10px 24px}
+.reading-links a{font-size:13px;font-weight:500;color:var(--text);text-decoration:none;border-bottom:1px solid var(--text-secondary);padding-bottom:2px;transition:border-color .2s;cursor:none}
+.reading-links a:hover{border-color:var(--text)}
+
 /* ── PHOTO SECTION ── */
 .photo-section{padding:80px 48px 88px;overflow:hidden}
 .photo-section-header{margin-bottom:48px}
@@ -108,6 +115,10 @@
   .dark-band-inner{grid-template-columns:1fr;gap:32px}
   .dark-quote{font-size:24px}
   .dark-cols{grid-template-columns:1fr;gap:28px}
+
+  .reading-section{padding:40px 20px 0;grid-template-columns:1fr;gap:16px}
+  .reading-card{flex-direction:column;text-align:center;padding:28px 20px}
+  .reading-links{justify-content:center}
 
   .photo-section{padding:48px 20px 56px}
   .photo-cursive{font-size:36px;margin-bottom:28px}
