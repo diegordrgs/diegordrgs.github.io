@@ -21,6 +21,7 @@
 
 .pf-hero-sub{margin-top:28px;font-size:16px;font-weight:300;line-height:1.75;color:var(--text-body);max-width:520px}
 .pf-hero-sub-1l{max-width:none;white-space:nowrap}
+.pf-hero-sub strong{font-weight:600;color:var(--text)}
 
 .cienty-hl{color:#DC36C0}
 .pf-avail{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-size:13px;color:var(--text-body)}
