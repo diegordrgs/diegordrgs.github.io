@@ -20,6 +20,9 @@
 .inline-glyph{display:inline-block;width:1em;height:1em;object-fit:cover;border-radius:.16em;vertical-align:middle;margin:0 .04em;transform:translateY(-.08em)}
 
 .pf-hero-sub{margin-top:28px;font-size:16px;font-weight:300;line-height:1.75;color:var(--text-body);max-width:520px}
+.pf-hero-sub-1l{max-width:none;white-space:nowrap}
+
+.cienty-hl{color:#DC36C0}
 .pf-avail{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-size:13px;color:var(--text-body)}
 .pf-dot{width:7px;height:7px;border-radius:50%;background:#2ECC71;box-shadow:0 0 0 3px rgba(46,204,113,.15);flex-shrink:0}
 
@@ -58,6 +61,7 @@
   .pf-hero{padding:40px 0 48px}
   .pf-hero-text{font-size:clamp(32px,9vw,64px)}
   .pf-hero-sub{max-width:100%}
+  .pf-hero-sub-1l{white-space:normal}
   .pf-grid{grid-template-columns:1fr;grid-template-rows:none}
   .pf-grid .pf-thumb:nth-child(1),.pf-grid .pf-thumb:nth-child(2),.pf-grid .pf-thumb:nth-child(3),.pf-grid .pf-thumb:nth-child(4){grid-column:1;grid-row:auto;aspect-ratio:4/3}
   .pf-work{padding:32px 0 56px}
