@@ -73,18 +73,21 @@
 .reading-links a:hover{border-color:var(--text)}
 
 /* ── PHOTO SECTION ── */
-.photo-section{padding:80px 48px 88px;overflow:hidden}
+.photo-section{background:var(--dark-band-bg);padding:80px 0 88px;overflow:hidden;transition:background .2s}
 .photo-section-header{margin-bottom:48px}
-.photo-section-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
-.photo-section-title{font-family:'Cabinet Grotesk',sans-serif;font-size:40px;font-weight:700;letter-spacing:-.02em;color:var(--text-strong);line-height:1.1}
-.photo-section-title em{font-style:italic;color:var(--text-secondary)}
+.photo-section-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-band-label);margin-bottom:10px;padding:0 48px}
+.photo-section-title{font-family:'Cabinet Grotesk',sans-serif;font-size:40px;font-weight:700;letter-spacing:-.02em;color:var(--dark-band-text);line-height:1.1}
+.photo-section-title em{font-style:italic;color:var(--dark-band-text-dim)}
 
 /* cursive handwritten label */
-.photo-cursive{font-family:'Cabinet Grotesk',sans-serif;font-style:italic;font-size:52px;font-weight:700;color:var(--text-strong);line-height:1;margin-bottom:40px;letter-spacing:-.02em}
+.photo-cursive{font-family:'Cabinet Grotesk',sans-serif;font-style:italic;font-size:52px;font-weight:700;color:var(--dark-band-text);line-height:1;margin-bottom:40px;letter-spacing:-.02em;padding:0 48px}
 
-/* plain photo grid, no frames or effects */
-.photo-grid{columns:3 220px;column-gap:8px}
-.photo-grid img{width:100%;display:block;margin-bottom:8px}
+/* horizontal scrolling filmstrip — grayscale, color on hover */
+.photo-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;mask-image:linear-gradient(to right,transparent 0,#000 48px,#000 calc(100% - 48px),transparent 100%)}
+.photo-scroll::-webkit-scrollbar{display:none}
+.photo-scroll-track{display:flex;align-items:flex-end;gap:14px;padding:0 48px;width:max-content}
+.photo-scroll-item{height:420px;width:auto;flex:0 0 auto;display:block;border-radius:10px;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .35s ease;cursor:none}
+.photo-scroll-item:hover{filter:grayscale(0) contrast(1)}
 
 /* ── CONTACT ROW ── */
 .contact-row{border-top:1px solid var(--border);padding:40px 48px;display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:center}
@@ -120,10 +123,12 @@
   .reading-card{flex-direction:column;text-align:center;padding:28px 20px}
   .reading-links{justify-content:center}
 
-  .photo-section{padding:48px 20px 56px}
-  .photo-cursive{font-size:36px;margin-bottom:28px}
-  .photo-grid{columns:2 140px;column-gap:6px}
-  .photo-grid img{margin-bottom:6px}
+  .photo-section{padding:48px 0 56px}
+  .photo-section-label{padding:0 20px}
+  .photo-cursive{font-size:36px;margin-bottom:28px;padding:0 20px}
+  .photo-scroll{mask-image:linear-gradient(to right,transparent 0,#000 20px,#000 calc(100% - 20px),transparent 100%)}
+  .photo-scroll-track{padding:0 20px;gap:8px}
+  .photo-scroll-item{height:220px}
 
   .contact-row{padding:28px 20px;grid-template-columns:1fr;gap:16px}
   .pf-foot{padding:24px 20px;flex-direction:column;align-items:flex-start;gap:16px}
