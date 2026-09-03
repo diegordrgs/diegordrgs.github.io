@@ -25,11 +25,16 @@
 .skills-label-ai{margin-top:28px}
 
 .skills-tags{display:flex;flex-wrap:wrap;gap:10px}
-.skill-tag{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:400;color:var(--text);border:1px solid var(--border);border-radius:100px;padding:8px 16px}
+.skill-tag{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:400;color:var(--text);border:1px solid transparent;border-radius:100px;padding:8px 16px}
 .skill-tag-ai{border-color:var(--accent-ring);background:var(--accent-soft);color:var(--accent)}
 .skill-tag-icon{font-size:13px;line-height:1}
 
-.skills-ai-caption{margin-top:14px;font-size:12px;font-style:italic;color:var(--text-muted)}
+/* colorful tag palette for the main skills */
+.skill-tag-c1{background:rgba(42,91,215,.12);color:#2A5BD7}
+.skill-tag-c2{background:rgba(5,150,105,.12);color:#059669}
+.skill-tag-c3{background:rgba(124,58,237,.12);color:#7c3aed}
+.skill-tag-c4{background:rgba(217,119,6,.14);color:#d97706}
+.skill-tag-c5{background:rgba(219,39,119,.12);color:#db2777}
 
 /* ── DARK BAND ── */
 .dark-band{background:var(--dark-band-bg);padding:72px 48px;margin-top:72px;transition:background .2s}
