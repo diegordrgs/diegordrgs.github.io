@@ -7,7 +7,7 @@
 
 .wrap{width:100%;padding:0 48px}
 
-.pf-hero{padding:64px 0 72px;max-width:980px}
+.pf-hero{padding:64px 0 44px;max-width:980px}
 .pf-hero-text{font-family:'Cabinet Grotesk',sans-serif;font-size:64px;font-weight:700;line-height:1.08;letter-spacing:-.03em;color:var(--text)}
 .pf-hero-text em{font-style:italic}
 .hw{display:inline;cursor:none}
@@ -59,7 +59,7 @@
   .pf-nav>ul{display:none}
   .menu-toggle{display:flex}
   .wrap{padding:0 20px}
-  .pf-hero{padding:40px 0 48px}
+  .pf-hero{padding:40px 0 32px}
   .pf-hero-text{font-size:clamp(32px,9vw,64px)}
   .pf-hero-sub{max-width:100%}
   .pf-hero-sub-lg{font-size:17px}
