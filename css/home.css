@@ -7,7 +7,7 @@
 
 .wrap{width:100%;padding:0 48px}
 
-.pf-hero{padding:64px 0 44px;max-width:980px}
+.pf-hero{padding:64px 0 32px;max-width:980px}
 .pf-hero-text{font-family:'Cabinet Grotesk',sans-serif;font-size:64px;font-weight:700;line-height:1.08;letter-spacing:-.03em;color:var(--text)}
 .pf-hero-text em{font-style:italic}
 .hw{display:inline;cursor:none}
@@ -20,16 +20,14 @@
 .inline-glyph{display:inline-block;width:1em;height:1em;object-fit:cover;border-radius:.16em;vertical-align:middle;margin:0 .04em;transform:translateY(-.08em)}
 
 .pf-hero-sub{margin-top:28px;font-size:16px;font-weight:300;line-height:1.75;color:var(--text-body);max-width:520px}
-.pf-hero-sub-lg{font-size:21px;max-width:640px}
+.pf-hero-sub-lg{font-size:21px;max-width:none}
 .pf-hero-sub strong{font-weight:600;color:var(--text)}
 
 .cienty-hl{color:#DC36C0}
-.pf-avail{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-size:13px;color:var(--text-body)}
-.pf-dot{width:7px;height:7px;border-radius:50%;background:#2ECC71;box-shadow:0 0 0 3px rgba(46,204,113,.15);flex-shrink:0}
 
 .pf-divider{border:none;border-top:1px solid var(--border)}
 
-.pf-work{padding:44px 0 88px}
+.pf-work{padding:32px 0 88px}
 .pf-work-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px}
 .pf-work-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
 .pf-work-more{font-size:13px;color:var(--text-secondary);text-decoration:none;transition:color .2s;cursor:none}
