@@ -3,7 +3,6 @@
 .fun-grid{columns:3 260px;column-gap:14px;padding-top:56px;padding-bottom:88px}
 .fun-item{break-inside:avoid;margin-bottom:14px;border-radius:6px;overflow:hidden;background:var(--surface);cursor:none}
 .fun-item img{width:100%;display:block}
-.fun-caption{padding:10px 14px 14px;font-size:12px;font-weight:400;color:var(--text-secondary);line-height:1.4}
 
 @media (max-width:900px){.fun-grid{columns:2 220px}}
 @media (max-width:560px){.fun-grid{columns:2 130px;column-gap:10px}}
