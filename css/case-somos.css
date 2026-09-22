@@ -23,7 +23,7 @@
 .meta-value{color:var(--text-body-alt)}
 
 .section-title{font-family:'Cabinet Grotesk',sans-serif;font-size:32px;font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--text-strong);margin-bottom:18px}
-.section-body{font-size:15px;font-weight:300;line-height:1.85;color:var(--text-body);max-width:580px}
+.section-body{font-size:15px;font-weight:300;line-height:1.85;color:var(--text-body)}
 .section-body p{margin-bottom:14px}
 .section-body p:last-child{margin-bottom:0}
 .section-body strong{font-weight:500;color:var(--quote-text)}
@@ -37,18 +37,18 @@
 .img-placeholder span{font-size:11px;color:var(--text-secondary);letter-spacing:.06em;text-transform:uppercase;font-weight:500}
 
 /* GOALS GRID */
-.goals-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0;max-width:560px}
+.goals-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
 .goal-item{background:var(--surface);border-radius:10px;padding:16px 18px;font-size:14px;font-weight:400;color:var(--text-body-alt);display:flex;align-items:center;gap:10px}
 .goal-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
 
 /* METHODS */
-.method-list{display:flex;flex-direction:column;gap:10px;margin:24px 0;max-width:400px}
+.method-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0}
 .method-item{display:flex;align-items:center;gap:12px;padding:14px 18px;background:var(--surface);border-radius:10px}
 .method-num{font-size:11px;font-weight:500;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:100px;white-space:nowrap}
 .method-name{font-size:14px;font-weight:400;color:var(--text-body-alt)}
 
 /* OUTCOMES */
-.outcome-list{display:flex;flex-direction:column;gap:10px;margin:24px 0;max-width:560px}
+.outcome-list{display:flex;flex-direction:column;gap:10px;margin:24px 0}
 .outcome-item{display:flex;align-items:flex-start;gap:12px;padding:16px 18px;border-radius:10px;background:var(--outcome-bg);border:1px solid var(--outcome-border)}
 .outcome-check{font-size:16px;flex-shrink:0;margin-top:1px}
 .outcome-text{font-size:14px;font-weight:400;color:var(--outcome-text);line-height:1.5}
@@ -63,5 +63,6 @@
 @media (max-width:900px){
   .case-title{font-size:clamp(30px,9vw,62px);max-width:100%}
   .goals-grid{grid-template-columns:1fr}
+  .method-list{grid-template-columns:1fr}
   .learning-grid{grid-template-columns:1fr}
 }
