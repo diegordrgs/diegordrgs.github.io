@@ -71,5 +71,6 @@
 .pf-thumb:hover .pf-thumb-cover{transform:scale(1.045)}
 .pf-cover-cienty{background:radial-gradient(120% 90% at 20% 15%,#f06fd9 0%,#DC36C0 38%,#7a1a6b 100%)}
 .pf-cover-cienty span{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(44px,7vw,96px);font-weight:800;letter-spacing:-.04em;color:#fff;opacity:.92;transform:translateY(-12%)}
-.pf-lock{position:absolute;top:14px;right:14px;z-index:2;font-size:10px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);padding:6px 11px;border-radius:100px;transition:opacity .3s ease}
+.pf-lock{position:absolute;top:14px;right:14px;z-index:2;display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--thumb-cta-bg);color:var(--thumb-cta-text);transition:opacity .3s ease}
+.pf-lock svg{width:15px;height:15px;display:block}
 .pf-thumb:hover .pf-lock{opacity:0}
