@@ -15,12 +15,12 @@ if(canvas){
   let frame=0;
   const screensByLang={
     pt:[
-      {label:'Descoberta',bg:'#f0f4ff',accent:'#2A5BD7',items:['Entrevistas','Pontos de dor','Hipótese']},
+      {label:'Descoberta',bg:'#f0f4ff',accent:'#0038FF',items:['Entrevistas','Pontos de dor','Hipótese']},
       {label:'Wireframes',bg:'#f5f0ff',accent:'#7c3aed',items:['Esboços','Fluxo de usuário','Mapa de IA']},
       {label:'Protótipo',bg:'#f0fdf4',accent:'#059669',items:['Mock interativo','Testes','Iterações']},
     ],
     en:[
-      {label:'Discovery',bg:'#f0f4ff',accent:'#2A5BD7',items:['User interviews','Pain points','Hypothesis']},
+      {label:'Discovery',bg:'#f0f4ff',accent:'#0038FF',items:['User interviews','Pain points','Hypothesis']},
       {label:'Wireframes',bg:'#f5f0ff',accent:'#7c3aed',items:['Low-fi sketches','User flow','IA map']},
       {label:'Prototype',bg:'#f0fdf4',accent:'#059669',items:['Interactive mock','Test sessions','Iterations']},
     ],
@@ -32,7 +32,7 @@ if(canvas){
     const s=screens[si],w=canvas.width,h=canvas.height,pad=22;
     ctx.fillStyle=s.bg;ctx.fillRect(0,0,w,h);
     ctx.fillStyle=s.accent;ctx.globalAlpha=.08;ctx.fillRect(0,0,w,h);ctx.globalAlpha=1;
-    ctx.fillStyle=s.accent;ctx.font=`600 ${Math.min(w*.052,15)}px 'Cabinet Grotesk',sans-serif`;ctx.fillText(s.label,pad,pad+16);
+    ctx.fillStyle=s.accent;ctx.font=`600 ${Math.min(w*.052,15)}px 'Roboto Serif',Georgia,serif`;ctx.fillText(s.label,pad,pad+16);
     ctx.fillStyle='#00000012';ctx.fillRect(pad,pad+26,w-pad*2,3);
     ctx.fillStyle=s.accent;ctx.fillRect(pad,pad+26,(w-pad*2)*Math.min(p*1.2,1),3);
     const ih=(h-pad*2-46)/3;
@@ -42,7 +42,7 @@ if(canvas){
       ctx.globalAlpha=ap;
       ctx.fillStyle=s.accent+'18';ctx.beginPath();ctx.roundRect(pad,y,w-pad*2,ih-8,6);ctx.fill();
       ctx.fillStyle=s.accent;ctx.beginPath();ctx.arc(pad+11,y+(ih-8)/2,3,0,Math.PI*2);ctx.fill();
-      ctx.fillStyle='#333';ctx.font=`300 ${Math.min(w*.035,12)}px 'Cabinet Grotesk',sans-serif`;
+      ctx.fillStyle='#333';ctx.font=`400 ${Math.min(w*.035,12)}px 'Roboto Serif',Georgia,serif`;
       ctx.fillText(it,pad+22,y+(ih-8)/2+4);ctx.globalAlpha=1;
     });
     frame=(frame+1)%180;requestAnimationFrame(draw);
