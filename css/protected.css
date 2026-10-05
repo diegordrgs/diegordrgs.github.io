@@ -6,12 +6,12 @@
 .gate-back:hover{color:var(--text-strong)}
 .gate-icon{width:48px;height:48px;border-radius:14px;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:24px}
 .gate-icon svg{width:22px;height:22px}
-.gate-eyebrow{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
-.gate-title{font-family:var(--font);font-size:clamp(32px,5vw,44px);font-weight:600;line-height:1.08;letter-spacing:-.03em;color:var(--text-strong)}
+.gate-eyebrow{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+.gate-title{font-family:var(--font);font-size:clamp(32px,5vw,44px);font-weight:400;line-height:1.08;letter-spacing:-.03em;color:var(--text-strong)}
 .gate-text{margin-top:16px;font-size:16px;font-weight:400;line-height:1.7;color:var(--text-body)}
 
 .gate-form{margin-top:32px;display:flex;flex-direction:column;gap:12px}
-.gate-label{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--text-secondary)}
+.gate-label{font-size:12px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--text-secondary)}
 .gate-field{position:relative;display:flex;align-items:center}
 .gate-input{width:100%;font-family:var(--font);font-size:17px;color:var(--text-strong);background:var(--surface);border:1.5px solid transparent;border-radius:12px;padding:15px 52px 15px 16px;outline:none;transition:border-color .2s,background .2s;cursor:none}
 .gate-input::placeholder{color:var(--text-muted)}
@@ -24,7 +24,7 @@
 .gate-toggle.showing .icon-eye{display:none}
 .gate-toggle.showing .icon-eye-off{display:block}
 .gate-error{font-size:13px;color:#d93636;min-height:18px}
-.gate-submit{margin-top:4px;font-family:var(--font);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--text-strong);border:none;border-radius:100px;padding:16px 24px;cursor:none;transition:opacity .2s,transform .2s}
+.gate-submit{margin-top:4px;font-family:var(--font);font-size:13px;font-weight:400;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:var(--text-strong);border:none;border-radius:100px;padding:16px 24px;cursor:none;transition:opacity .2s,transform .2s}
 [data-theme="dark"] .gate-submit{color:#0c0c0c}
 .gate-submit:hover{opacity:.85}
 .gate-submit:disabled{opacity:.5}

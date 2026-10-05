@@ -1,7 +1,10 @@
+@font-face{font-family:'Gambetta';src:url('../fonts/gambetta/Gambetta-Variable.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
+@font-face{font-family:'Gambetta';src:url('../fonts/gambetta/Gambetta-VariableItalic.woff2') format('woff2');font-weight:300 700;font-style:italic;font-display:swap}
+@font-face{font-family:'Khand';src:url('../fonts/khand/Khand-Variable.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
 :root{
   --bg:#fff;--text:#111;--text-strong:#0a0a0a;--text-secondary:#555;--text-muted:#767676;--text-body:#444;
   --border:#e8e8e8;--border-light:#ccc;--surface:#f0f0f0;--nav-bg:rgba(255,255,255,.96);
-  --font:'Roboto Serif',Georgia,serif;
+  --font:'Gambetta',Georgia,serif;--font-ui:'Khand','Arial Narrow',sans-serif;
   --accent:#0038FF;--accent-soft:#E6ECFF;--on-accent:#fff;--cursor:#0a0a0a;--cursor-ring:rgba(17,17,17,.25);--accent-ring:rgba(0,56,255,.2);
 }
 :root[data-theme="dark"]{
@@ -10,7 +13,7 @@
   --accent:#4D74FF;--accent-soft:rgba(77,116,255,.16);--cursor:#f5f5f5;--cursor-ring:rgba(255,255,255,.3);--accent-ring:rgba(77,116,255,.3);
 }
 *{box-sizing:border-box;margin:0;padding:0;cursor:none}
-body{font-family:var(--font);font-stretch:72%;font-optical-sizing:auto;background:var(--bg);color:var(--text);transition:background .2s,color .2s}
+body{font-family:var(--font);background:var(--bg);color:var(--text);transition:background .2s,color .2s}
 
 .cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:var(--cursor);pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .2s}
 .cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--cursor-ring);pointer-events:none;z-index:99998;transform:translate(-50%,-50%)}
@@ -19,13 +22,13 @@ body{font-family:var(--font);font-stretch:72%;font-optical-sizing:auto;backgroun
 
 .pf-nav{position:sticky;top:0;z-index:200;background:var(--nav-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:20px 48px;display:flex;align-items:center;justify-content:space-between}
 .pf-nav-left{display:flex;align-items:baseline;gap:12px}
-.pf-logo{font-family:var(--font);font-size:12px;font-weight:500;letter-spacing:.10em;text-transform:uppercase;color:var(--text-strong);text-decoration:none;cursor:none}
+.pf-logo{font-family:var(--font);font-size:12px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:var(--text-strong);text-decoration:none;cursor:none}
 .pf-nav-sep{color:var(--border-light);font-size:13px;font-weight:400}
-.pf-role{font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted)}
+.pf-role{font-size:12px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted)}
 .pf-nav ul{display:flex;align-items:center;gap:28px;list-style:none}
-.pf-nav-link{font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .2s;cursor:none}
+.pf-nav-link{font-size:12px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;transition:color .2s;cursor:none}
 .pf-nav-link:hover{color:var(--text-strong)}
-.pf-nav-link.on{color:var(--accent);font-weight:600}
+.pf-nav-link.on{color:var(--accent);font-weight:500}
 .theme-toggle{background:none;border:none;padding:0;margin:0;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;color:var(--text-muted);cursor:none;transition:color .2s}
 .theme-toggle:hover{color:var(--text-strong)}
 .theme-toggle svg{width:16px;height:16px;display:block}
@@ -34,9 +37,9 @@ body{font-family:var(--font);font-stretch:72%;font-optical-sizing:auto;backgroun
 [data-theme="dark"] .theme-toggle .icon-moon{display:block}
 .nav-toggle-item{display:flex;align-items:center}
 .lang-switch{display:flex;align-items:center;gap:6px}
-.lang-option{background:none;border:none;padding:0;margin:0;font-family:var(--font);font-size:12px;font-weight:600;letter-spacing:.05em;color:var(--text-muted);cursor:none;transition:color .2s}
+.lang-option{background:none;border:none;padding:0;margin:0;font-family:var(--font);font-size:12px;font-weight:400;letter-spacing:.05em;color:var(--text-muted);cursor:none;transition:color .2s}
 .lang-option:hover{color:var(--text-strong)}
-.lang-option.active{color:var(--text-strong);font-weight:600}
+.lang-option.active{color:var(--text-strong)}
 .lang-sep{font-size:10px;color:var(--border-light)}
 
 .menu-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:22px;height:16px;background:none;border:none;padding:0;cursor:none}
@@ -46,23 +49,41 @@ body{font-family:var(--font);font-stretch:72%;font-optical-sizing:auto;backgroun
 .mobile-menu-top{display:flex;align-items:center;justify-content:space-between}
 .menu-close{background:none;border:none;padding:0;width:24px;height:24px;color:var(--text-strong);cursor:none;font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center}
 .mobile-menu-links{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:52px}
-.mobile-menu-links a{font-family:var(--font);font-size:clamp(30px,10vw,42px);font-weight:600;letter-spacing:-.02em;color:var(--text-strong);text-decoration:none;cursor:none}
+.mobile-menu-links a{font-family:var(--font);font-size:clamp(30px,10vw,42px);font-weight:400;letter-spacing:-.02em;color:var(--text-strong);text-decoration:none;cursor:none}
 .mobile-menu-links a.on{color:var(--accent)}
 .mobile-menu-bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid var(--border)}
 
 .pf-foot{border-top:1px solid var(--border);padding:28px 0;display:flex;align-items:center;justify-content:space-between}
 .pf-foot-left{display:flex;flex-direction:column;gap:4px}
-.pf-foot-cta{font-family:var(--font);font-size:22px;font-weight:600;color:var(--text-strong);letter-spacing:-.02em}
+.pf-foot-cta{font-family:var(--font);font-size:22px;font-weight:400;color:var(--text-strong);letter-spacing:-.02em}
 .pf-foot-email{font-size:13px;color:var(--text-secondary);text-decoration:none;transition:color .2s;cursor:none}
 .pf-foot-email:hover{color:var(--text)}
 .pf-foot-links{display:flex;gap:20px}
 .pf-foot-links a{font-size:12px;color:var(--text-muted);text-decoration:none;transition:color .2s;cursor:none;letter-spacing:.04em}
 .pf-foot-links a:hover{color:var(--text)}
 
-/* Condensed display cut for big serif headings */
-.pf-hero-text,.about-name,.dark-quote,.exp-title,.edu-title,.case-title,.section-title,.next-title,.gate-title,.pf-thumb-title,.pf-foot-cta,.mobile-menu-links a,.learning-num,.insight-num,.pf-cover-cienty span{font-stretch:56%;letter-spacing:-.01em}
-/* Small uppercase labels stay wider so they remain legible */
-.pf-logo,.pf-role,.pf-nav-link,.lang-option,.pf-work-label,.pf-tag,.pf-thumb-cta,.skills-label,.dark-label,.col-label,.contact-label,.case-eyebrow,.meta-label,.section-tag,.next-label,.sidebar-section-label,.gate-eyebrow,.gate-label,.gate-submit,.edu-degree{font-stretch:100%}
+/* Khand: navigation, footer, labels, tags and thumb links */
+.pf-logo,.pf-role,.pf-nav-sep,.pf-nav-link,.lang-option,.lang-sep,.mobile-menu-links a,.pf-foot,.pf-foot *,.pf-work-label,.pf-tag,.pf-thumb-cta,.skills-label,.skill-tag,.dark-label,.col-label,.exp-period,.edu-period,.edu-degree,.contact-label,.contact-links a,.case-eyebrow,.meta-label,.section-tag,.step-num,.method-num,.next-label,.sidebar-back,.sidebar-section-label,.sidebar-link,.case-hero-badge,.gate-eyebrow,.gate-label,.gate-submit,.gate-back{font-family:var(--font-ui)}
+body .pf-logo,body .pf-role,body .pf-nav-link,body .lang-option{font-size:16px;font-weight:600;letter-spacing:.01em;text-transform:uppercase}
+body .pf-work-label,body .skills-label,body .dark-label,body .col-label,body .contact-label,body .case-eyebrow,body .meta-label,body .section-tag,body .next-label,body .sidebar-section-label,body .gate-eyebrow,body .edu-degree{font-size:14px;font-weight:600;letter-spacing:.04em}
+body .pf-tag{font-size:12px;font-weight:600;letter-spacing:.04em}
+body .pf-thumb-cta{font-size:14px;font-weight:600;letter-spacing:.03em}
+body .pf-foot-cta{font-size:28px;font-weight:600;text-transform:uppercase;letter-spacing:0}
+body .pf-foot-email{font-size:17px;font-weight:500}
+body .pf-foot-links a{font-size:16px;font-weight:600;text-transform:uppercase;letter-spacing:.02em}
+body .skill-tag{font-size:16px;font-weight:500}
+body .contact-links a{font-size:18px;font-weight:600;text-transform:uppercase;letter-spacing:.02em}
+body .contact-links a[href^="mailto"]{text-transform:none}
+body .exp-period,body .edu-period{font-size:14px;font-weight:500}
+body .step-num,body .method-num{font-size:13px;font-weight:600}
+body .sidebar-link,body .sidebar-back{font-size:15px}
+body .mobile-menu-links a{font-size:clamp(40px,13vw,56px);font-weight:600;text-transform:uppercase;letter-spacing:0;line-height:1}
+
+/* Menu links: blue block when active or hovered, plus a quick swoosh on hover */
+.pf-nav-link{display:inline-block;padding:3px 5px 1px;margin:0 -5px;color:var(--text-strong);transition:background-color .15s ease,color .15s ease}
+.pf-nav-link:hover,.pf-nav-link.on{background:var(--accent);color:var(--on-accent);font-weight:600}
+.pf-nav-link .scribble{left:0;width:100%;margin-top:3px;height:8px}
+.pf-nav-link .scribble path{stroke-width:3}
 
 /* Highlight: accent block sweeps in behind the words on hover */
 .hl{color:inherit;background:linear-gradient(var(--accent),var(--accent)) no-repeat 0 0/0% 100%;transition:background-size .35s cubic-bezier(.65,0,.35,1),color .25s ease;padding:0 .08em;margin:0 -.08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
