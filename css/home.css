@@ -8,7 +8,7 @@
 .wrap{width:100%;padding:0 48px}
 
 .pf-hero{padding:64px 0 32px;max-width:980px}
-.pf-hero-text{font-family:var(--font);font-size:64px;font-weight:600;line-height:1.08;letter-spacing:-.03em;color:var(--text)}
+.pf-hero-text{font-family:'Cabinet Grotesk',sans-serif;font-size:64px;font-weight:700;line-height:1.08;letter-spacing:-.03em;color:var(--text)}
 .pf-hero-text em{font-style:italic}
 .hw{display:inline;cursor:none}
 .hw-hl{background:var(--accent-soft);color:var(--accent);padding:0 5px 2px;border-radius:4px}
@@ -22,7 +22,7 @@
 
 .inline-glyph{display:inline-block;width:1em;height:1em;object-fit:cover;border-radius:.16em;vertical-align:middle;margin:0 .04em;transform:translateY(-.08em)}
 
-.pf-hero-sub{margin-top:28px;font-size:16px;font-weight:400;line-height:1.75;color:var(--text-body);max-width:520px}
+.pf-hero-sub{margin-top:28px;font-size:16px;font-weight:300;line-height:1.75;color:var(--text-body);max-width:520px}
 .pf-hero-sub-lg{font-size:21px;max-width:none}
 .pf-hero-sub strong{font-weight:600;color:var(--text)}
 
@@ -32,7 +32,7 @@
 
 .pf-work{padding:32px 0 88px}
 .pf-work-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px}
-.pf-work-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+.pf-work-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
 .pf-work-more{font-size:13px;color:var(--text-secondary);text-decoration:none;transition:color .2s;cursor:none}
 .pf-work-more:hover{color:var(--text)}
 
@@ -49,10 +49,10 @@
 .pf-thumb-desc{margin:0;font-size:13px;line-height:1.55;color:#fff;max-width:82%}
 .pf-thumb-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:16px 18px;background:linear-gradient(to top,var(--thumb-scrim) 0%,var(--thumb-scrim) 16%,transparent 60%)}
 .pf-thumb-info{display:flex;flex-direction:column;width:100%}
-.pf-thumb-title{font-family:var(--font);font-size:clamp(19px,2.3vw,29px);font-weight:600;color:#fff;letter-spacing:-.01em;line-height:1.15;margin:0 0 10px}
+.pf-thumb-title{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(19px,2.3vw,29px);font-weight:700;color:#fff;letter-spacing:-.01em;line-height:1.15;margin:0 0 10px}
 .pf-thumb-tags{display:flex;flex-wrap:wrap;gap:6px}
-.pf-tag{font-size:9.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);padding:4px 10px;border-radius:100px}
-.pf-thumb-cta{display:inline-flex;align-items:center;gap:7px;background:var(--thumb-cta-bg);color:var(--thumb-cta-text);font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:100px;width:fit-content;opacity:0;max-height:0;margin-top:0;overflow:hidden;transform:translateY(6px);transition:transform .3s cubic-bezier(0.34,1.2,0.64,1),opacity .25s ease,max-height .3s ease,margin-top .3s ease;white-space:nowrap}
+.pf-tag{font-size:9.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.32);padding:4px 10px;border-radius:100px}
+.pf-thumb-cta{display:inline-flex;align-items:center;gap:7px;background:var(--thumb-cta-bg);color:var(--thumb-cta-text);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:100px;width:fit-content;opacity:0;max-height:0;margin-top:0;overflow:hidden;transform:translateY(6px);transition:transform .3s cubic-bezier(0.34,1.2,0.64,1),opacity .25s ease,max-height .3s ease,margin-top .3s ease;white-space:nowrap}
 .pf-thumb:hover .pf-thumb-cta{transform:translateY(0);opacity:1;max-height:40px;margin-top:10px}
 
 @media (max-width:640px){
@@ -73,7 +73,7 @@
 .pf-thumb-cover{width:100%;height:100%;display:flex;align-items:center;justify-content:center;transition:transform .6s cubic-bezier(0.25,0.46,0.45,0.94)}
 .pf-thumb:hover .pf-thumb-cover{transform:scale(1.045)}
 .pf-cover-cienty{background:radial-gradient(120% 90% at 20% 15%,#f06fd9 0%,#DC36C0 38%,#7a1a6b 100%)}
-.pf-cover-cienty span{font-family:var(--font);font-size:clamp(44px,7vw,96px);font-weight:700;letter-spacing:-.04em;color:#fff;opacity:.92;transform:translateY(-12%)}
+.pf-cover-cienty span{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(44px,7vw,96px);font-weight:800;letter-spacing:-.04em;color:#fff;opacity:.92;transform:translateY(-12%)}
 .pf-lock{position:absolute;top:14px;right:14px;z-index:2;display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--thumb-cta-bg);color:var(--thumb-cta-text);transition:opacity .3s ease}
 .pf-lock svg{width:15px;height:15px;display:block}
 .pf-thumb:hover .pf-lock{opacity:0}
