@@ -7,7 +7,7 @@
 
 .wrap{width:100%;padding:0 48px}
 
-.pf-hero{padding:64px 0 32px;max-width:980px}
+.pf-hero{position:relative;padding:64px 0 32px;max-width:980px}
 .pf-hero-text{font-family:'Cabinet Grotesk',sans-serif;font-size:64px;font-weight:700;line-height:1.08;letter-spacing:-.03em;color:var(--text)}
 .pf-hero-text em{font-style:italic}
 .hw{display:inline;cursor:none}
@@ -27,6 +27,15 @@
 .pf-hero-sub strong{font-weight:600;color:var(--text)}
 
 .cienty-hl{color:var(--accent)}
+
+.sticker-trail{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:visible}
+.trail-sticker{position:absolute;height:auto;transform:translate(-50%,-50%) rotate(var(--r)) scale(0);filter:drop-shadow(0 4px 10px rgba(0,0,0,.18));animation:sticker-life 1.6s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes sticker-life{
+  0%{transform:translate(-50%,-50%) rotate(calc(var(--r) - 20deg)) scale(0)}
+  15%{transform:translate(-50%,-50%) rotate(var(--r)) scale(1)}
+  75%{transform:translate(-50%,-50%) rotate(var(--r)) scale(1);opacity:1}
+  100%{transform:translate(-50%,-50%) rotate(var(--r)) scale(.6);opacity:0}
+}
 
 .pf-divider{border:none;border-top:1px solid var(--border)}
 

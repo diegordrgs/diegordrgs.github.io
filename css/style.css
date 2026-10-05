@@ -62,14 +62,13 @@ body{font-family:'Cabinet Grotesk',sans-serif;background:var(--bg);color:var(--t
 .pf-foot-email{font-size:13px;color:var(--text-secondary);text-decoration:none;transition:color .2s;cursor:none}
 .pf-foot-email:hover{color:var(--text)}
 .pf-foot-links{display:flex;gap:20px}
-.pf-foot-links a{font-size:12px;color:var(--text-muted);text-decoration:none;transition:color .2s;cursor:none;letter-spacing:.04em}
-.pf-foot-links a:hover{color:var(--text)}
+.pf-foot-links a{font-size:12px;font-weight:400;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;cursor:none}
 
 /* Menu links: blue block when active or hovered, plus a quick swoosh on hover */
-.pf-nav-link{display:inline-block;padding:3px 5px 1px;margin:0 -5px;color:var(--text-strong);transition:background-color .15s ease,color .15s ease}
-.pf-nav-link:hover,.pf-nav-link.on{background:var(--accent);color:var(--on-accent);font-weight:500}
-.pf-nav-link .scribble{left:0;width:100%;margin-top:3px;height:8px}
-.pf-nav-link .scribble path{stroke-width:3}
+.pf-nav-link,.pf-foot-links a{display:inline-block;padding:3px 5px 1px;margin:0 -5px;color:var(--text-strong);transition:background-color .15s ease,color .15s ease}
+.pf-nav-link:hover,.pf-nav-link.on,.pf-foot-links a:hover{background:var(--accent);color:var(--on-accent);font-weight:500}
+.pf-nav-link .scribble,.pf-foot-links a .scribble{left:0;width:100%;margin-top:4px;height:10px}
+.pf-nav-link .scribble path,.pf-foot-links a .scribble path{stroke-width:3}
 
 /* Highlight: accent block sweeps in behind the words on hover */
 .hl{color:inherit;background:linear-gradient(var(--accent),var(--accent)) no-repeat 0 0/0% 100%;transition:background-size .35s cubic-bezier(.65,0,.35,1),color .25s ease;padding:0 .08em;margin:0 -.08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
