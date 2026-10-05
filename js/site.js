@@ -75,7 +75,8 @@
   // Hand-drawn scribble under links: a fresh, slightly different stroke is drawn on every hover
   const NS='http://www.w3.org/2000/svg';
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const targets=document.querySelectorAll('.pf-nav-link,.scribble-link,.pf-foot-email,.pf-foot-links a,.contact-links a');
+  const QUICK='.pf-nav-link,.pf-foot-links a';
+  const targets=document.querySelectorAll(QUICK+',.scribble-link,.pf-foot-email,.contact-links a');
   const j=n=>(Math.random()-.5)*n;
   function shape(w){
     const x0=4+j(4),x1=w-4+j(4);
@@ -83,9 +84,17 @@
       ` Q${w*.55},${7+j(2)} ${w*.12+j(6)},${11+j(2)}`+
       ` Q${w*.45},${9+j(2)} ${w*.78+j(w*.1)},${13+j(2)}`;
   }
-  // Short menu links get a single quick swoosh instead of the full scribble
-  function swoosh(w){
-    return `M${2+j(2)},${5+j(1.5)} Q${w*.45},${8+j(1.5)} ${w-2+j(2)},${1+j(1.5)}`;
+  // Short links (menu, footer) get one of a few quick, simple strokes
+  const marks=[
+    w=>`M${2+j(2)},${5+j(1.5)} Q${w*.45},${8+j(1.5)} ${w-2+j(2)},${1+j(1.5)}`, // swoosh
+    w=>{const c=w*(.55+j(.1));return `M2,${6+j(1)} C${w*.3},${9+j(1)} ${c-6},${8} ${c},${3} C${c+4},${-2} ${c-5},${-2} ${c-2},${4} C${c+1},${9} ${w*.8},${8} ${w-2},${3+j(1)}`}, // loop
+    w=>`M${4+j(2)},${0+j(1)} Q${1+j(1)},${8} ${w*.2},${7+j(1)} Q${w*.6},${5+j(1)} ${w-3+j(2)},${7+j(1)}`, // hook
+    w=>{const n=Math.max(3,Math.round(w/14)),step=(w-4)/n;let d=`M2,4`;for(let i=0;i<n;i++)d+=` Q${2+step*(i+.5)},${i%2?0:9} ${2+step*(i+1)},4`;return d} // wave
+  ];
+  let lastMark=-1;
+  function quickMark(w){
+    let i;do{i=Math.floor(Math.random()*marks.length)}while(i===lastMark);
+    lastMark=i;return marks[i](w);
   }
   targets.forEach(link=>{
     link.classList.add('scribble-link');
@@ -96,12 +105,12 @@
     let anim;
     link.addEventListener('mouseenter',()=>{
       if(!svg.isConnected)host.appendChild(svg);
-      const simple=link.classList.contains('pf-nav-link');
-      path.setAttribute('d',(simple?swoosh:shape)(svg.getBoundingClientRect().width));
+      const simple=link.matches(QUICK);
+      path.setAttribute('d',(simple?quickMark:shape)(svg.getBoundingClientRect().width));
       const len=path.getTotalLength();
       if(anim)anim.cancel();
       path.style.strokeDasharray=len;
-      anim=path.animate([{strokeDashoffset:len},{strokeDashoffset:0}],{duration:reduce?0:simple?160:Math.min(380,180+len*.6),easing:'cubic-bezier(.6,.05,.3,1)',fill:'forwards'});
+      anim=path.animate([{strokeDashoffset:len},{strokeDashoffset:0}],{duration:reduce?0:simple?Math.min(280,120+len*.9):Math.min(380,180+len*.6),easing:'cubic-bezier(.6,.05,.3,1)',fill:'forwards'});
     });
     link.addEventListener('mouseleave',()=>{
       if(!anim)return;

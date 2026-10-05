@@ -49,3 +49,28 @@ if(canvas){
   }
   draw();
 }
+
+// Sticker trail: moving the mouse over the hero leaves stickers behind
+(function(){
+  const hero=document.querySelector('.pf-hero');
+  if(!hero||window.matchMedia('(pointer: coarse), (prefers-reduced-motion: reduce)').matches)return;
+  const SRC='images/home/sticker-oi.svg',GAP=90,MAX=14;
+  const layer=document.createElement('div');
+  layer.className='sticker-trail';layer.setAttribute('aria-hidden','true');
+  hero.appendChild(layer);
+  new Image().src=SRC;
+  let lx=null,ly=null;
+  hero.addEventListener('mousemove',e=>{
+    const r=hero.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+    if(lx!==null&&Math.hypot(x-lx,y-ly)<GAP)return;
+    lx=x;ly=y;
+    if(layer.childElementCount>=MAX)layer.firstElementChild.remove();
+    const img=document.createElement('img');
+    img.src=SRC;img.alt='';img.className='trail-sticker';
+    const size=90+Math.random()*40,rot=(Math.random()-.5)*50;
+    img.style.cssText=`left:${x}px;top:${y}px;width:${size}px;--r:${rot}deg`;
+    layer.appendChild(img);
+    img.addEventListener('animationend',()=>img.remove());
+  });
+  hero.addEventListener('mouseleave',()=>{lx=ly=null});
+})();
