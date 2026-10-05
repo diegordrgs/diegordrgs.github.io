@@ -75,7 +75,7 @@
   // Hand-drawn scribble under links: a fresh, slightly different stroke is drawn on every hover
   const NS='http://www.w3.org/2000/svg';
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const targets=document.querySelectorAll('.scribble-link,.pf-foot-email,.pf-foot-links a,.contact-links a');
+  const targets=document.querySelectorAll('.pf-nav-link,.scribble-link,.pf-foot-email,.pf-foot-links a,.contact-links a');
   const j=n=>(Math.random()-.5)*n;
   function shape(w){
     const x0=4+j(4),x1=w-4+j(4);
