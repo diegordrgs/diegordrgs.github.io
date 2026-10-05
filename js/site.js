@@ -70,3 +70,39 @@
     btn.addEventListener('click',()=>applyLang(btn.dataset.lang));
   });
 })();
+
+(function(){
+  // Hand-drawn scribble under links: a fresh, slightly different stroke is drawn on every hover
+  const NS='http://www.w3.org/2000/svg';
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const targets=document.querySelectorAll('.pf-nav-link,.scribble-link,.pf-foot-email,.pf-foot-links a,.contact-links a');
+  const j=n=>(Math.random()-.5)*n;
+  function shape(w){
+    const x0=4+j(4),x1=w-4+j(4);
+    return `M${x0},${3+j(2)} C${w*.3},${1+j(2)} ${w*.65},${5+j(2)} ${x1},${2+j(2)}`+
+      ` Q${w*.55},${7+j(2)} ${w*.12+j(6)},${11+j(2)}`+
+      ` Q${w*.45},${9+j(2)} ${w*.78+j(w*.1)},${13+j(2)}`;
+  }
+  targets.forEach(link=>{
+    link.classList.add('scribble-link');
+    const host=link.querySelector('.scribble-host')||link;
+    const svg=document.createElementNS(NS,'svg'),path=document.createElementNS(NS,'path');
+    svg.setAttribute('class','scribble');svg.setAttribute('aria-hidden','true');
+    svg.appendChild(path);
+    let anim;
+    link.addEventListener('mouseenter',()=>{
+      if(!svg.isConnected)host.appendChild(svg);
+      path.setAttribute('d',shape(svg.getBoundingClientRect().width));
+      const len=path.getTotalLength();
+      if(anim)anim.cancel();
+      path.style.strokeDasharray=len;
+      anim=path.animate([{strokeDashoffset:len},{strokeDashoffset:0}],{duration:reduce?0:Math.min(700,320+len*1.2),easing:'cubic-bezier(.6,.05,.3,1)',fill:'forwards'});
+    });
+    link.addEventListener('mouseleave',()=>{
+      if(!anim)return;
+      const len=path.getTotalLength();
+      anim.cancel();
+      anim=path.animate([{strokeDashoffset:0},{strokeDashoffset:-len}],{duration:reduce?0:320,easing:'cubic-bezier(.5,0,.75,0)',fill:'forwards'});
+    });
+  });
+})();
