@@ -23,9 +23,8 @@
 .about-cv-link:hover .cv-link-arrow svg{transform:rotate(45deg)}
 
 /* skills — sits inside right column, aligned to content */
-.about-skills{margin-top:40px;padding-top:36px;border-top:1px solid var(--border)}
+.about-skills{margin-top:64px;padding:52px 48px 0;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:48px}
 .skills-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px}
-.skills-label-ai{margin-top:28px}
 
 .skills-tags{display:flex;flex-wrap:wrap;gap:10px}
 .skill-tag{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:400;color:var(--text);border:1px solid transparent;border-radius:100px;padding:8px 16px}
@@ -40,11 +39,11 @@
 .skill-tag-c5{background:rgba(219,39,119,.12);color:#db2777}
 
 /* ── DARK BAND ── */
-.dark-band{background:var(--dark-band-bg);padding:52px 48px;margin-top:64px;border-top:1px solid var(--border)}
-.dark-band-inner{display:grid;grid-template-columns:300px 1fr;gap:72px;min-width:0}
+.dark-band{background:var(--dark-band-bg);padding:52px 48px;margin-top:52px;border-top:1px solid var(--border)}
+.dark-band-inner{min-width:0}
 
 /* right column: two cols for exp + edu */
-.dark-cols{grid-column:2;display:grid;grid-template-columns:1fr 1fr;gap:48px;min-width:0}
+.dark-cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;min-width:0}
 .dark-cols > div{min-width:0}
 
 .col-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dark-band-label);margin-bottom:18px}
@@ -89,12 +88,11 @@
   .about-bio{order:3}
   .about-cv-link{order:4}
   .about-photo{order:5}
-  .about-skills{order:6;margin-top:32px;padding-top:28px}
+  .about-skills{margin-top:40px;padding:32px 20px 0;grid-template-columns:1fr;gap:28px}
   .skills-tags{gap:8px}
 
   .dark-band{padding:40px 20px;margin-top:40px}
-  .dark-band-inner{grid-template-columns:1fr;gap:32px}
-  .dark-cols{grid-column:auto;grid-template-columns:1fr;gap:28px}
+  .dark-cols{grid-template-columns:1fr;gap:28px}
 
   .photo-section{padding:0 0 32px}
   .photo-scroll{mask-image:linear-gradient(to right,transparent 0,#000 20px,#000 calc(100% - 20px),transparent 100%)}
@@ -105,6 +103,6 @@
 }
 
 @media (max-width:900px){
-  .dark-band-inner{grid-template-columns:1fr;gap:32px}
-  .dark-cols{grid-column:auto;grid-template-columns:1fr;gap:28px}
+  .about-skills{grid-template-columns:1fr;gap:28px}
+  .dark-cols{grid-template-columns:1fr;gap:28px}
 }
