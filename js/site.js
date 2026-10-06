@@ -76,7 +76,7 @@
   const NS='http://www.w3.org/2000/svg';
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const QUICK='.pf-nav-link,.pf-foot-links a';
-  const targets=document.querySelectorAll(QUICK+',.scribble-link,.pf-foot-email,.contact-links a');
+  const targets=document.querySelectorAll(QUICK+',.scribble-link,.pf-foot-email');
   const j=n=>(Math.random()-.5)*n;
   function shape(w){
     const x0=4+j(4),x1=w-4+j(4);
