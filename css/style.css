@@ -17,6 +17,8 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;cursor:none}
 body{font-family:'Cabinet Grotesk',sans-serif;background:var(--bg);color:var(--text);transition:background .2s,color .2s}
+/* Paragraph text: Literata (titles, menu and footer keep Cabinet Grotesk) */
+.section-body,.about-bio,.pf-hero-sub,.gate-text{font-family:'Literata',serif;font-optical-sizing:auto}
 
 .cursor-dot{position:fixed;top:0;left:0;width:8px;height:8px;border-radius:50%;background:var(--cursor);pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .2s}
 .cursor-ring{position:fixed;top:0;left:0;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--cursor-ring);pointer-events:none;z-index:99998;transform:translate(-50%,-50%)}
