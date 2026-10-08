@@ -26,17 +26,33 @@
 .about-skills{margin-top:64px;padding:52px 48px 0;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:48px}
 .skills-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px}
 
-.skills-tags{display:flex;flex-wrap:wrap;gap:10px}
-.skill-tag{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:400;color:var(--text);border:1px solid transparent;border-radius:100px;padding:8px 16px}
-.skill-tag-ai{border-color:var(--accent-ring);background:var(--accent-soft);color:var(--accent)}
-.skill-tag-icon{font-size:13px;line-height:1}
 
-/* colorful tag palette for the main skills */
-.skill-tag-c1{background:rgba(0,56,255,.1);color:#0038FF}
-.skill-tag-c2{background:rgba(5,150,105,.12);color:#059669}
-.skill-tag-c3{background:rgba(124,58,237,.12);color:#7c3aed}
-.skill-tag-c4{background:rgba(217,119,6,.14);color:#d97706}
-.skill-tag-c5{background:rgba(219,39,119,.12);color:#db2777}
+/* skills — torn tape labels */
+.skills-tags{display:flex;flex-wrap:wrap;gap:14px 18px}
+.skill{display:inline-flex;align-items:stretch;gap:8px;transform:rotate(var(--tilt,0deg));transition:transform .35s cubic-bezier(0.34,1.4,0.64,1)}
+.skill:hover{transform:rotate(0deg) scale(1.04)}
+.tape{display:inline-flex;align-items:center;justify-content:center;background:var(--tape);color:var(--tape-ink);font-family:'Cabinet Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.01em;line-height:1}
+.tape-label{padding:16px 30px 15px}
+.tape-emoji{width:58px;font-size:24px}
+.skill-y{--tape:#F5C443;--tape-ink:#141414}
+.skill-g{--tape:#1DB36B;--tape-ink:#fff}
+.skill-p{--tape:#FF4F8B;--tape-ink:#fff}
+.skill-b{--tape:#2C57D8;--tape-ink:#141414}
+.skill-o{--tape:#FF7A2F;--tape-ink:#141414}
+.skill-l{--tape:#C7B8FF;--tape-ink:#141414}
+.skill:nth-child(4n+1){--tilt:-1.2deg}
+.skill:nth-child(4n+1) .tape-label{clip-path:polygon(6.0% 1.3%,20.7% 0.6%,35.3% 2.6%,50.0% 0.3%,64.7% 2.1%,79.3% 1.5%,94.0% 0.2%,92.0% 16.7%,99.9% 33.3%,92.1% 50.0%,99.9% 66.7%,92.8% 83.3%,94.0% 98.3%,79.3% 96.7%,64.7% 99.5%,50.0% 99.1%,35.3% 97.5%,20.7% 96.2%,6.0% 97.7%,7.8% 83.3%,2.0% 66.7%,7.1% 50.0%,1.7% 33.3%,7.6% 16.7%)}
+.skill:nth-child(4n+1) .tape-emoji{clip-path:polygon(0.0% 1.1%,8.3% 5.9%,16.7% 2.3%,25.0% 5.7%,33.3% 1.3%,41.7% 6.0%,50.0% 0.5%,58.3% 5.8%,66.7% 1.6%,75.0% 6.5%,83.3% 0.2%,91.7% 5.3%,100.0% 0.2%,93.5% 8.3%,98.3% 16.7%,95.4% 25.0%,97.5% 33.3%,93.1% 41.7%,98.4% 50.0%,94.0% 58.3%,99.6% 66.7%,95.5% 75.0%,98.7% 83.3%,95.4% 91.7%,100.0% 99.5%,91.7% 94.9%,83.3% 99.9%,75.0% 94.3%,66.7% 98.9%,58.3% 93.4%,50.0% 98.7%,41.7% 93.9%,33.3% 98.8%,25.0% 93.8%,16.7% 98.9%,8.3% 94.8%,0.0% 97.5%,7.0% 91.7%,2.1% 83.3%,6.3% 75.0%,0.8% 66.7%,5.1% 58.3%,0.7% 50.0%,4.7% 41.7%,1.9% 33.3%,5.5% 25.0%,2.1% 16.7%,5.5% 8.3%)}
+.skill:nth-child(4n+2){--tilt:.8deg}
+.skill:nth-child(4n+2) .tape-label{clip-path:polygon(6.0% 2.3%,20.7% 1.8%,35.3% 3.4%,50.0% 3.8%,64.7% 1.9%,79.3% 2.7%,94.0% 0.2%,91.6% 16.7%,98.7% 33.3%,91.0% 50.0%,98.4% 66.7%,92.4% 83.3%,94.0% 98.5%,79.3% 97.3%,64.7% 99.9%,50.0% 98.2%,35.3% 99.3%,20.7% 99.5%,6.0% 99.8%,8.5% 83.3%,0.3% 66.7%,7.5% 50.0%,0.8% 33.3%,8.7% 16.7%)}
+.skill:nth-child(4n+2) .tape-emoji{clip-path:polygon(0.0% 2.4%,8.3% 6.6%,16.7% 0.0%,25.0% 5.0%,33.3% 2.3%,41.7% 5.7%,50.0% 2.5%,58.3% 5.5%,66.7% 0.2%,75.0% 6.1%,83.3% 1.9%,91.7% 5.2%,100.0% 0.2%,94.7% 8.3%,97.6% 16.7%,93.6% 25.0%,99.7% 33.3%,94.9% 41.7%,99.7% 50.0%,95.4% 58.3%,98.0% 66.7%,95.1% 75.0%,98.6% 83.3%,94.4% 91.7%,100.0% 99.5%,91.7% 93.7%,83.3% 99.7%,75.0% 93.9%,66.7% 99.7%,58.3% 94.4%,50.0% 99.5%,41.7% 94.8%,33.3% 97.6%,25.0% 93.5%,16.7% 99.2%,8.3% 93.3%,0.0% 99.5%,5.5% 91.7%,2.1% 83.3%,6.1% 75.0%,0.3% 66.7%,7.0% 58.3%,0.5% 50.0%,5.1% 41.7%,1.9% 33.3%,5.3% 25.0%,0.7% 16.7%,4.7% 8.3%)}
+.skill:nth-child(4n+3){--tilt:-.6deg}
+.skill:nth-child(4n+3) .tape-label{clip-path:polygon(6.0% 1.4%,20.7% 0.2%,35.3% 0.0%,50.0% 0.6%,64.7% 0.4%,79.3% 1.5%,94.0% 0.1%,91.3% 16.7%,98.8% 33.3%,92.7% 50.0%,99.5% 66.7%,92.3% 83.3%,94.0% 98.5%,79.3% 99.5%,64.7% 96.6%,50.0% 96.0%,35.3% 98.1%,20.7% 98.1%,6.0% 99.7%,7.2% 83.3%,0.7% 66.7%,7.5% 50.0%,1.7% 33.3%,7.3% 16.7%)}
+.skill:nth-child(4n+3) .tape-emoji{clip-path:polygon(0.0% 0.2%,8.3% 6.0%,16.7% 0.6%,25.0% 6.0%,33.3% 0.9%,41.7% 5.6%,50.0% 2.4%,58.3% 5.7%,66.7% 1.4%,75.0% 6.7%,83.3% 0.5%,91.7% 4.9%,100.0% 2.3%,93.5% 8.3%,99.4% 16.7%,95.0% 25.0%,98.2% 33.3%,93.1% 41.7%,99.5% 50.0%,93.1% 58.3%,97.8% 66.7%,94.0% 75.0%,98.9% 83.3%,95.2% 91.7%,100.0% 99.9%,91.7% 93.1%,83.3% 99.4%,75.0% 93.7%,66.7% 99.4%,58.3% 93.4%,50.0% 98.5%,41.7% 94.8%,33.3% 99.6%,25.0% 93.7%,16.7% 99.8%,8.3% 94.9%,0.0% 98.6%,6.6% 91.7%,1.5% 83.3%,5.2% 75.0%,2.3% 66.7%,5.0% 58.3%,0.0% 50.0%,5.2% 41.7%,1.1% 33.3%,4.7% 25.0%,0.4% 16.7%,5.4% 8.3%)}
+.skill:nth-child(4n+4){--tilt:1.1deg}
+.skill:nth-child(4n+4) .tape-label{clip-path:polygon(6.0% 0.8%,20.7% 0.8%,35.3% 2.5%,50.0% 3.6%,64.7% 3.4%,79.3% 1.9%,94.0% 2.6%,91.4% 16.7%,99.8% 33.3%,91.7% 50.0%,98.2% 66.7%,91.4% 83.3%,94.0% 97.0%,79.3% 98.1%,64.7% 99.3%,50.0% 96.8%,35.3% 98.7%,20.7% 96.8%,6.0% 96.1%,7.8% 83.3%,0.8% 66.7%,8.9% 50.0%,1.4% 33.3%,7.3% 16.7%)}
+.skill:nth-child(4n+4) .tape-emoji{clip-path:polygon(0.0% 1.4%,8.3% 4.8%,16.7% 0.9%,25.0% 6.7%,33.3% 2.5%,41.7% 6.1%,50.0% 1.7%,58.3% 6.0%,66.7% 0.4%,75.0% 4.6%,83.3% 0.0%,91.7% 6.8%,100.0% 1.8%,93.1% 8.3%,99.9% 16.7%,93.9% 25.0%,98.8% 33.3%,93.7% 41.7%,99.2% 50.0%,93.0% 58.3%,99.8% 66.7%,94.1% 75.0%,98.2% 83.3%,93.2% 91.7%,100.0% 98.2%,91.7% 93.7%,83.3% 98.0%,75.0% 93.2%,66.7% 99.1%,58.3% 93.8%,50.0% 97.7%,41.7% 93.3%,33.3% 99.0%,25.0% 93.5%,16.7% 97.8%,8.3% 94.1%,0.0% 98.4%,5.5% 91.7%,1.5% 83.3%,6.0% 75.0%,0.2% 66.7%,6.1% 58.3%,2.5% 50.0%,6.7% 41.7%,1.8% 33.3%,5.5% 25.0%,1.8% 16.7%,6.0% 8.3%)}
+@media (prefers-reduced-motion:reduce){.skill,.skill:hover{transform:none}}
 
 /* ── DARK BAND ── */
 .dark-band{background:var(--dark-band-bg);padding:52px 48px;margin-top:52px;border-top:1px solid var(--border)}
@@ -89,7 +105,10 @@
   .about-cv-link{order:4}
   .about-photo{order:5}
   .about-skills{margin-top:40px;padding:32px 20px 0;grid-template-columns:1fr;gap:28px}
-  .skills-tags{gap:8px}
+  .skills-tags{gap:10px 12px}
+  .tape{font-size:18px}
+  .tape-label{padding:13px 24px 12px}
+  .tape-emoji{width:48px;font-size:20px}
 
   .dark-band{padding:40px 20px;margin-top:40px}
   .dark-cols{grid-template-columns:1fr;gap:28px}
