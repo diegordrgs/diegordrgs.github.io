@@ -80,7 +80,27 @@
 
 <div class="wrap">
   <section class="pf-hero">
-    <p class="pf-hero-text" data-en="I'm Diego, <span class='cienty-hl'>Product Designer</span> <img class='hero-sticker' src='images/home/figma-sticker.webp' alt='Figma'>. I design and help build strategic solutions for products.">Sou o Diego, <span class="cienty-hl">Designer de Produto</span> <img class="hero-sticker" src="images/home/figma-sticker.webp" alt="Figma">. Crio experiências e ajudo a construir soluções estratégicas para produtos.</p>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <mask id="flowerMask" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+          <g fill="#fff"><circle cx="50" cy="26" r="22"/><circle cx="72.8" cy="42.6" r="22"/><circle cx="64.1" cy="69.4" r="22"/><circle cx="35.9" cy="69.4" r="22"/><circle cx="27.2" cy="42.6" r="22"/></g>
+          <g fill="#000"><circle cx="50" cy="26" r="11"/><circle cx="72.8" cy="42.6" r="11"/><circle cx="64.1" cy="69.4" r="11"/><circle cx="35.9" cy="69.4" r="11"/><circle cx="27.2" cy="42.6" r="11"/><circle cx="50" cy="50" r="17"/></g>
+        </mask>
+        <symbol id="flower" viewBox="0 0 100 100"><rect width="100" height="100" fill="currentColor" mask="url(#flowerMask)"/></symbol>
+        <symbol id="pillWave" viewBox="0 0 200 72"><path d="M100 0C88 9 112 18 100 27C88 36 112 45 100 54C92 60 104 66 100 72H200V0Z"/></symbol>
+      </defs>
+    </svg>
+    <h1 class="pf-hero-title">
+      <em class="ht-serif" data-en="Hi, I'm">Oi, eu sou</em>
+      <svg class="ht-flower ht-flower-1" aria-hidden="true"><use href="#flower"/></svg>
+      <span class="ht-sans">Diego Rodrigues</span>
+      <span class="ht-pill ht-photo"><img src="IMG_2022.JPG" alt=""></span>
+      <span class="ht-pill ht-split ht-split-1" aria-hidden="true"><svg viewBox="0 0 200 72" preserveAspectRatio="none"><use href="#pillWave"/></svg></span>
+      <em class="ht-serif" data-en="a product designer">designer de produto</em>
+      <svg class="ht-flower ht-flower-2" aria-hidden="true"><use href="#flower"/></svg>
+      <span class="ht-pill ht-split ht-split-2" aria-hidden="true"><svg viewBox="0 0 200 72" preserveAspectRatio="none"><use href="#pillWave"/></svg></span>
+      <span class="ht-sans" data-en="who builds products people remember.">que cria produtos que as pessoas lembram.</span>
+    </h1>
     <p class="pf-hero-sub pf-hero-sub-lg" data-en="For over 12 years, I've worked at companies of every stage, <strong class='hl'>from early-stage startups 🚀, to unicorns 🦄, and well-established companies</strong>.">Há mais de 12 anos atuando em empresas de todos os estágios, <strong class="hl">de startups 🚀 em fase inicial, unicórnios 🦄 e empresas já consolidadas no mercado</strong>.</p>
   </section>
 
