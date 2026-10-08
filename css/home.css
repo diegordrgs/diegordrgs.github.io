@@ -7,9 +7,18 @@
 
 .wrap{width:100%;padding:0 48px}
 
-.pf-hero{position:relative;padding:64px 0 32px;max-width:980px}
-.pf-hero-text{font-family:'Cabinet Grotesk',sans-serif;font-size:64px;font-weight:700;line-height:1.08;letter-spacing:-.03em;color:var(--text)}
-.pf-hero-text em{font-style:italic}
+.pf-hero{position:relative;min-height:calc(100svh - 62px);padding:64px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.pf-hero-title{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(40px,6.2vw,104px);font-weight:800;line-height:1.12;letter-spacing:-.035em;color:var(--text);max-width:15em;margin:0 auto}
+.ht-serif{font-family:'Literata',serif;font-style:italic;font-weight:400;font-optical-sizing:auto;letter-spacing:-.045em}
+.ht-flower{display:inline-block;width:.92em;height:.92em;vertical-align:middle;transform:translateY(-.06em);transition:transform .5s cubic-bezier(0.34,1.4,0.64,1)}
+.ht-flower:hover{transform:translateY(-.06em) rotate(72deg)}
+.ht-flower-1{color:var(--accent)}
+.ht-flower-2{color:#C7B8FF}
+.ht-pill{display:inline-block;position:relative;width:1.6em;height:.66em;border-radius:999px;overflow:hidden;vertical-align:middle;transform:translateY(-.06em);margin:0 .04em}
+.ht-pill svg{display:block;width:100%;height:100%}
+.ht-split-1{background:#FF5FC8;color:#FF5A1F}
+.ht-split-2{background:#BCD7FF;color:#E6FF5C}
+.ht-pill use{fill:currentColor}
 .hw{display:inline;cursor:none}
 .hw-hl{background:var(--accent-soft);color:var(--accent);padding:0 5px 2px;border-radius:4px}
 .hw-img{position:fixed;width:180px;height:124px;border-radius:10px;overflow:hidden;pointer-events:none;opacity:0;transform:scale(0.9) rotate(-2deg);transition:opacity .2s ease,transform .26s cubic-bezier(0.34,1.4,0.64,1);z-index:9990;box-shadow:0 6px 24px rgba(0,0,0,.12)}
@@ -17,13 +26,11 @@
 .hw-img.vis{opacity:1;transform:scale(1) rotate(-1.5deg)}
 .hw-img.alt.vis{transform:scale(1) rotate(1.5deg)}
 
-.hero-sticker{display:inline-block;height:1em;width:auto;vertical-align:middle;transform:translateY(-.06em);transition:transform .4s cubic-bezier(0.34,1.4,0.64,1)}
-.hero-sticker:hover{transform:translateY(-.06em) rotate(45deg)}
 
 .inline-glyph{display:inline-block;width:1em;height:1em;object-fit:cover;border-radius:.16em;vertical-align:middle;margin:0 .04em;transform:translateY(-.08em)}
 
-.pf-hero-sub{margin-top:28px;font-size:16px;font-weight:300;line-height:1.75;color:var(--text-body);max-width:520px}
-.pf-hero-sub-lg{font-size:21px;max-width:none}
+.pf-hero-sub{margin-top:40px;font-size:16px;font-weight:300;line-height:1.75;color:var(--text-body);max-width:520px}
+.pf-hero-sub-lg{font-size:21px;max-width:720px;margin-left:auto;margin-right:auto}
 .pf-hero-sub strong{font-weight:600;color:var(--text)}
 
 .cienty-hl{color:var(--accent)}
@@ -69,8 +76,8 @@
   .pf-nav>ul{display:none}
   .menu-toggle{display:flex}
   .wrap{padding:0 20px}
-  .pf-hero{padding:40px 0 32px}
-  .pf-hero-text{font-size:clamp(32px,9vw,64px)}
+  .pf-hero{min-height:calc(100svh - 58px);padding:40px 0}
+  .pf-hero-title{font-size:clamp(34px,10.5vw,64px)}
   .pf-hero-sub{max-width:100%}
   .pf-hero-sub-lg{font-size:17px}
   .pf-grid{grid-template-columns:1fr;grid-template-rows:none}
