@@ -1,5 +1,5 @@
-/* Dithered photo — redraws the About portrait as a grid of ordered-dither
-   (Bayer 8×8) dots on a canvas. Dots spring in on load and are pushed away
+/* Dithered photo — redraws the About portrait in color as a grid of ordered-dither
+   (Bayer 8×8, per RGB channel) dots on a canvas. Dots spring in on load and are pushed away
    by the cursor, then settle back. Falls back to the plain <img> without JS. */
 (function(){
   const wrap=document.querySelector('.about-photo');
@@ -11,6 +11,7 @@
   const RADIUS=50;       // cursor influence radius
   const FORCE=3;         // push strength
   const SPRING=.07, DAMP=.82;
+  const LEVELS=5;        // tones per RGB channel
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const B=[0,32,8,40,2,34,10,42,48,16,56,24,50,18,58,26,12,44,4,36,14,46,6,38,60,28,52,20,62,30,54,22,
@@ -21,7 +22,7 @@
   canvas.setAttribute('aria-hidden','true');
   const ctx=canvas.getContext('2d');
 
-  let W=0,H=0,dpr=1,hx,hy,px,py,vx,vy,n=0,ink='#000',paper='#fff';
+  let W=0,H=0,dpr=1,hx,hy,px,py,vx,vy,n=0,runs=[],paper='#fff';
   let mx=-1e4,my=-1e4,raf=0,crop=null;
 
   // Visible part of the image, matching the CSS object-fit:cover + scale crop
@@ -53,33 +54,38 @@
     octx.drawImage(img,(qx0-dx)/c,(qy0-dy)/c,(qx1-qx0)/c,(qy1-qy0)/c,0,0,cols,rows);
     const d=octx.getImageData(0,0,cols,rows).data;
 
-    // Luminance + auto-levels so the dither uses the full tonal range
-    const lum=new Float32Array(cols*rows),hist=new Uint32Array(256);
-    for(let i=0;i<lum.length;i++){
-      const l=.2126*d[i*4]+.7152*d[i*4+1]+.0722*d[i*4+2];
-      lum[i]=l;hist[l|0]++;
-    }
+    // Auto-levels on luminance so the dither uses the full tonal range
+    const hist=new Uint32Array(256),N=cols*rows;
+    for(let i=0;i<N;i++)hist[(.2126*d[i*4]+.7152*d[i*4+1]+.0722*d[i*4+2])|0]++;
     let lo=0,hi=255,acc=0;
-    for(let i=0;i<256;i++){acc+=hist[i];if(acc>lum.length*.02){lo=i;break}}
+    for(let i=0;i<256;i++){acc+=hist[i];if(acc>N*.02){lo=i;break}}
     acc=0;
-    for(let i=255;i>=0;i--){acc+=hist[i];if(acc>lum.length*.02){hi=i;break}}
+    for(let i=255;i>=0;i--){acc+=hist[i];if(acc>N*.02){hi=i;break}}
     const span=Math.max(hi-lo,1);
 
-    const dark=document.documentElement.getAttribute('data-theme')==='dark';
-    const xs=[],ys=[];
-    for(let y=0;y<rows;y++)for(let x=0;x<cols;x++){
-      let v=Math.min(Math.max((lum[y*cols+x]-lo)/span,0),1);
-      if(!dark)v=1-v;                       // light mode: ink marks the shadows
-      if(v>(B[(y&7)*8+(x&7)]+.5)/64){xs.push(x*CELL+CELL/2);ys.push(y*CELL+CELL/2)}
+    // Ordered dither per RGB channel down to LEVELS steps, keeping the photo in color
+    const q=v=>Math.min(Math.max((v-lo)/span,0),1)*(LEVELS-1);
+    const xs=new Float32Array(N),ys=new Float32Array(N),ci=new Uint16Array(N);
+    for(let y=0,i=0;y<rows;y++)for(let x=0;x<cols;x++,i++){
+      const t=(B[(y&7)*8+(x&7)]+.5)/64;
+      const r=Math.floor(q(d[i*4])+t),g=Math.floor(q(d[i*4+1])+t),b=Math.floor(q(d[i*4+2])+t);
+      xs[i]=x*CELL+CELL/2;ys[i]=y*CELL+CELL/2;
+      ci[i]=(Math.min(r,LEVELS-1)*LEVELS+Math.min(g,LEVELS-1))*LEVELS+Math.min(b,LEVELS-1);
     }
-    n=xs.length;
-    hx=Float32Array.from(xs);hy=Float32Array.from(ys);
+    // Sort dots by color so each frame only switches fillStyle once per color
+    const order=Array.from({length:N},(_,i)=>i).sort((a,b)=>ci[a]-ci[b]);
+    n=N;
+    hx=new Float32Array(n);hy=new Float32Array(n);
+    runs=[];
+    for(let k=0;k<n;k++){
+      const i=order[k];hx[k]=xs[i];hy[k]=ys[i];
+      if(!k||ci[i]!==ci[order[k-1]])runs.push(k,ci[i]);
+    }
+    runs.push(n,-1);
     vx=new Float32Array(n);vy=new Float32Array(n);
     px=Float32Array.from(hx);py=Float32Array.from(hy);
 
-    const cs=getComputedStyle(document.documentElement);
-    ink=cs.getPropertyValue('--text-strong').trim()||'#0a0a0a';
-    paper=cs.getPropertyValue('--surface').trim()||'#f0f0f0';
+    paper=getComputedStyle(document.documentElement).getPropertyValue('--surface').trim()||'#f0f0f0';
   }
 
   function scatter(){
@@ -92,9 +98,12 @@
   function draw(){
     ctx.setTransform(dpr,0,0,dpr,0,0);
     ctx.fillStyle=paper;ctx.fillRect(0,0,W,H);
-    ctx.fillStyle=ink;
-    const h=DOT/2;
-    for(let i=0;i<n;i++)ctx.fillRect(px[i]-h,py[i]-h,DOT,DOT);
+    const h=DOT/2,m=255/(LEVELS-1);
+    for(let r=0;r<runs.length-2;r+=2){
+      const c=runs[r+1],L2=LEVELS*LEVELS;
+      ctx.fillStyle=`rgb(${(c/L2|0)*m},${((c/LEVELS|0)%LEVELS)*m},${(c%LEVELS)*m})`;
+      for(let i=runs[r];i<runs[r+2];i++)ctx.fillRect(px[i]-h,py[i]-h,DOT,DOT);
+    }
   }
 
   function step(){

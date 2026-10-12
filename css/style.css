@@ -71,6 +71,8 @@ body{font-family:'Cabinet Grotesk',sans-serif;background:var(--bg);color:var(--t
 .pf-nav-link:hover,.pf-nav-link.on,.pf-foot-links a:hover{background:var(--accent);color:var(--on-accent);font-weight:500}
 .pf-nav-link .scribble,.pf-foot-links a .scribble{left:0;width:100%;margin-top:4px;height:10px}
 .pf-nav-link .scribble path,.pf-foot-links a .scribble path{stroke-width:3}
+.pf-foot-email .scribble{left:-2px;width:calc(100% + 4px);height:8px;margin-top:2px}
+.pf-foot-email .scribble path{stroke-width:2}
 
 /* Highlight: accent block sweeps in behind the words on hover */
 .hl{color:inherit;background:linear-gradient(var(--accent),var(--accent)) no-repeat 0 0/0% 100%;transition:background-size .35s cubic-bezier(.65,0,.35,1),color .25s ease;padding:0 .08em;margin:0 -.08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}

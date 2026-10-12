@@ -47,8 +47,10 @@
 .pf-divider{border:none;border-top:1px solid var(--border)}
 
 .pf-work{padding:32px 0 88px}
-.pf-work-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:24px}
-.pf-work-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+.pf-work-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:48px}
+.pf-work-label{margin:0;font-family:'Literata',serif;font-style:italic;font-weight:400;font-optical-sizing:auto;font-size:clamp(26px,2.6vw,38px);line-height:1.2;letter-spacing:-.03em;color:var(--text-strong)}
+.pf-work-label .scribble-static{height:14px;margin-top:2px}
+.scribble-static path{vector-effect:non-scaling-stroke}
 .pf-work-more{font-size:13px;color:var(--text-secondary);text-decoration:none;transition:color .2s;cursor:none}
 .pf-work-more:hover{color:var(--text)}
 
