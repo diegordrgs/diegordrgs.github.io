@@ -76,6 +76,7 @@
   const NS='http://www.w3.org/2000/svg';
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const QUICK='.pf-nav-link,.pf-foot-links a';
+  const SINGLE='.pf-foot-email'; // a single light stroke
   const targets=document.querySelectorAll(QUICK+',.scribble-link,.pf-foot-email');
   const j=n=>(Math.random()-.5)*n;
   function shape(w){
@@ -105,8 +106,8 @@
     let anim;
     link.addEventListener('mouseenter',()=>{
       if(!svg.isConnected)host.appendChild(svg);
-      const simple=link.matches(QUICK);
-      path.setAttribute('d',(simple?quickMark:shape)(svg.getBoundingClientRect().width));
+      const simple=link.matches(QUICK+','+SINGLE),w=svg.getBoundingClientRect().width;
+      path.setAttribute('d',link.matches(SINGLE)?marks[0](w):(simple?quickMark:shape)(w));
       const len=path.getTotalLength();
       if(anim)anim.cancel();
       path.style.strokeDasharray=len;
