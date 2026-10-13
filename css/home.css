@@ -85,6 +85,7 @@
 
 .pf-thumb-cover{width:100%;height:100%;display:flex;align-items:center;justify-content:center;transition:transform .6s cubic-bezier(0.25,0.46,0.45,0.94)}
 .pf-cover-cienty{background:radial-gradient(120% 90% at 20% 15%,#f06fd9 0%,#DC36C0 38%,#7a1a6b 100%)}
-.pf-cover-cienty span{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(44px,7vw,96px);font-weight:800;letter-spacing:-.04em;color:#fff;opacity:.92;transform:translateY(-12%)}
+.pf-cover-ai{background:radial-gradient(120% 90% at 20% 15%,#7d8cff 0%,#1F3BFF 45%,#0b1a8f 100%)}
+.pf-cover-cienty span,.pf-cover-ai span{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(44px,7vw,96px);font-weight:800;letter-spacing:-.04em;color:#fff;opacity:.92;transform:translateY(-12%)}
 .pf-lock{position:absolute;top:14px;right:14px;z-index:2;display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--thumb-cta-bg);color:var(--thumb-cta-text);transition:opacity .3s ease}
 .pf-lock svg{width:15px;height:15px;display:block}
