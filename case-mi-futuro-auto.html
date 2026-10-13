@@ -12,7 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/protected.css">
+  <link rel="stylesheet" href="css/case-shared.css">
+  <link rel="stylesheet" href="css/case-somos.css">
+  <link rel="stylesheet" href="css/case-kavak.css">
   <script src="js/protect.js"></script>
   <script>Protect.guard('mi-futuro-auto')</script>
 </head>
@@ -56,7 +58,7 @@
   <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu" data-breakpoint="900">
   <div class="mobile-menu-top">
     <a class="pf-logo" href="index.html">Diego Rodrigues</a>
     <button class="menu-close" id="menuClose" type="button" aria-label="Close menu">&times;</button>
@@ -80,29 +82,106 @@
   </div>
 </div>
 
-<div class="wrap">
-  <main class="gate">
-    <div class="gate-card">
-      <a class="gate-back" href="index.html" data-en="← Back to work">← Voltar para trabalhos</a>
-      <p class="gate-eyebrow" data-en="Case study">Case study</p>
-      <h1 class="gate-title">Mi Futuro Auto BR — Kavak</h1>
-      <p class="gate-text" data-en="Content coming soon.">Conteúdo em breve.</p>
+<div class="case-layout">
+  <aside class="case-sidebar">
+    <div class="sidebar-inner">
+      <a class="sidebar-back" href="index.html" data-en="← All work">← Todos os trabalhos</a>
+      <p class="sidebar-section-label" data-en="Contents">Conteúdo</p>
+      <nav class="sidebar-nav">
+        <a class="sidebar-link active" href="#produto" data-en="The product">O produto</a>
+        <a class="sidebar-link" href="#desafio" data-en="Challenge">Desafio</a>
+        <a class="sidebar-link" href="#pesquisa" data-en="Research">Pesquisa</a>
+        <a class="sidebar-link" href="#localizador" data-en="Locator">Localizador</a>
+      </nav>
     </div>
-  </main>
+  </aside>
 
-  <footer class="pf-foot">
-    <div class="pf-foot-left">
-      <p class="pf-foot-cta" data-en="Want to work together?">Vamos trabalhar juntos?</p>
-      <a class="pf-foot-email" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">diegorodrigues@me.com</a>
+  <main class="case-content">
+
+    <p class="case-eyebrow" data-en="Automotive · Internationalization · Kavak">Automotivo · Internacionalização · Kavak</p>
+    <h1 class="case-title" data-en="Mi Futuro Auto: bringing a self-service car purchase from Mexico to Brazil">Mi Futuro Auto: levando a compra de carros self-service do México para o Brasil</h1>
+
+    <div class="case-hero case-hero--kavak">
+      <span class="case-hero-badge" data-en="UX Case Study">Case de UX</span>
+      <img class="hero-slide is-active" src="images/kavak/produto.jpg" alt="Mi Futuro Auto — tela de compra em andamento com as etapas para concluir a compra">
     </div>
-    <div class="pf-foot-links">
-      <a href="https://www.linkedin.com/in/diegordrgs/" target="_blank">LinkedIn</a>
-      <a href="https://dribbble.com/diegorodrigues" target="_blank">Dribbble</a>
-    <a href="https://medium.com/@dirdrgs" target="_blank">Medium</a>
+
+    <div class="case-meta">
+      <div><p class="meta-label" data-en="Role">Função</p><p class="meta-value" data-en="Product Designer">Designer de Produto</p></div>
+      <div><p class="meta-label" data-en="Company">Empresa</p><p class="meta-value">Kavak</p></div>
+      <div><p class="meta-label" data-en="Market">Mercado</p><p class="meta-value" data-en="Mexico → Brazil">México → Brasil</p></div>
+      <div><p class="meta-label" data-en="Methods">Métodos</p><p class="meta-value" data-en="Stakeholder interviews<br>Explorations">Entrevistas com stakeholders<br>Explorações</p></div>
     </div>
-  </footer>
+
+    <!-- O PRODUTO -->
+    <section class="case-section" id="produto">
+      <p class="section-tag" data-en="The product">O produto</p>
+      <h2 class="section-title" data-en="Buying a car without talking to anyone">Comprar um carro sem precisar falar com ninguém</h2>
+      <div class="section-body">
+        <p data-en="Mi Futuro Auto is a Kavak product that gives customers a <strong>self-service, fully autonomous experience when buying a car</strong>. Instead of having to go somewhere, search for a car, talk to many people and visit many places, they can do everything from their phone, without having to talk to anyone.">Mi Futuro Auto é um produto da Kavak que permite aos clientes ter uma <strong>experiência self-service e totalmente autônoma na compra do seu carro</strong>. Em vez de precisar ir até um lugar, procurar um carro, falar com várias pessoas e passar por vários lugares, eles fazem tudo pelo celular, sem precisar falar com ninguém.</p>
+        <p data-en="Besides that, customers get:">Além disso, os clientes têm:</p>
+      </div>
+      <div class="goals-grid">
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Full visibility of the process">Visibilidade total do processo</span></div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Fewer wrong expectations">Menos expectativas equivocadas</span></div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Help available at any time">Ajuda disponível a qualquer momento</span></div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="A more scalable and efficient sales operation">Uma operação de vendas mais escalável e eficiente</span></div>
+      </div>
+    </section>
+
+    <!-- DESAFIO -->
+    <section class="case-section" id="desafio">
+      <p class="section-tag" data-en="Challenge">Desafio</p>
+      <h2 class="section-title" data-en="Same operation, different country">Mesma operação, outro país</h2>
+      <div class="section-body">
+        <p data-en="Kavak started its operation in Mexico, so the challenge was to adapt the model already created there to Brazil.">A Kavak começou sua operação no México, então o desafio era adaptar para o Brasil o modelo que já havia sido criado.</p>
+        <p data-en="Although the operation is similar, each country has its own particularities: <strong>the order of some steps, the creation or removal of others, business rules that change</strong> (like how much you pay to book a car), the payment methods available in each country, and more.">Embora a operação seja parecida, cada país tem suas particularidades: <strong>a ordem de algumas etapas, a criação ou remoção de outras, regras de negócio que mudam</strong> (como quanto se paga para reservar um carro), os métodos de pagamento disponíveis em cada país, entre outras.</p>
+      </div>
+      <p class="case-statement" data-en="In short: how could we adapt our product from the Mexican to the Brazilian operation — and internationalize it while keeping it easy to scale?">Em resumo: como adaptar nosso produto da operação do México para a do Brasil — e internacionalizá-lo mantendo a facilidade de escalar?</p>
+    </section>
+
+    <!-- PESQUISA -->
+    <section class="case-section" id="pesquisa">
+      <p class="section-tag" data-en="Research">Pesquisa</p>
+      <h2 class="section-title" data-en="What stays the same, and what has to change">O que se mantém e o que precisa mudar</h2>
+      <div class="section-body">
+        <p data-en="The first step was to understand how the two countries work: what we could keep the same and what we needed to change. To do that, we interviewed people from the operations team, sales agents and other stakeholders.">O primeiro passo foi entender como os dois países funcionam: o que poderíamos manter igual e o que precisaríamos mudar. Para isso, entrevistamos pessoas do time de operações, agentes de vendas e outros stakeholders.</p>
+        <p data-en="<strong>The main points we needed to adapt were:</strong>"><strong>Os principais pontos que precisávamos adaptar eram:</strong></p>
+      </div>
+      <div class="method-list">
+        <div class="method-item"><span class="method-num">01</span><span class="method-name"><strong data-en="Order of steps">Ordem das etapas</strong><small data-en="Payment and contract">Pagamento e contrato</small></span></div>
+        <div class="method-item"><span class="method-num">02</span><span class="method-name"><strong data-en="Different documentation">Documentação diferente</strong><small data-en="Different documents requested from the customer">Documentos diferentes solicitados ao cliente</small></span></div>
+        <div class="method-item"><span class="method-num">03</span><span class="method-name"><strong data-en="Payment methods">Métodos de pagamento</strong><small data-en="Different payment methods, including some that can't be tracked">Métodos de pagamento diferentes, inclusive alguns não rastreáveis</small></span></div>
+        <div class="method-item"><span class="method-num">04</span><span class="method-name"><strong data-en="No home delivery">Sem entrega em casa</strong><small data-en="Home delivery isn't available in Brazil">A entrega em domicílio não está disponível no Brasil</small></span></div>
+        <div class="method-item"><span class="method-num">05</span><span class="method-name"><strong data-en="GPS locator">Localizador GPS</strong><small data-en="A tracking service offered with the car, which requires accepting its terms">Serviço de rastreamento oferecido com o carro, que exige o aceite dos termos</small></span></div>
+      </div>
+    </section>
+
+    <!-- LOCALIZADOR -->
+    <section class="case-section" id="localizador">
+      <p class="section-tag" data-en="Explorations">Explorações</p>
+      <h2 class="section-title" data-en="Locator">Localizador</h2>
+      <div class="section-body">
+        <p data-en="Explorations for offering the free GPS tracking service: how to present it, ask the customer to accept the terms, and let them opt out — alongside the two-year warranty terms.">Explorações para a oferta do serviço gratuito de rastreamento GPS: como apresentá-lo, pedir o aceite dos termos e permitir que o cliente recuse — junto com os termos da garantia de dois anos.</p>
+      </div>
+
+      <img class="case-img case-img--natural" src="images/kavak/localizador.jpg" alt="Explorações de telas do localizador GPS e dos termos de garantia" loading="lazy">
+    </section>
+
+    <hr class="case-divider">
+
+    <a class="next-case" href="case-somos.html">
+      <div>
+        <p class="next-label" data-en="Next case">Próximo case</p>
+        <p class="next-title">Somos Educação</p>
+      </div>
+      <span class="next-arrow">→</span>
+    </a>
+
+  </main>
 </div>
 
 <script src="js/site.js"></script>
+<script src="js/case.js"></script>
 </body>
 </html>
