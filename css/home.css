@@ -61,6 +61,11 @@
 .pf-card-media{position:relative;aspect-ratio:4/3;border-radius:clamp(18px,2vw,28px);overflow:hidden;background:var(--surface)}
 .pf-card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(0.25,0.46,0.45,0.94)}
 .pf-card:hover .pf-card-media img,.pf-card:hover .pf-thumb-cover{transform:scale(1.04)}
+/* Thumbs with a built-in dark frame (1448x1086, ~25px frame around cards with ~18px corners).
+   Rest: radius concentric with the inner cards (18+25). Hover: the 1.04 zoom crops the frame away,
+   so the radius eases down to the inner cards' own corner (18x1.04). The thumb itself never grows. */
+.pf-card-media--framed{border-radius:2.97%/3.96%;transition:border-radius .6s cubic-bezier(0.25,0.46,0.45,0.94)}
+.pf-card:hover .pf-card-media--framed{border-radius:1.29%/1.72%}
 .pf-card-title{font-family:'Literata',serif;font-style:italic;font-weight:400;font-optical-sizing:auto;font-size:clamp(24px,2.2vw,34px);line-height:1.15;letter-spacing:-.03em;color:var(--text-strong);margin:20px 0 0}
 .pf-card-desc{margin:8px 0 0;font-size:16px;font-weight:400;line-height:1.6;color:var(--text-secondary);max-width:46ch}
 .pf-card-meta{margin:10px 0 0;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted)}

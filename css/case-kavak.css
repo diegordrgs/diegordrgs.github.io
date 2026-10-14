@@ -1,0 +1,27 @@
+/* Mi Futuro Auto (Kavak) case */
+.case-hero--kavak{background:#f2f2f2}
+.case-hero--kavak .case-hero-badge{z-index:2;background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.1);color:#444}
+
+.case-img--natural{aspect-ratio:auto;object-fit:contain}
+
+.case-statement{font-family:'Cabinet Grotesk',sans-serif;font-size:26px;font-weight:700;letter-spacing:-.02em;line-height:1.3;color:var(--text-strong);margin-top:32px;padding-left:20px;border-left:3px solid var(--accent)}
+
+#pesquisa .method-item{align-items:flex-start}
+#pesquisa .method-num{margin-top:2px}
+#pesquisa .method-name strong{display:block;font-weight:500;color:var(--text-strong)}
+#pesquisa .method-name small{display:block;margin-top:4px;font-size:13px;font-weight:300;line-height:1.5;color:var(--text-secondary)}
+
+@media (max-width:640px){.case-hero--kavak .case-hero-badge{display:none}}
+
+@media (max-width:900px){
+  .case-statement{font-size:21px}
+}
+
+.case-img--bordered{border:1px solid var(--border)}
+
+/* STATS */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:24px 0}
+.stat-item{background:var(--surface);border-radius:12px;padding:20px}
+.stat-value{font-family:'Cabinet Grotesk',sans-serif;font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1;color:var(--accent)}
+.stat-label{margin-top:10px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+@media (max-width:640px){.stat-grid{grid-template-columns:1fr}}
