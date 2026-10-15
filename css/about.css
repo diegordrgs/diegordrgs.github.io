@@ -24,7 +24,6 @@
 
 /* skills — sits inside right column, aligned to content */
 .about-skills{margin-top:64px;padding:52px 48px 0;border-top:1px solid var(--border)}
-.skills-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px}
 
 
 /* skills — pill tags, alternating sans / italic serif like the home hero */
