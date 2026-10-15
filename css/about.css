@@ -63,9 +63,9 @@
 .edu-title{font-family:'Cabinet Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--dark-band-text);letter-spacing:-.01em}
 .edu-school{font-family:'Literata',serif;font-style:italic;font-weight:400;font-size:.85em;color:var(--dark-band-role);letter-spacing:-.02em;white-space:nowrap}
 .col-label-gap{margin-top:40px}
-.edu-list{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:4px}
-.edu-list li{font-size:14px;font-weight:300;color:var(--dark-band-role)}
-.edu-year{font-size:12px;color:var(--dark-band-label);margin-left:6px}
+.edu-list{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:4px}
+.edu-list li{font-family:'Cabinet Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--dark-band-text);letter-spacing:-.01em}
+.edu-year{font-size:12px;font-weight:400;letter-spacing:0;color:var(--dark-band-label);margin-left:6px}
 
 /* ── PHOTO SECTION ── */
 .photo-section{background:var(--dark-band-bg);padding:8px 0 64px;overflow:hidden}
