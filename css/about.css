@@ -23,7 +23,7 @@
 .about-cv-link:hover .cv-link-arrow svg{transform:rotate(45deg)}
 
 /* skills — sits inside right column, aligned to content */
-.about-skills{margin-top:64px;padding:52px 48px 0;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.about-skills{margin-top:64px;padding:52px 48px 0;border-top:1px solid var(--border)}
 .skills-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:16px}
 
 
@@ -95,7 +95,7 @@
   .about-bio{order:3}
   .about-cv-link{order:4}
   .about-photo{order:5}
-  .about-skills{margin-top:40px;padding:32px 20px 0;grid-template-columns:1fr;gap:28px}
+  .about-skills{margin-top:40px;padding:32px 20px 0}
   .skills-tags{gap:8px 6px}
   .skill{font-size:19px;padding:8px 18px 9px}
 
@@ -111,6 +111,5 @@
 }
 
 @media (max-width:900px){
-  .about-skills{grid-template-columns:1fr;gap:28px}
   .dark-cols{grid-template-columns:1fr;gap:28px}
 }
