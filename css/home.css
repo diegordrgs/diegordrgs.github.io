@@ -8,7 +8,7 @@
 .wrap{width:100%;padding:0 48px}
 
 .pf-hero{position:relative;min-height:calc(100svh - 62px);padding:64px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-.pf-hero-title{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(40px,6.2vw,104px);font-weight:800;line-height:1.12;letter-spacing:-.035em;color:var(--text);max-width:15em;margin:0 auto}
+.pf-hero-title{font-family:'Cabinet Grotesk',sans-serif;font-size:clamp(36px,5.2vw,90px);font-weight:800;line-height:1.12;letter-spacing:-.035em;color:var(--text);max-width:17em;margin:0 auto;text-wrap:balance}
 .ht-serif{font-family:'Literata',serif;font-style:italic;font-weight:400;font-optical-sizing:auto;letter-spacing:-.045em}
 .ht-img{display:inline-block;width:1.45em;height:.92em;object-fit:cover;border-radius:.14em;vertical-align:middle;margin:0 .04em;transform:translateY(-.06em) rotate(var(--r,0deg));box-shadow:0 .06em .2em rgba(0,0,0,.14);transition:transform .45s cubic-bezier(0.34,1.4,0.64,1)}
 .ht-img-2{--r:2.5deg}
@@ -31,8 +31,8 @@
 
 .inline-glyph{display:inline-block;width:1em;height:1em;object-fit:cover;border-radius:.16em;vertical-align:middle;margin:0 .04em;transform:translateY(-.08em)}
 
-.pf-hero-sub{margin-top:40px;font-size:16px;font-weight:300;line-height:1.75;color:var(--text-body);max-width:520px}
-.pf-hero-sub-lg{font-size:21px;max-width:720px;margin-left:auto;margin-right:auto}
+.pf-hero-sub{margin-top:40px;font-family:'Cabinet Grotesk',sans-serif;font-size:16px;font-weight:300;line-height:1.75;color:var(--text-body);max-width:520px}
+.pf-hero-sub-lg{font-size:24px;max-width:820px;text-wrap:balance;margin-left:auto;margin-right:auto}
 .pf-hero-sub strong{font-weight:600;color:var(--text)}
 
 .cienty-hl{color:var(--accent)}
@@ -78,7 +78,7 @@
   .pf-hero{min-height:calc(100svh - 58px);padding:40px 0}
   .pf-hero-title{font-size:clamp(34px,10.5vw,64px)}
   .pf-hero-sub{max-width:100%}
-  .pf-hero-sub-lg{font-size:17px}
+  .pf-hero-sub-lg{font-size:19px}
   .pf-grid{display:flex;flex-direction:column;align-items:stretch;gap:48px}
   .pf-col{display:contents}
   .pf-card{order:var(--order)}
