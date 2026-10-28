@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/case-shared.css">
   <link rel="stylesheet" href="css/case-somos.css">
+  <link rel="stylesheet" href="css/case-ai.css">
 </head>
 <body>
 <script>
@@ -86,6 +87,14 @@
       <p class="sidebar-section-label" data-en="Contents">Conteúdo</p>
       <nav class="sidebar-nav">
         <a class="sidebar-link active" href="#overview" data-en="Overview">Visão geral</a>
+        <a class="sidebar-link" href="#stack" data-en="My AI stack">Meu stack de IA</a>
+        <a class="sidebar-link" href="#pesquisa" data-en="Research">Pesquisa</a>
+        <a class="sidebar-link" href="#prototipacao" data-en="Prototyping">Prototipação</a>
+        <a class="sidebar-link" href="#figma-ai" data-en="Figma AI">Figma AI</a>
+        <a class="sidebar-link" href="#escala" data-en="Scaling to the team">Escalando para o time</a>
+        <a class="sidebar-link" href="#quando-usar" data-en="When to use which">Quando usar cada um</a>
+        <a class="sidebar-link" href="#impacto" data-en="Impact">Impacto</a>
+        <a class="sidebar-link" href="#limites" data-en="Limits &amp; learnings">Limites e aprendizados</a>
       </nav>
     </div>
   </aside>
@@ -93,23 +102,250 @@
   <main class="case-content">
 
     <p class="case-eyebrow" data-en="AI · Process · Product Design">IA · Processo · Design de Produto</p>
-    <h1 class="case-title">Using AI as a Designer</h1>
+    <h1 class="case-title" data-en="Using AI as a Designer: from hours to minutes">Usando IA como Designer: de horas para minutos</h1>
 
     <div class="case-hero" style="background:radial-gradient(120% 90% at 20% 15%,#7d8cff 0%,#1F3BFF 45%,#0b1a8f 100%)">
       <span class="case-hero-badge" data-en="Case Study">Case</span>
-      <div class="case-hero-inner"><p>Using AI as a Designer</p></div>
+      <div class="case-hero-inner">
+        <p>Using AI as a Designer</p>
+        <span data-en="Hero suggestion: a collage of a Claude Code prototype + a Figma screen populated with AI">Sugestão de hero: colagem de um protótipo feito no Claude Code + uma tela do Figma populada com IA</span>
+      </div>
     </div>
 
-    <!-- TODO: add case meta (role, company, methods, tools) -->
+    <div class="case-meta">
+      <div><p class="meta-label" data-en="Role">Função</p><p class="meta-value" data-en="Product Designer">Designer de Produto</p></div>
+      <div><p class="meta-label" data-en="Context">Contexto</p><p class="meta-value" data-en="B2B marketplace<br>[company · period]">Marketplace B2B<br>[empresa · período]</p></div>
+      <div><p class="meta-label" data-en="Applied to">Aplicado em</p><p class="meta-value" data-en="Research · Prototyping<br>Documentation · Content">Pesquisa · Prototipação<br>Documentação · Conteúdo</p></div>
+      <div><p class="meta-label" data-en="Tools">Ferramentas</p><p class="meta-value">Claude Code<br>Figma AI · Lovable</p></div>
+    </div>
 
     <!-- OVERVIEW -->
     <section class="case-section" id="overview">
       <p class="section-tag" data-en="Overview">Visão Geral</p>
-      <h2 class="section-title" data-en="Coming soon">Em breve</h2>
+      <h2 class="section-title" data-en="AI didn't replace my design process — it compressed it">A IA não substituiu meu processo de design — ela o comprimiu</h2>
       <div class="section-body">
-        <p data-en="This case is being written. Come back soon.">Este case está sendo escrito. Volte em breve.</p>
+        <p data-en="Over the last [period], AI became part of almost every stage of my work as a product designer. Not to generate final screens on its own, but to <strong>remove the slow, manual parts of the job</strong>: synthesizing research, organizing business rules, populating realistic screens and turning ideas into navigable prototypes.">Nos últimos [período], a IA passou a fazer parte de quase todas as etapas do meu trabalho como designer de produto. Não para gerar telas finais sozinha, mas para <strong>tirar do caminho as partes lentas e manuais do trabalho</strong>: sintetizar pesquisas, organizar regras de negócio, popular telas com dados realistas e transformar ideias em protótipos navegáveis.</p>
+        <p data-en="This case shows how I use <strong>Claude Code</strong> and <strong>Figma AI</strong> day to day, where each one fits best, and where AI still falls short — especially in complex B2B products.">Este case mostra como uso o <strong>Claude Code</strong> e a <strong>IA do Figma</strong> no dia a dia, onde cada um se encaixa melhor e onde a IA ainda não chega — principalmente em produtos B2B complexos.</p>
+      </div>
+      <p class="case-statement" data-en="What used to take me a few hours now takes a few minutes — and that time goes back into thinking about the problem.">O que antes me levava algumas horas hoje leva alguns minutos — e esse tempo volta para pensar no problema.</p>
+
+      <div class="todo-note" data-en="<strong>To fill in</strong> Why did you start using AI? A short trigger (e.g. tight deadlines, small team, too much manual work) makes the opening stronger. Also confirm company and period in the meta above."><strong>A preencher</strong> Por que você começou a usar IA? Um gatilho curto (ex.: prazos apertados, time pequeno, muito trabalho manual) deixa a abertura mais forte. Confirmar também empresa e período no cabeçalho acima.</div>
+    </section>
+
+    <!-- STACK -->
+    <section class="case-section" id="stack">
+      <p class="section-tag" data-en="My AI stack">Meu stack de IA</p>
+      <h2 class="section-title" data-en="The tools and what I use each one for">As ferramentas e para que uso cada uma</h2>
+      <div class="tool-grid">
+        <div class="tool-card">
+          <span class="tool-label" data-en="Main tool">Principal</span>
+          <span class="tool-name">Claude Code</span>
+          <p class="tool-uses" data-en="Research synthesis, data analysis, reports, business rules, navigable prototypes and an internal skill used by the whole company.">Síntese de pesquisa, análise de dados, relatórios, regras de negócio, protótipos navegáveis e uma skill interna usada pela empresa toda.</p>
+        </div>
+        <div class="tool-card">
+          <span class="tool-label" data-en="Inside the design tool">Dentro da ferramenta</span>
+          <span class="tool-name">Figma AI</span>
+          <p class="tool-uses" data-en="Realistic content for tables and cards, variations of the same interface and work on top of our design system.">Conteúdo realista para tabelas e cards, variações de uma mesma interface e trabalho em cima do nosso design system.</p>
+        </div>
+        <div class="tool-card tool-card--past">
+          <span class="tool-label" data-en="Before Claude">Antes do Claude</span>
+          <span class="tool-name">Lovable</span>
+          <p class="tool-uses" data-en="My first tool for turning ideas into live prototypes.">Minha primeira ferramenta para transformar ideias em protótipos vivos.</p>
+        </div>
+      </div>
+
+      <div class="section-body">
+        <p data-en="Where AI shows up along my process:">Onde a IA aparece ao longo do meu processo:</p>
+      </div>
+      <div class="process-strip">
+        <div class="process-step"><span class="process-num">01</span><span class="process-name" data-en="Research">Pesquisa</span><div class="process-tools"><span class="process-tool">Claude Code</span></div></div>
+        <div class="process-step"><span class="process-num">02</span><span class="process-name" data-en="Define">Definição</span><div class="process-tools"><span class="process-tool">Claude Code</span></div></div>
+        <div class="process-step"><span class="process-num">03</span><span class="process-name" data-en="Explore">Exploração</span><div class="process-tools"><span class="process-tool">Figma AI</span><span class="process-tool">Claude Code</span></div></div>
+        <div class="process-step"><span class="process-num">04</span><span class="process-name" data-en="Prototype">Protótipo</span><div class="process-tools"><span class="process-tool">Claude Code</span></div></div>
+        <div class="process-step"><span class="process-num">05</span><span class="process-name" data-en="Present">Apresentação</span><div class="process-tools"><span class="process-tool">Figma AI</span><span class="process-tool">Skill</span></div></div>
       </div>
     </section>
+
+    <!-- PESQUISA -->
+    <section class="case-section" id="pesquisa">
+      <p class="section-tag" data-en="UX Research">UX Research</p>
+      <h2 class="section-title" data-en="Finding patterns in minutes, not hours">Encontrando padrões em minutos, não em horas</h2>
+      <div class="section-body">
+        <p data-en="In research, the biggest gain is in <strong>data analysis</strong>. With Claude Code I summarize interviews, find recurring patterns and pull data straight from spreadsheets — work that I used to do manually and that took me a few hours.">Em pesquisa, o maior ganho está na <strong>análise de dados</strong>. Com o Claude Code eu sumarizo entrevistas, encontro padrões recorrentes e extraio dados direto de planilhas — um trabalho que eu fazia manualmente e que me tomava algumas horas.</p>
+        <p data-en="It also helps me turn findings into <strong>quick reports</strong> and write business rules in a much more organized way, which makes handoff to PMs and developers clearer.">Também me ajuda a transformar descobertas em <strong>relatórios rápidos</strong> e a escrever regras de negócio de forma muito mais organizada, o que deixa o alinhamento com PMs e desenvolvedores mais claro.</p>
+      </div>
+
+      <div class="compare">
+        <div class="compare-col">
+          <p class="compare-label" data-en="Before">Antes</p>
+          <ul>
+            <li data-en="Reading notes and spreadsheets line by line">Ler anotações e planilhas linha a linha</li>
+            <li data-en="Grouping insights by hand">Agrupar insights manualmente</li>
+            <li data-en="Building the report from scratch">Montar o relatório do zero</li>
+            <li data-en="A few hours per study">Algumas horas por estudo</li>
+          </ul>
+        </div>
+        <div class="compare-col compare-col--after">
+          <p class="compare-label" data-en="With AI">Com IA</p>
+          <ul>
+            <li data-en="Asking questions directly to the raw data">Fazer perguntas direto aos dados brutos</li>
+            <li data-en="Patterns and summaries generated, then reviewed by me">Padrões e resumos gerados e revisados por mim</li>
+            <li data-en="Report draft ready to refine">Rascunho de relatório pronto para refinar</li>
+            <li data-en="A few minutes per study">Alguns minutos por estudo</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="img-placeholder">
+        <span data-en="Image suggestion">Sugestão de imagem</span>
+        <small data-en="Screenshot of a research synthesis made with Claude (anonymized): raw spreadsheet → clustered insights / report">Print de uma síntese de pesquisa feita com o Claude (anonimizada): planilha bruta → insights agrupados / relatório</small>
+      </div>
+
+      <div class="todo-note" data-en="<strong>To fill in</strong> A real example: which study, how much data (e.g. 12 interviews, 800 spreadsheet rows), which insight came out of it and what decision it led to. Also worth one line on how you validate the AI output and handle sensitive data."><strong>A preencher</strong> Um exemplo real: qual estudo, quanto dado (ex.: 12 entrevistas, 800 linhas de planilha), qual insight saiu dali e que decisão ele gerou. Vale também uma linha sobre como você valida o que a IA entrega e como lida com dados sensíveis.</div>
+    </section>
+
+    <!-- PROTOTIPAÇÃO -->
+    <section class="case-section" id="prototipacao">
+      <p class="section-tag" data-en="Prototyping">Prototipação</p>
+      <h2 class="section-title" data-en="From idea to navigable prototype">Da ideia ao protótipo navegável</h2>
+      <div class="section-body">
+        <p data-en="Many interfaces can only really be tested with a <strong>live prototype</strong>: filters, tables, states, real interactions. Building that in Figma — creating screens and wiring flows — took hours. With Claude Code I turn ideas into navigable prototypes very quickly.">Muitas interfaces só podem ser testadas de verdade com um <strong>protótipo vivo</strong>: filtros, tabelas, estados, interações reais. Construir isso no Figma — criando telas e conectando fluxos — levava horas. Com o Claude Code eu transformo ideias em protótipos navegáveis com muita rapidez.</p>
+        <p data-en="I use it to validate concepts and experiment with interactions, starting from two different places:">Uso para validar conceitos e experimentar interações, partindo de dois lugares diferentes:</p>
+      </div>
+
+      <div class="method-list">
+        <div class="method-item"><span class="method-num">A</span><span class="method-name" data-en="<strong>From Figma</strong> — when there's already a design, I use it as the base for the prototype"><strong>A partir do Figma</strong> — quando já existe um design, uso como base do protótipo</span></div>
+        <div class="method-item"><span class="method-num">B</span><span class="method-name" data-en="<strong>From scratch</strong> — when there's nothing yet, to test a concept before investing in screens"><strong>Do zero</strong> — quando ainda não existe nada, para testar um conceito antes de investir em telas</span></div>
+      </div>
+
+      <div class="img-placeholder img-placeholder--tall">
+        <span data-en="Video / GIF suggestion">Sugestão de vídeo / GIF</span>
+        <small data-en="Screen recording of a prototype made with Claude Code in use — ideally side by side with the prompt or the original Figma">Gravação de tela de um protótipo feito com Claude Code sendo navegado — idealmente lado a lado com o prompt ou com o Figma original</small>
+      </div>
+
+      <div class="section-body">
+        <p data-en="Before Claude, I used <strong>Lovable</strong> for the same purpose. [What made you switch?]">Antes do Claude, eu usava o <strong>Lovable</strong> com o mesmo objetivo. [O que fez você trocar?]</p>
+      </div>
+      <p class="case-statement" data-en="AI still can't build complete B2B interfaces. But getting 50–60% of an interface done is already a huge productivity boost.">A IA ainda não consegue criar interfaces B2B completas. Mas chegar a 50–60% de uma interface já é um ganho enorme de produtividade.</p>
+
+      <div class="todo-note" data-en="<strong>To fill in</strong> One concrete prototype: what concept it tested, how long it took vs. the Figma way, who saw it (users? stakeholders?) and what changed after the test. Also: why did you move from Lovable to Claude Code?"><strong>A preencher</strong> Um protótipo concreto: que conceito testou, quanto tempo levou vs. o jeito no Figma, quem viu (usuários? stakeholders?) e o que mudou depois do teste. E também: por que você migrou do Lovable para o Claude Code?</div>
+    </section>
+
+    <!-- FIGMA AI -->
+    <section class="case-section" id="figma-ai">
+      <p class="section-tag">Figma AI</p>
+      <h2 class="section-title" data-en="Realistic screens without the tedious work">Telas realistas sem o trabalho maçante</h2>
+      <div class="section-body">
+        <p data-en="My product is a marketplace. I often need to design and present screens with <strong>dozens of products</strong> — each with name, code, photo, lab, price and other details. Filling all of that by hand was extremely tedious. With Figma AI, I populate tables and cards with realistic content in seconds.">Meu produto é um marketplace. Muitas vezes preciso criar e apresentar telas com <strong>dezenas de produtos</strong> — cada um com nome, código, foto, laboratório, preço e outras informações. Preencher tudo isso na mão era extremamente maçante. Com a IA do Figma, populo tabelas e cards com conteúdo realista em segundos.</p>
+      </div>
+
+      <div class="img-placeholder">
+        <span data-en="Image suggestion — before / after">Sugestão de imagem — antes / depois</span>
+        <small data-en="The same product table: with repeated placeholder content (“Product name”) vs. populated with Figma AI">A mesma tabela de produtos: com conteúdo repetido (“Nome do produto”) vs. populada com a IA do Figma</small>
+      </div>
+
+      <div class="section-body">
+        <p data-en="I also use it to create <strong>explorations of the same interface</strong> — quick variations that help me diverge before choosing a direction.">Também uso para criar <strong>explorações de uma mesma interface</strong> — variações rápidas que me ajudam a divergir antes de escolher um caminho.</p>
+        <p data-en="When it comes to working with our <strong>own design system and components</strong>, Figma handles the integration better. I've tried Claude Code for that, but Figma still wins at this point.">Na hora de trabalhar com o <strong>design system próprio e seus componentes</strong>, o Figma se sai melhor na integração. Já testei o Claude Code para isso, mas nesse ponto o Figma ainda ganha.</p>
+      </div>
+
+      <div class="img-placeholder">
+        <span data-en="Image suggestion">Sugestão de imagem</span>
+        <small data-en="3–4 explorations of the same screen generated with Figma AI, side by side">3–4 explorações da mesma tela geradas com a IA do Figma, lado a lado</small>
+      </div>
+    </section>
+
+    <!-- ESCALA -->
+    <section class="case-section" id="escala">
+      <p class="section-tag" data-en="Scaling to the team">Escalando para o time</p>
+      <h2 class="section-title" data-en="A skill the whole company uses">Uma skill que a empresa inteira usa</h2>
+      <div class="section-body">
+        <p data-en="The gain stopped being only mine. I created a <strong>Claude Code skill that encodes our brand identity</strong>, so anyone in the company can create presentations, landing pages, dashboards and other materials that already follow the visual guidelines — without needing a designer for every request.">O ganho deixou de ser só meu. Criei uma <strong>skill no Claude Code que carrega a identidade visual da empresa</strong>, para que qualquer pessoa consiga criar apresentações, landing pages, dashboards e outros materiais já seguindo as diretrizes da marca — sem depender de um designer para cada pedido.</p>
+      </div>
+
+      <div class="goals-grid">
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Presentations">Apresentações</span></div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Landing pages">Landing pages</span></div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Dashboards">Dashboards</span></div>
+        <div class="goal-item"><span class="goal-dot"></span><span data-en="Reports and other materials">Relatórios e outros materiais</span></div>
+      </div>
+
+      <div class="img-placeholder">
+        <span data-en="Image suggestion">Sugestão de imagem</span>
+        <small data-en="Grid of materials created by different people using the skill (deck, LP, dashboard) — shows consistency at scale">Grid de materiais criados por pessoas diferentes usando a skill (deck, LP, dashboard) — mostra consistência em escala</small>
+      </div>
+
+      <div class="todo-note" data-en="<strong>To fill in</strong> This is probably the strongest part of the case — worth expanding: what problem it solved (inconsistent materials? design bottleneck?), how the skill works (what it contains: colors, type, components, tone), how many people / teams use it, and one piece of feedback or number of materials created."><strong>A preencher</strong> Essa provavelmente é a parte mais forte do case — vale expandir: que problema resolveu (materiais inconsistentes? gargalo no design?), como a skill funciona (o que ela contém: cores, tipografia, componentes, tom de voz), quantas pessoas / times usam e algum feedback ou número de materiais criados.</div>
+    </section>
+
+    <!-- QUANDO USAR -->
+    <section class="case-section" id="quando-usar">
+      <p class="section-tag" data-en="When to use which">Quando usar cada um</p>
+      <h2 class="section-title" data-en="Choosing the right tool for the job">Escolhendo a ferramenta certa para cada tarefa</h2>
+      <table class="use-table">
+        <thead>
+          <tr><th data-en="Task">Tarefa</th><th data-en="I use">Uso</th><th data-en="Why">Por quê</th></tr>
+        </thead>
+        <tbody>
+          <tr><td data-en="Research analysis">Análise de pesquisa</td><td>Claude Code</td><td data-en="Reads spreadsheets and long text, finds patterns">Lê planilhas e textos longos, encontra padrões</td></tr>
+          <tr><td data-en="Business rules &amp; reports">Regras de negócio e relatórios</td><td>Claude Code</td><td data-en="Organizes and structures information quickly">Organiza e estrutura informação rapidamente</td></tr>
+          <tr><td data-en="Concept validation">Validação de conceito</td><td>Claude Code</td><td data-en="Navigable prototype with real interactions">Protótipo navegável com interações reais</td></tr>
+          <tr><td data-en="Realistic content in screens">Conteúdo realista em telas</td><td>Figma AI</td><td data-en="Populates tables and cards right in the file">Popula tabelas e cards direto no arquivo</td></tr>
+          <tr><td data-en="Layout variations">Variações de layout</td><td>Figma AI</td><td data-en="Fast divergence on top of the existing screen">Divergência rápida em cima da tela existente</td></tr>
+          <tr><td data-en="Work with the design system">Trabalho com design system</td><td>Figma AI</td><td data-en="Better integration with our components">Integração melhor com nossos componentes</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- IMPACTO -->
+    <section class="case-section" id="impacto">
+      <p class="section-tag" data-en="Impact">Impacto</p>
+      <h2 class="section-title" data-en="What changed">O que mudou</h2>
+      <div class="stat-grid">
+        <div class="stat-item"><p class="stat-value" data-en="hours → min">horas → min</p><p class="stat-label" data-en="Research analysis">Análise de pesquisa</p></div>
+        <div class="stat-item"><p class="stat-value">50–60%</p><p class="stat-label" data-en="Of a B2B interface generated">De uma interface B2B gerada</p></div>
+        <div class="stat-item"><p class="stat-value">[X]</p><p class="stat-label" data-en="People using the skill">Pessoas usando a skill</p></div>
+      </div>
+      <div class="outcome-list">
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text" data-en="More time for the problem, less for repetitive work">Mais tempo para o problema, menos para trabalho repetitivo</span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text" data-en="Concepts validated with live prototypes much earlier">Conceitos validados com protótipos vivos muito mais cedo</span></div>
+        <div class="outcome-item"><span class="outcome-check">✓</span><span class="outcome-text" data-en="Brand-consistent materials made by anyone in the company">Materiais consistentes com a marca feitos por qualquer pessoa da empresa</span></div>
+      </div>
+
+      <div class="todo-note" data-en="<strong>To fill in</strong> Real numbers wherever possible: number of skill users, prototypes built, average time per task before/after. Even estimates (“~3h → ~15min”) are stronger than “hours → minutes”."><strong>A preencher</strong> Números reais onde for possível: quantidade de pessoas usando a skill, protótipos criados, tempo médio por tarefa antes/depois. Mesmo estimativas (“~3h → ~15min”) são mais fortes que “horas → minutos”.</div>
+    </section>
+
+    <!-- LIMITES -->
+    <section class="case-section" id="limites">
+      <p class="section-tag" data-en="Limits &amp; learnings">Limites e aprendizados</p>
+      <h2 class="section-title" data-en="What AI doesn't do (yet)">O que a IA (ainda) não faz</h2>
+      <div class="learning-grid">
+        <div class="learning-card">
+          <p class="learning-num">01</p>
+          <p class="learning-text" data-en="<strong>Complex B2B interfaces aren't one-shot.</strong> AI gets me 50–60% of the way; the rest is design judgment."><strong>Interfaces B2B complexas não saem prontas.</strong> A IA me leva a 50–60% do caminho; o resto é critério de design.</p>
+        </div>
+        <div class="learning-card">
+          <p class="learning-num">02</p>
+          <p class="learning-text" data-en="<strong>Design systems still live better in Figma.</strong> Code-generated UI drifts from our components more easily."><strong>Design system ainda vive melhor no Figma.</strong> UI gerada em código se afasta dos nossos componentes com mais facilidade.</p>
+        </div>
+        <div class="learning-card">
+          <p class="learning-num">03</p>
+          <p class="learning-text" data-en="<strong>Speed doesn't replace review.</strong> Every summary and every insight is checked before it becomes a decision."><strong>Velocidade não substitui revisão.</strong> Todo resumo e todo insight é checado antes de virar decisão.</p>
+        </div>
+      </div>
+
+      <div class="todo-note" data-en="<strong>To fill in</strong> Confirm learning 03 (review process) is true to how you work. Optionally close with “What's next”: what you want to try next with AI (e.g. testing prototypes with users, connecting the skill to the design system)."><strong>A preencher</strong> Confirmar se o aprendizado 03 (revisão) reflete como você trabalha. Opcional: fechar com “Próximos passos” — o que você quer testar a seguir com IA (ex.: testar protótipos com usuários, conectar a skill ao design system).</div>
+    </section>
+
+    <hr class="case-divider">
+
+    <a class="next-case" href="acesso.html?case=cienty">
+      <div>
+        <p class="next-label" data-en="Next case">Próximo case</p>
+        <p class="next-title">Cienty</p>
+      </div>
+      <span class="next-arrow">→</span>
+    </a>
 
   </main>
 </div>
