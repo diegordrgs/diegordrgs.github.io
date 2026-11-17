@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title data-en="Playground — Diego Rodrigues">Playground — Diego Rodrigues</title>
+  <meta name="description" data-en="A grid of photos and gifs — the stuff Diego Rodrigues gets up to outside of product design." content="Um mosaico de fotos e gifs — o que Diego Rodrigues faz fora do design de produto.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wdth,wght@12..36,75..150,300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/personal.css">
+</head>
+<body>
+<script>
+  (function(){
+    var t=localStorage.getItem('theme');
+    if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
+    if(t==='dark')document.documentElement.setAttribute('data-theme','dark');
+  })();
+</script>
+
+<div class="cursor-dot" id="dot"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<nav class="pf-nav">
+  <div class="pf-nav-left">
+    <a class="pf-logo" href="index.html">Diego Rodrigues</a>
+    <span class="pf-nav-sep">·</span>
+    <span class="pf-role" data-en="Product Designer">Designer de Produto</span>
+  </div>
+  <ul>
+    <li><a class="pf-nav-link" href="index.html" data-en="Work">Trabalho</a></li>
+    <li><a class="pf-nav-link on" href="personal.html" data-en="Playground">Playground</a></li>
+    <li><a class="pf-nav-link" href="about.html" data-en="About">Sobre</a></li>
+    <li><a class="pf-nav-link" href="https://drive.google.com/file/d/1tq70KpDJmJUauMY-ET6yFJ8qXpjYgbsi/view?usp=sharing" target="_blank" rel="noopener" data-en="Resume">Currículo</a></li>
+    <li class="nav-toggle-item">
+      <span class="lang-switch">
+        <button class="lang-option" data-lang="pt" type="button" aria-label="Português">PT</button>
+        <span class="lang-sep">/</span>
+        <button class="lang-option" data-lang="en" type="button" aria-label="English">EN</button>
+      </span>
+    </li>
+    <li class="nav-toggle-item">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </li>
+  </ul>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu"><svg class="burger" viewBox="0 0 24 24" aria-hidden="true"><defs><mask id="burgerMaskOpen" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#fff"/><circle class="burger-seed" cx="9.4" cy="8.3" r=".9" fill="#000"/><circle class="burger-seed" cx="12.2" cy="6.6" r=".9" fill="#000"/><circle class="burger-seed" cx="14.8" cy="8" r=".9" fill="#000"/></mask></defs><path class="burger-top" mask="url(#burgerMaskOpen)" d="M4.6 10.6V9.9C4.6 6.9 7.6 4.6 12 4.6s7.4 2.3 7.4 5.3v.7z"/><path class="burger-patty" d="M3.6 12h7.2l1.7 1.1 1.7-1.1h6.2a1 1 0 0 1 0 2H3.6a1 1 0 0 1 0-2z"/><rect class="burger-bottom" x="4.6" y="15.1" width="14.8" height="4.3" rx="1.4"/></svg></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-top">
+    <a class="pf-logo" href="index.html">Diego Rodrigues</a>
+    <button class="menu-close" id="menuClose" type="button" aria-label="Close menu"><svg class="burger" viewBox="0 0 24 24" aria-hidden="true"><defs><mask id="burgerMaskClose" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#fff"/><circle class="burger-seed" cx="9.4" cy="8.3" r=".9" fill="#000"/><circle class="burger-seed" cx="12.2" cy="6.6" r=".9" fill="#000"/><circle class="burger-seed" cx="14.8" cy="8" r=".9" fill="#000"/></mask></defs><path class="burger-top" mask="url(#burgerMaskClose)" d="M4.6 10.6V9.9C4.6 6.9 7.6 4.6 12 4.6s7.4 2.3 7.4 5.3v.7z"/><path class="burger-patty" d="M3.6 12h7.2l1.7 1.1 1.7-1.1h6.2a1 1 0 0 1 0 2H3.6a1 1 0 0 1 0-2z"/><rect class="burger-bottom" x="4.6" y="15.1" width="14.8" height="4.3" rx="1.4"/></svg></button>
+  </div>
+  <ul class="mobile-menu-links">
+    <li><a href="index.html" data-en="Work">Trabalho</a></li>
+    <li><a class="on" href="personal.html" data-en="Playground">Playground</a></li>
+    <li><a href="about.html" data-en="About">Sobre</a></li>
+    <li><a href="https://drive.google.com/file/d/1tq70KpDJmJUauMY-ET6yFJ8qXpjYgbsi/view?usp=sharing" target="_blank" rel="noopener" data-en="Resume">Currículo</a></li>
+  </ul>
+  <div class="mobile-menu-bottom">
+    <span class="lang-switch">
+      <button class="lang-option" data-lang="pt" type="button" aria-label="Português">PT</button>
+      <span class="lang-sep">/</span>
+      <button class="lang-option" data-lang="en" type="button" aria-label="English">EN</button>
+    </span>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="fun-grid">
+    <figure class="fun-item">
+      <img src="images/personal/project-1.jpg" alt="cloudy.wild — adventure travel landing page">
+    </figure>
+
+    <figure class="fun-item">
+      <img src="images/personal/project-2.jpg" alt="Amazonia.org — conservation landing page">
+    </figure>
+
+    <figure class="fun-item">
+      <img src="images/personal/project-3.jpg" alt="Aura Lager — beer product page">
+    </figure>
+
+    <figure class="fun-item">
+      <img src="images/personal/project-4.jpg" alt="Solar Fazenda do Cedro — hotel booking site">
+    </figure>
+
+    <figure class="fun-item">
+      <img src="images/personal/original-61f560a780409a6d39bd3811179f9837.gif" alt="Nintendo Characters — Yoshi swipe animation">
+    </figure>
+
+    <figure class="fun-item">
+      <img src="images/personal/project-6.jpg" alt="DiegoRodrigues.co — portfolio homepage">
+    </figure>
+
+    <figure class="fun-item">
+      <img src="images/personal/project-7.jpg" alt="Vespa — technical specifications page">
+    </figure>
+
+    <figure class="fun-item">
+      <img src="images/personal/project-8.jpg" alt="Can I Get Out? — quarantine tracking app">
+    </figure>
+
+    <figure class="fun-item">
+      <img src="images/personal/project-9.webp" alt="Estatísticas — tennis stats app mockup">
+    </figure>
+  </section>
+
+  <footer class="pf-foot">
+    <div class="pf-foot-left">
+      <p class="pf-foot-cta" data-en="Want to work together?">Vamos trabalhar juntos?</p>
+      <a class="pf-foot-email" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">diegorodrigues@me.com</a>
+    </div>
+    <div class="pf-foot-links">
+      <a href="https://www.linkedin.com/in/diegordrgs/" target="_blank">LinkedIn</a>
+      <a href="https://dribbble.com/diegorodrigues" target="_blank">Dribbble</a>
+    <a href="https://medium.com/@dirdrgs" target="_blank">Medium</a>
+    </div>
+  </footer>
+</div>
+
+<script src="js/site.js"></script>
+</body>
+</html>
