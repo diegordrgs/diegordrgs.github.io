@@ -1,237 +1,126 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title data-en="About — Diego Rodrigues">Sobre — Diego Rodrigues</title>
-  <meta name="description" data-en="Product designer from São Paulo, Brazil. 10+ years creating digital products at tech companies and design agencies." content="Designer de produto de São Paulo, Brasil. Mais de 10 anos criando produtos digitais em empresas de tecnologia e agências de design.">
+  <meta name="description" content="Sobre Diego Rodrigues, designer de produto em São Paulo.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="alternate icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wdth,wght@12..36,75..150,300..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/about.css">
+  <link href="https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wdth,wght@12..36,75..150,300..900&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/v2.css">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
 </head>
 <body>
-<script>
-  (function(){
-    var t=localStorage.getItem('theme');
-    if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
-    if(t==='dark')document.documentElement.setAttribute('data-theme','dark');
-  })();
-</script>
+<div class="frame-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="frame-rows" aria-hidden="true"><i></i><i></i></div>
 
-<div class="cursor-dot" id="dot"></div>
-<div class="cursor-ring" id="ring"></div>
-
-<nav class="pf-nav">
-  <div class="pf-nav-left">
-    <a class="pf-logo" href="index.html">Diego Rodrigues</a>
-    <span class="pf-nav-sep">·</span>
-    <span class="pf-role" data-en="Product Designer">Designer de Produto</span>
-  </div>
-  <ul>
-    <li><a class="pf-nav-link" href="index.html" data-en="Work">Trabalho</a></li>
-    <li><a class="pf-nav-link" href="personal.html" data-en="Playground">Playground</a></li>
-    <li><a class="pf-nav-link on" href="about.html" data-en="About">Sobre</a></li>
-    <li><a class="pf-nav-link" href="https://drive.google.com/file/d/1tq70KpDJmJUauMY-ET6yFJ8qXpjYgbsi/view?usp=sharing" target="_blank" rel="noopener" data-en="Resume">Currículo</a></li>
-    <li class="nav-toggle-item">
-      <span class="lang-switch">
-        <button class="lang-option" data-lang="pt" type="button" aria-label="Português">PT</button>
-        <span class="lang-sep">/</span>
-        <button class="lang-option" data-lang="en" type="button" aria-label="English">EN</button>
-      </span>
-    </li>
-    <li class="nav-toggle-item">
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-      </button>
-    </li>
-  </ul>
-  <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu"><svg class="burger" viewBox="0 0 24 24" aria-hidden="true"><defs><mask id="burgerMaskOpen" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#fff"/><circle class="burger-seed" cx="9.4" cy="8.3" r=".9" fill="#000"/><circle class="burger-seed" cx="12.2" cy="6.6" r=".9" fill="#000"/><circle class="burger-seed" cx="14.8" cy="8" r=".9" fill="#000"/></mask></defs><path class="burger-top" mask="url(#burgerMaskOpen)" d="M4.6 10.6V9.9C4.6 6.9 7.6 4.6 12 4.6s7.4 2.3 7.4 5.3v.7z"/><path class="burger-patty" d="M3.6 12h7.2l1.7 1.1 1.7-1.1h6.2a1 1 0 0 1 0 2H3.6a1 1 0 0 1 0-2z"/><rect class="burger-bottom" x="4.6" y="15.1" width="14.8" height="4.3" rx="1.4"/></svg></button>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-top">
-    <a class="pf-logo" href="index.html">Diego Rodrigues</a>
-    <button class="menu-close" id="menuClose" type="button" aria-label="Close menu"><svg class="burger" viewBox="0 0 24 24" aria-hidden="true"><defs><mask id="burgerMaskClose" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="#fff"/><circle class="burger-seed" cx="9.4" cy="8.3" r=".9" fill="#000"/><circle class="burger-seed" cx="12.2" cy="6.6" r=".9" fill="#000"/><circle class="burger-seed" cx="14.8" cy="8" r=".9" fill="#000"/></mask></defs><path class="burger-top" mask="url(#burgerMaskClose)" d="M4.6 10.6V9.9C4.6 6.9 7.6 4.6 12 4.6s7.4 2.3 7.4 5.3v.7z"/><path class="burger-patty" d="M3.6 12h7.2l1.7 1.1 1.7-1.1h6.2a1 1 0 0 1 0 2H3.6a1 1 0 0 1 0-2z"/><rect class="burger-bottom" x="4.6" y="15.1" width="14.8" height="4.3" rx="1.4"/></svg></button>
-  </div>
-  <ul class="mobile-menu-links">
-    <li><a href="index.html" data-en="Work">Trabalho</a></li>
-    <li><a href="personal.html" data-en="Playground">Playground</a></li>
-    <li><a class="on" href="about.html" data-en="About">Sobre</a></li>
-    <li><a href="https://drive.google.com/file/d/1tq70KpDJmJUauMY-ET6yFJ8qXpjYgbsi/view?usp=sharing" target="_blank" rel="noopener" data-en="Resume">Currículo</a></li>
-  </ul>
-  <div class="mobile-menu-bottom">
-    <span class="lang-switch">
-      <button class="lang-option" data-lang="pt" type="button" aria-label="Português">PT</button>
-      <span class="lang-sep">/</span>
-      <button class="lang-option" data-lang="en" type="button" aria-label="English">EN</button>
-    </span>
-    <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-    </button>
-  </div>
+<header class="bar bar-top">
+  <a class="logo" href="index.html" data-scramble-hover>Diego.Rodrigues</a>
+  <nav class="nav" aria-label="Principal">
+    <a href="index.html#work" data-scramble-hover data-en="Work">Trabalhos</a>
+    <a href="about.html" aria-current="page" data-scramble-hover data-en="About">Sobre</a>
+    <a href="#contact" class="nav-hide" data-scramble-hover data-en="Contact">Contato</a>
+    <button id="themeBtn" type="button" class="nav-hide" aria-label="Alternar tema">TEMA[A]</button>
+    <button id="langBtn" type="button" aria-label="Mudar idioma / Change language">PT[EN]</button>
+  </nav>
+</header>
+<div class="bar bar-bottom" aria-hidden="true">
+  <span class="mono" id="clock">GMT-3 SP 00:00</span>
+  <span class="mono coords" id="coords">0000 X 0000 Y</span>
+  <span class="globe"><svg viewBox="0 0 46 24" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="23" cy="12" rx="21" ry="10.5"/><path d="M2 12h42M6 6.5h34M6 17.5h34"/><ellipse class="meridian" cx="23" cy="12" rx="9" ry="10.5"/></svg></span>
 </div>
 
-<!-- ── HERO ── -->
-<div class="about-hero">
-  <div class="about-photo">
-    <img src="IMG_2022.JPG" alt="Diego Rodrigues">
+<main>
+<section class="about-hero wrap">
+  <div class="cols">
+    <p class="hero-kicker">Diego<br>Rodrigues</p>
+    <p class="mono" data-en="Senior Product Designer<br>São Paulo, Brazil">Designer de Produto Sênior<br>São Paulo, Brasil</p>
+    <p class="mono" data-en="15 years of experience · 12 in product<br>Education, banking, agro, foreign trade, marketplaces">15 anos de experiência · 12 em produto<br>Educação, bancos, agro, comércio exterior, marketplaces</p>
   </div>
-  <div class="about-intro-right">
-    <h1 class="about-name">Diego Rodrigues</h1>
-    <p class="about-role-line" data-en="Senior Product Designer · São Paulo, Brazil">Designer de Produto Sênior · São Paulo, Brasil</p>
+  <h1 class="hero-title"><span data-scramble data-en="Business">Negócio</span><span data-scramble data-en="and the person">e a pessoa</span><span data-scramble data-en="who uses it">que usa</span></h1>
+</section>
 
-    <p class="about-bio">Designer com mais de <strong class="hl">15 anos</strong> de experiência, <strong class="hl">12</strong> deles dedicados a produto, transformando necessidades de negócio em <span class="hover-float" data-float="floatWork">produtos intuitivos e com senso estético</span>. Já atuei em diversos mercados, como educação, bancos, agro, comércio exterior e marketplaces, sobretudo em produtos B2B, sempre traduzindo regras de negócio complexas em decisões de design claras e bem estruturadas.</p>
-    <p class="about-bio">Atuo da definição do problema e pesquisa à criação da interface, design system, validação e entrega. Acredito que o sucesso de um produto está no equilíbrio entre o negócio e na pessoa que usa, e que uma boa experiência sabe encantar e surpreender, desde uma arquitetura bem-feita até microinterações bem pensadas.</p>
-    <p class="about-bio">Hoje, na Cienty, sou o único designer e já passei por inúmeros momentos. Atualmente, nosso desafio é focado em criar novas formas de comprar e engajar os clientes. Aqui comecei a usar a IA ativamente no meu processo de pesquisa e prototipação, reduzindo de horas para minutos tarefas que antes eram manuais.</p>
-    <p class="about-bio">Na vida pessoal, gosto de passar tempo com minha esposa e minha filha ❤️, além de ler (me siga no <a class="about-inline-link" href="https://fable.co/" target="_blank" rel="noopener">Fable</a>), correr, fotografar e <span class="hover-float" data-float="floatZelda">jogar videogame</span>.</p>
-
-    <a href="mailto:diegorodrigues@me.com?subject=Portfolio Contact" class="about-cv-link scribble-link"><span class="cv-link-text scribble-host" data-en="Get in touch">Fale comigo</span><span class="cv-link-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M5 11 11 5M6 5h5v5"/></svg></span></a>
-  </div>
-</div>
-
-<!-- ── SKILLS ── -->
-<div class="about-skills">
-  <div class="skills-tags">
-    <span class="skill">UX/UI Design</span>
-    <span class="skill skill-y" data-en="End-to-end process">Processo ponta a ponta</span>
-    <span class="skill skill-g">Research</span>
-    <span class="skill">Design System</span>
-    <span class="skill skill-o">Figma</span>
-    <span class="skill skill-l">AI</span>
-    <span class="skill">Claude Code</span>
-    <span class="skill">Lovable</span>
-    <span class="skill skill-b">Figma Agent</span>
-  </div>
-</div>
-
-<!-- ── EXPERIENCE + EDUCATION ── -->
-<div class="dark-band">
-  <div class="dark-band-inner">
-    <div class="dark-cols">
-      <div>
-        <p class="col-label" data-en="Experience">Experiência</p>
-        <div class="exp-item">
-          <span class="exp-period" data-en="Feb 2023 — Now">Fev 2023 — Hoje</span>
-          <div>
-            <p class="exp-title">Covalenty / Cienty</p>
-            <p class="exp-role" data-en="Sr. Product Designer">Designer de Produto Sênior</p>
-          </div>
-        </div>
-        <div class="exp-item">
-          <span class="exp-period">Jan — Nov 2022</span>
-          <div>
-            <p class="exp-title">Kavak</p>
-            <p class="exp-role" data-en="Sr. Product Designer">Designer de Produto Sênior</p>
-          </div>
-        </div>
-        <div class="exp-item">
-          <span class="exp-period">2020 — 2022</span>
-          <div>
-            <p class="exp-title">Kestraa</p>
-            <p class="exp-role" data-en="Sr. Product Designer">Designer de Produto Sênior</p>
-          </div>
-        </div>
-        <div class="exp-item">
-          <span class="exp-period" data-en="Jun 2018 — Jul 2019">Jun 2018 — Jul 2019</span>
-          <div>
-            <p class="exp-title">Ornito</p>
-            <p class="exp-role" data-en="Sr. Product Designer">Designer de Produto Sênior</p>
-          </div>
-        </div>
-        <div class="exp-item">
-          <span class="exp-period">2018 — 2019</span>
-          <div>
-            <p class="exp-title">MJV / Bayer</p>
-            <p class="exp-role" data-en="UX Designer">Designer de UX</p>
-          </div>
-        </div>
-        <p class="exp-note" data-en="Before that, I worked with web design, advertising, and branding.">Antes disso, atuei com web design, publicidade e branding.</p>
-      </div>
-
-      <div>
-        <p class="col-label" data-en="Education">Educação</p>
-        <div class="edu-item">
-          <span class="edu-period">2019 — 2021</span>
-          <div>
-            <p class="edu-degree" data-en="Postgraduate">Pós-graduação</p>
-            <p class="edu-title"><span data-en="Strategic Design">Design Estratégico</span> <span class="edu-school">· Mackenzie</span></p>
-          </div>
-        </div>
-        <div class="edu-item">
-          <span class="edu-period">2012 — 2016</span>
-          <div>
-            <p class="edu-degree" data-en="Bachelor's Degree">Graduação</p>
-            <p class="edu-title"><span data-en="Advertising">Publicidade</span> <span class="edu-school">· Estácio de Sá</span></p>
-          </div>
-        </div>
-
-        <p class="col-label col-label-gap" data-en="Courses">Cursos</p>
-        <div class="edu-item">
-          <span class="edu-period">2022 — 2024</span>
-          <div>
-            <p class="edu-degree">PM3</p>
-            <p class="edu-title">Product Management</p>
-            <ul class="edu-list">
-              <li>Product Discovery <span class="edu-year">2023</span></li>
-              <li>Product Analytics <span class="edu-year">2024</span></li>
-              <li>Product Leadership <span class="edu-year">2024</span></li>
-              <li>Product Growth <span class="edu-year">2024</span></li>
-            </ul>
-          </div>
-        </div>
-        <div class="edu-item">
-          <span class="edu-period">2021</span>
-          <div>
-            <p class="edu-degree">Aprender Design</p>
-            <p class="edu-title" data-en="Building Accessible Interfaces">Criando Interfaces Acessíveis</p>
-          </div>
-        </div>
-      </div>
+<section class="statement wrap">
+  <div class="cols">
+    <div class="rv">
+      <div class="portrait"><span class="signature" aria-hidden="true">oi!</span><img src="IMG_2022.JPG" alt="Diego Rodrigues" loading="lazy"></div>
     </div>
-
-  </div>
-</div>
-
-<!-- ── PHOTO SECTION ── -->
-<div class="photo-section">
-  <div class="photo-scroll">
-    <div class="photo-scroll-track">
-      <img class="photo-scroll-item photo-v" src="images/about/photo-1.jpg" alt="Photography">
-      <img class="photo-scroll-item photo-h" src="images/about/photo-2.jpg" alt="Photography">
-      <img class="photo-scroll-item photo-v" src="images/about/photo-3.jpg" alt="Photography">
-      <img class="photo-scroll-item photo-h" src="images/about/photo-4.jpg" alt="Photography">
-      <img class="photo-scroll-item photo-v" src="images/about/photo-5.jpg" alt="Photography">
+    <div class="span-2 bio rv">
+      <p>Designer com mais de <strong>15 anos</strong> de experiência, <strong>12</strong> deles dedicados a produto, transformando necessidades de negócio em produtos intuitivos e com senso estético.</p>
+      <p>Já atuei em diversos mercados, como educação, bancos, agro, comércio exterior e marketplaces, sobretudo em produtos B2B, sempre traduzindo regras de negócio complexas em decisões de design claras e bem estruturadas.</p>
+      <p>Atuo da definição do problema e pesquisa à criação da interface, design system, validação e entrega. Acredito que o sucesso de um produto está no equilíbrio entre o negócio e na pessoa que usa, e que uma boa experiência sabe encantar e surpreender, desde uma arquitetura bem-feita até microinterações bem pensadas.</p>
+      <p>Hoje, na Cienty, sou o único designer e já passei por inúmeros momentos. Atualmente, nosso desafio é focado em criar novas formas de comprar e engajar os clientes. Aqui comecei a usar a IA ativamente no meu processo de pesquisa e prototipação, reduzindo de horas para minutos tarefas que antes eram manuais.</p>
+      <p>Na vida pessoal, gosto de passar tempo com minha esposa e minha filha ❤️, além de ler (me siga no <a href="https://fable.co/" target="_blank" rel="noopener">Fable</a>), correr, fotografar e jogar videogame.</p>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ── FOOTER ── -->
-<footer class="pf-foot">
-  <div class="pf-foot-left">
-    <p class="pf-foot-cta" data-en="Want to work together?">Vamos trabalhar juntos?</p>
-    <a class="pf-foot-email" href="mailto:diegorodrigues@me.com?subject=Portfolio Contact">diegorodrigues@me.com</a>
+<section class="wrap rv">
+  <p class="block-label" data-en="Skills &amp; tools">Habilidades e ferramentas</p>
+  <div class="chips">
+    <span class="chip">UX/UI Design</span><span class="chip" data-en="End-to-end process">Processo ponta a ponta</span><span class="chip">Research</span><span class="chip">Design System</span><span class="chip">Figma</span><span class="chip on">AI</span><span class="chip">Claude Code</span><span class="chip">Lovable</span><span class="chip">Figma Agent</span>
   </div>
-  <div class="pf-foot-links">
-    <a href="https://www.linkedin.com/in/diegordrgs/" target="_blank">LinkedIn</a>
-    <a href="https://dribbble.com/diegorodrigues" target="_blank">Dribbble</a>
-    <a href="https://medium.com/@dirdrgs" target="_blank">Medium</a>
+</section>
+
+<section class="block wrap rv">
+  <p class="block-label" data-en="Experience">Experiência</p>
+  <div class="rows">
+    <div class="row"><span class="mono" data-en="Feb 2023 — Now">Fev 2023 — Hoje</span><span class="ttl">Covalenty / Cienty</span><span class="sub" data-en="Sr. Product Designer">Designer de Produto Sênior</span></div>
+    <div class="row"><span class="mono">Jan — Nov 2022</span><span class="ttl">Kavak</span><span class="sub" data-en="Sr. Product Designer">Designer de Produto Sênior</span></div>
+    <div class="row"><span class="mono">2020 — 2022</span><span class="ttl">Kestraa</span><span class="sub" data-en="Sr. Product Designer">Designer de Produto Sênior</span></div>
+    <div class="row"><span class="mono">Jun 2018 — Jul 2019</span><span class="ttl">Ornito</span><span class="sub" data-en="Sr. Product Designer">Designer de Produto Sênior</span></div>
+    <div class="row"><span class="mono">2018 — 2019</span><span class="ttl">MJV / Bayer</span><span class="sub" data-en="UX Designer">Designer de UX</span></div>
   </div>
-</footer>
+  <p class="note" data-en="Before that, I worked with web design, advertising, and branding.">Antes disso, atuei com web design, publicidade e branding.</p>
+</section>
 
-<!-- floating hover thumbs (bio) -->
-<div class="float-thumb" id="floatWork" aria-hidden="true"><img src="images/ai/thumb-home.webp" alt=""></div>
-<div class="float-thumb alt" id="floatZelda" aria-hidden="true"><img src="images/about/zelda-ocarina.gif" alt=""></div>
+<section class="block wrap rv">
+  <p class="block-label" data-en="Education">Educação</p>
+  <div class="rows">
+    <div class="row"><span class="mono">2019 — 2021</span><span class="ttl" data-en="Strategic Design">Design Estratégico</span><span class="sub" data-en="Postgraduate · Mackenzie">Pós-graduação · Mackenzie</span></div>
+    <div class="row"><span class="mono">2012 — 2016</span><span class="ttl" data-en="Advertising">Publicidade</span><span class="sub" data-en="Bachelor's degree · Estácio de Sá">Graduação · Estácio de Sá</span></div>
+  </div>
+</section>
 
-<script src="js/site.js"></script>
-<script src="js/dither-photo.js"></script>
-<script src="js/about.js"></script>
+<section class="block wrap rv">
+  <p class="block-label" data-en="Courses">Cursos</p>
+  <div class="rows">
+    <div class="row"><span class="mono">2022 — 2024</span><span class="ttl">Product Management</span><div><span class="sub">PM3</span><ul><li>Product Discovery · 2023</li><li>Product Analytics · 2024</li><li>Product Leadership · 2024</li><li>Product Growth · 2024</li></ul></div></div>
+    <div class="row"><span class="mono">2021</span><span class="ttl" data-en="Building Accessible Interfaces">Criando Interfaces Acessíveis</span><span class="sub">Aprender Design</span></div>
+  </div>
+</section>
+
+<section class="block wrap">
+  <div class="section-head mono up"><span data-en="Off screen · photography">Fora da tela · fotografia</span><span>(05)</span></div>
+  <div class="photos">
+    <figure class="p1 rv"><img src="images/about/photo-1.jpg" alt="Fotografia" loading="lazy"></figure>
+    <figure class="p2 rv"><img src="images/about/photo-2.jpg" alt="Fotografia" loading="lazy"></figure>
+    <figure class="p3 rv"><img src="images/about/photo-3.jpg" alt="Fotografia" loading="lazy"></figure>
+    <figure class="p4 rv"><img src="images/about/photo-4.jpg" alt="Fotografia" loading="lazy"></figure>
+    <figure class="p5 rv"><img src="images/about/photo-5.jpg" alt="Fotografia" loading="lazy"></figure>
+  </div>
+</section>
+</main>
+
+<section class="outro" id="contact">
+  <canvas id="warp" aria-hidden="true"></canvas>
+  <div class="outro-inner">
+    <h2 class="outro-title"><span data-en="Let's build" data-scramble-view style="display:block">Vamos criar</span><span data-en="something" data-scramble-view style="display:block">algo</span><span data-en="together" data-scramble-view style="display:block">juntos</span></h2>
+    <a class="outro-mail" href="mailto:diegorodrigues@me.com?subject=Portfolio%20Contact">diegorodrigues@me.com</a>
+    <div class="outro-links">
+      <a href="https://www.linkedin.com/in/diegordrgs/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://dribbble.com/diegorodrigues" target="_blank" rel="noopener">Dribbble</a>
+      <a href="https://medium.com/@dirdrgs" target="_blank" rel="noopener">Medium</a>
+      <a href="https://fable.co/" target="_blank" rel="noopener">Fable</a>
+    </div>
+  </div>
+</section>
+
+<script src="js/v2.js"></script>
 </body>
 </html>
