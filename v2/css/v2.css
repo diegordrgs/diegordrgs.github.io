@@ -51,7 +51,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .bar-top{top:36px}
 .bar-bottom{bottom:36px;align-items:center}
 .logo{padding-left:var(--inset);font-weight:700;font-size:16px;letter-spacing:.01em;text-transform:uppercase;font-stretch:112%}
-.nav{grid-column:3;display:flex;justify-content:space-between;gap:16px;padding-left:var(--inset);font-family:var(--mono);font-size:15px;text-transform:uppercase}
+.nav{grid-column:2/4;display:flex;justify-content:flex-end;gap:32px;padding-left:var(--inset);font-family:var(--mono);font-size:15px;text-transform:uppercase}
 .nav a,.nav button{position:relative;white-space:nowrap}
 .nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:currentColor}
 .bar-bottom .mono{padding-left:var(--inset);font-size:14px;text-transform:uppercase}
