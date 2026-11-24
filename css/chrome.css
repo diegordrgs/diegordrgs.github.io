@@ -6,17 +6,20 @@
 /* ── Header ── */
 .site-header{position:relative;z-index:200;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:32px var(--chrome-pad) 0;font-family:var(--chrome-sans)}
 .site-header .nav{display:flex;align-items:center;gap:10px}
+.nav-links{display:flex;align-items:center;gap:10px}
 .pill{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 20px;border:1.5px solid var(--text-strong);border-radius:999px;color:var(--text-strong);font-family:var(--chrome-sans);font-size:18px;line-height:1;letter-spacing:-.01em;white-space:nowrap;text-decoration:none;cursor:none;transition:background .2s,color .2s}
 .pill:hover,.pill[aria-current="page"]{background:var(--text-strong);color:var(--bg)}
-.pill-logo{height:56px;padding:0 24px;font-size:24px;font-weight:500;letter-spacing:-.02em}
+.pill-logo{font-weight:500}
 .pill-lang{gap:6px;padding:0 16px}
 .pill-lang .lang-option{font-family:var(--chrome-sans);font-size:15px;font-weight:400;letter-spacing:0;color:var(--text-muted)}
 .pill-lang .lang-option.active{color:var(--text-strong);font-weight:600}
 .pill-lang .lang-option:hover{color:var(--text-strong)}
 .pill-lang:hover{background:none;color:inherit}
-.site-header .theme-toggle{width:44px;height:44px;flex:none;border-radius:50%;background:var(--accent);color:#fff;transition:transform .25s}
-.site-header .theme-toggle:hover{color:#fff;transform:scale(1.08) rotate(-12deg)}
-.site-header .theme-toggle svg{width:18px;height:18px}
+.site-header .theme-toggle,.mobile-menu .theme-toggle{width:44px;height:44px;flex:none;border-radius:50%;background:var(--accent);color:#fff;transition:transform .25s}
+.site-header .theme-toggle:hover,.mobile-menu .theme-toggle:hover{color:#fff;transform:scale(1.08) rotate(-12deg)}
+.site-header .theme-toggle svg,.mobile-menu .theme-toggle svg{width:18px;height:18px}
+.mobile-menu .theme-toggle{width:36px;height:36px}
+.mobile-menu .theme-toggle svg{width:15px;height:15px}
 
 /* ── Footer ── */
 .site-footer{font-family:var(--chrome-sans);color:var(--text-strong);padding:0 var(--chrome-pad) 32px;margin-top:120px}
@@ -36,23 +39,27 @@
 }
 @media (max-width:720px){
   :root{--chrome-pad:20px}
-  .site-header{padding-top:16px;gap:8px}
-  .site-header .nav{gap:6px}
+  .site-header{padding-top:16px}
+  .site-header .nav{display:none}
+  .site-header .menu-toggle{display:flex}
   .pill{height:36px;padding:0 12px;font-size:14px}
-  .pill-logo{height:40px;padding:0 16px;font-size:17px}
   .pill-lang{padding:0 10px}
   .pill-lang .lang-option{font-size:13px}
-  .site-header .theme-toggle{width:36px;height:36px}
-  .site-header .theme-toggle svg{width:15px;height:15px}
-  .nav-hide,.logo-last{display:none}
   .site-footer{margin-top:80px}
   .footer-main{grid-template-columns:1fr;row-gap:40px;padding:64px 0 56px}
   .footer-mark{font-size:30vw}
   .footer-bar{min-height:56px;padding:12px 20px}
 }
-@media (max-width:420px){
-  .site-header .nav .pill:not(.pill-lang){padding:0 10px}
-}
+
+/* ── Mobile menu (burger) ── */
+.mobile-menu{font-family:var(--chrome-sans)}
+.mobile-menu{padding:16px var(--chrome-pad)}
+.mobile-menu-top .pill-logo{height:36px;padding:0 12px;font-size:14px}
+.mobile-menu-links a{font-family:var(--chrome-sans);font-weight:500;letter-spacing:-.03em;display:inline-flex;align-items:center}
+.mobile-menu-links .ext-icon{width:.55em;height:.55em;margin-left:.2em}
+.mobile-menu-bottom{gap:8px}
+.mobile-menu-bottom .pill{height:36px;font-size:14px}
+@media (min-width:721px){.menu-toggle,.mobile-menu{display:none!important}}
 @media (prefers-reduced-motion:reduce){.footer-star{animation:none}}
 
 /* Copy-email button (next to every email link) */
