@@ -99,4 +99,32 @@
   }else rv.forEach(function(el){el.classList.add('in')});
 
   if(document.fonts&&document.fonts.ready)document.fonts.ready.then(runIntro);else runIntro();
+
+  /* Copy email to clipboard (delegated, survives the PT/EN swap) */
+  (function(){
+    function copy(t){
+      if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(t);
+      return new Promise(function(res,rej){
+        var a=document.createElement('textarea');a.value=t;a.setAttribute('readonly','');a.style.cssText='position:fixed;top:0;left:0;opacity:0';
+        document.body.appendChild(a);a.select();
+        try{document.execCommand('copy')?res():rej()}catch(e){rej(e)}
+        a.remove();
+      });
+    }
+    document.addEventListener('click',function(e){
+      var b=e.target.closest&&e.target.closest('.copy-email');
+      if(!b)return;
+      e.preventDefault();
+      var en=(document.documentElement.lang||'').indexOf('en')===0;
+      function done(ok){
+        b.dataset.tip=ok?(en?'Copied!':'Copiado!'):b.dataset.email;
+        b.setAttribute('aria-label',b.dataset.tip);
+        b.classList.add('copied');
+        clearTimeout(b._t);
+        b._t=setTimeout(function(){b.classList.remove('copied');b.setAttribute('aria-label',en?'Copy email':'Copiar email')},1800);
+      }
+      copy(b.dataset.email).then(function(){done(true)},function(){done(false)});
+    });
+  })();
+  
 })();
