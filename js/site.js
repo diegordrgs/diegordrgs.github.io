@@ -28,8 +28,9 @@
   const mobileMenu=document.getElementById('mobileMenu');
   if(!menuToggle||!mobileMenu)return;
   const breakpoint=parseInt(mobileMenu.dataset.breakpoint||'640',10);
-  function openMenu(){mobileMenu.classList.add('open');document.body.style.overflow='hidden'}
-  function closeMenu(){mobileMenu.classList.remove('open');document.body.style.overflow=''}
+  function openMenu(){mobileMenu.classList.add('open');menuToggle.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+  function closeMenu(){mobileMenu.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
   menuToggle.addEventListener('click',openMenu);
   if(menuClose)menuClose.addEventListener('click',closeMenu);
   mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));

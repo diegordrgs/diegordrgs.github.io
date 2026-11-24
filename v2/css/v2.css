@@ -57,6 +57,42 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .dot{width:44px;height:44px;flex:none;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--mono);font-weight:500;font-size:16px;display:inline-flex;align-items:center;justify-content:center;transition:transform .25s}
 .dot:hover{transform:scale(1.08) rotate(-12deg)}
 
+/* ── Burger + mobile menu (from v1) ── */
+.menu-toggle{display:none;align-items:center;justify-content:center;width:28px;height:28px;margin:-2px -3px;background:none;border:none;padding:0;color:var(--fg);cursor:pointer}
+/* Burger icon: top bun with sesame seeds, patty with a cheese notch, bottom bun */
+.burger{display:block;width:100%;height:100%;overflow:visible;fill:currentColor}
+.burger-top,.burger-patty,.burger-bottom,.burger-seed{transform-box:fill-box;transform-origin:center;transition:transform .45s cubic-bezier(.5,1.5,.45,1),opacity .3s ease}
+.menu-toggle:hover .burger-top{transform:translateY(-1.6px) rotate(-7deg)}
+.menu-toggle:hover .burger-patty{transform:translateX(.8px)}
+/* Active state: the burger comes apart; the buns flatten and cross into an X,
+   the patty slides off the plate and the seeds drop away */
+.mobile-menu .burger-top,.mobile-menu .burger-bottom,.mobile-menu .burger-patty,.mobile-menu .burger-seed{transition-delay:.12s}
+.mobile-menu.open .burger-top{transform:translateY(4.4px) rotate(45deg) scale(1.08,.4)}
+.mobile-menu.open .burger-bottom{transform:translateY(-5.2px) rotate(-45deg) scale(1.08,.56)}
+.mobile-menu.open .burger-patty{transform:translateX(16px) rotate(18deg);opacity:0}
+.mobile-menu.open .burger-seed{transform:scale(0)}
+.menu-close:hover .burger-top,.menu-close:hover .burger-bottom{transition-delay:0s}
+.mobile-menu.open .menu-close:hover .burger-top{transform:translateY(4.4px) rotate(135deg) scale(1.08,.4)}
+.mobile-menu.open .menu-close:hover .burger-bottom{transform:translateY(-5.2px) rotate(45deg) scale(1.08,.56)}
+@media (prefers-reduced-motion:reduce){.burger-top,.burger-patty,.burger-bottom,.burger-seed{transition:none}}
+.mobile-menu{position:fixed;inset:0;z-index:400;background:var(--bg);display:flex;flex-direction:column;padding:20px 24px;visibility:hidden;opacity:0;transition:opacity .3s ease,visibility .3s ease}
+.mobile-menu.open{visibility:visible;opacity:1}
+.mobile-menu-top{display:flex;align-items:center;justify-content:space-between}
+.menu-close{background:none;border:none;padding:0;width:28px;height:28px;margin:-2px -3px;color:var(--fg);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.mobile-menu-links{list-style:none;display:flex;flex-direction:column;gap:16px;margin-top:52px}
+.mobile-menu-links a{font-size:clamp(30px,10vw,42px);font-weight:700;letter-spacing:-.02em;color:var(--fg);text-decoration:none;cursor:pointer}
+.mobile-menu-links a.on{color:var(--accent)}
+.mobile-menu-bottom{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:20px;border-top:1px solid var(--line)}
+
+.mobile-menu{font-family:var(--sans)}
+.mobile-menu{padding:16px var(--pad)}
+.mobile-menu-top .pill-logo{height:36px;padding:0 12px;font-size:14px}
+.mobile-menu-links a{font-family:var(--sans);font-weight:500;letter-spacing:-.03em;display:inline-flex;align-items:center}
+.mobile-menu-links .ext-icon{width:.55em;height:.55em;margin-left:.2em}
+.mobile-menu-bottom{gap:8px}
+.mobile-menu-bottom .pill{height:36px;font-size:14px}
+@media (min-width:721px){.menu-toggle,.mobile-menu{display:none!important}}
+
 /* ── Layout ── */
 main{position:relative;z-index:1}
 .wrap{padding:0 var(--pad)}
@@ -187,11 +223,8 @@ main{position:relative;z-index:1}
   .frame-lines span:nth-child(3){display:none}
   .frame-plus{display:none}
   .site-header{top:16px}
-  .site-header{display:grid;grid-template-columns:minmax(0,1fr) auto auto;column-gap:6px;row-gap:10px;align-items:center}
-  .site-header .nav{display:contents}
-  .pill-logo{justify-self:start}
-  .nav-links{grid-column:1/-1;grid-row:2;display:flex;gap:6px}
-  .nav-links .pill{flex:1 1 auto;min-width:0;padding:0 8px}
+  .site-header .nav{display:none}
+  .site-header .menu-toggle{display:flex}
   .pill{height:36px;padding:0 12px;font-size:14px}
   .pill-mono{font-size:12px}
   .dot{width:36px;height:36px;font-size:14px}
@@ -200,14 +233,13 @@ main{position:relative;z-index:1}
   .footer-bar{min-height:56px;padding:12px 20px}
   .cols,.work-grid,.row,.photos{grid-template-columns:1fr}
   .cols>*,.row>*{grid-column:auto!important}
-  .hero{min-height:100svh;padding-top:150px;padding-bottom:32px}
+  .hero{min-height:100svh;padding-top:120px;padding-bottom:32px}
   .hero-avatar{width:64px}
   .hero-title{font-size:clamp(40px,12vw,56px)}
   .hero-cta{padding-right:20px;gap:14px}
   .hero-cta-arrow{width:48px;height:48px}
   .hero-cta-arrow svg{width:22px;height:22px}
   .statement{padding-top:96px;padding-bottom:96px}
-  main>.statement:first-child{padding-top:160px}
   .portrait{max-width:220px;margin:40px 0 48px 24px}
   .signature{font-size:64px;left:-24px;top:-48px}
   .work-grid{row-gap:56px}

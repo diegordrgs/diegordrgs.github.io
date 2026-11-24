@@ -48,26 +48,35 @@
     });
     var t=document.querySelector('title[data-en]');
     if(t){if(t.dataset.pt===undefined)t.dataset.pt=t.textContent;t.textContent=lang==='en'?t.dataset.en:t.dataset.pt}
-    var lb=document.getElementById('langBtn');
-    if(lb)lb.textContent=lang==='en'?'EN[PT]':'PT[EN]';
+    document.querySelectorAll('.js-lang').forEach(function(lb){lb.textContent=lang==='en'?'EN[PT]':'PT[EN]'});
     store.set('lang',lang);
   }
   var lang=store.get('lang')==='en'?'en':'pt';
   applyLang(lang);
-  var langBtn=document.getElementById('langBtn');
-  if(langBtn)langBtn.addEventListener('click',function(){lang=lang==='en'?'pt':'en';applyLang(lang);runIntro()});
+  var langBtns=document.querySelectorAll('.js-lang');
+  langBtns.forEach(function(b){b.addEventListener('click',function(){lang=lang==='en'?'pt':'en';applyLang(lang);runIntro();applyTheme()})});
 
   /* ── Theme: A (auto) → L → D ── */
   var modes=['auto','light','dark'],labels={auto:'A',light:'L',dark:'D'};
   var mode=store.get('theme');if(modes.indexOf(mode)<0)mode='auto';
   function applyTheme(){
     if(mode==='auto')root.removeAttribute('data-theme');else root.setAttribute('data-theme',mode);
-    var b=document.getElementById('themeBtn');if(b){b.textContent=labels[mode];b.setAttribute('aria-label',(lang==='en'?'Theme: ':'Tema: ')+mode)}
+    document.querySelectorAll('.js-theme').forEach(function(b){b.textContent=labels[mode];b.setAttribute('aria-label',(lang==='en'?'Theme: ':'Tema: ')+mode)});
   }
   applyTheme();
-  var themeBtn=document.getElementById('themeBtn');
-  if(themeBtn)themeBtn.addEventListener('click',function(){mode=modes[(modes.indexOf(mode)+1)%3];store.set('theme',mode);applyTheme()});
-  if(langBtn)langBtn.addEventListener('click',applyTheme);
+  document.querySelectorAll('.js-theme').forEach(function(b){b.addEventListener('click',function(){mode=modes[(modes.indexOf(mode)+1)%3];store.set('theme',mode);applyTheme()})});
+
+  /* ── Mobile menu ── */
+  var mm=document.getElementById('mobileMenu'),mt=document.getElementById('menuToggle'),mc=document.getElementById('menuClose');
+  if(mm&&mt){
+    var bp=parseInt(mm.dataset.breakpoint||'720',10);
+    var openM=function(){mm.classList.add('open');mt.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'};
+    var closeM=function(){mm.classList.remove('open');mt.setAttribute('aria-expanded','false');document.body.style.overflow=''};
+    mt.addEventListener('click',openM);if(mc)mc.addEventListener('click',closeM);
+    mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeM)});
+    addEventListener('keydown',function(e){if(e.key==='Escape')closeM()});
+    addEventListener('resize',function(){if(innerWidth>bp)closeM()});
+  }
 
   /* ── Grid crosshairs ── */
   function plus(){
