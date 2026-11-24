@@ -90,15 +90,6 @@
   }
   tick();setInterval(tick,15000);
 
-  /* ── Hero cards parallax ── */
-  var hcards=document.querySelectorAll('.hcard[data-depth]');
-  if(hcards.length&&matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
-    addEventListener('mousemove',function(e){
-      var x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;
-      hcards.forEach(function(c){var d=+c.dataset.depth;c.style.transform='translate('+(x*d)+'px,'+(y*d)+'px)'});
-    });
-  }
-
   /* ── Reveal on scroll ── */
   var rv=document.querySelectorAll('.rv');
   if('IntersectionObserver' in window){
