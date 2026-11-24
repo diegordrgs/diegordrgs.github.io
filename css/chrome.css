@@ -1,0 +1,58 @@
+/* ─────────────────────────────────────────────
+   Site chrome (v1): pill header + wordmark footer, v2 type
+   ───────────────────────────────────────────── */
+:root{--chrome-sans:'TikTok Sans',system-ui,sans-serif;--chrome-pad:48px}
+
+/* ── Header ── */
+.site-header{position:relative;z-index:200;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:32px var(--chrome-pad) 0;font-family:var(--chrome-sans)}
+.site-header .nav{display:flex;align-items:center;gap:10px}
+.pill{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 20px;border:1.5px solid var(--text-strong);border-radius:999px;color:var(--text-strong);font-family:var(--chrome-sans);font-size:18px;line-height:1;letter-spacing:-.01em;white-space:nowrap;text-decoration:none;cursor:none;transition:background .2s,color .2s}
+.pill:hover,.pill[aria-current="page"]{background:var(--text-strong);color:var(--bg)}
+.pill-logo{height:56px;padding:0 24px;font-size:24px;font-weight:500;letter-spacing:-.02em}
+.pill-lang{gap:6px;padding:0 16px}
+.pill-lang .lang-option{font-family:var(--chrome-sans);font-size:15px;font-weight:400;letter-spacing:0;color:var(--text-muted)}
+.pill-lang .lang-option.active{color:var(--text-strong);font-weight:600}
+.pill-lang .lang-option:hover{color:var(--text-strong)}
+.pill-lang:hover{background:none;color:inherit}
+.site-header .theme-toggle{width:44px;height:44px;flex:none;border-radius:50%;background:var(--accent);color:#fff;transition:transform .25s}
+.site-header .theme-toggle:hover{color:#fff;transform:scale(1.08) rotate(-12deg)}
+.site-header .theme-toggle svg{width:18px;height:18px}
+
+/* ── Footer ── */
+.site-footer{font-family:var(--chrome-sans);color:var(--text-strong);padding:0 var(--chrome-pad) 32px;margin-top:120px}
+.footer-main{border-top:1.5px solid var(--text-strong);display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) minmax(0,.65fr);gap:32px;padding:120px 0 100px;align-items:start}
+.footer-mark{position:relative;display:inline-block;justify-self:start;font-weight:500;font-size:clamp(96px,12.5vw,210px);line-height:.8;letter-spacing:-.055em;padding-right:.32em;color:var(--text-strong);text-decoration:none;cursor:none}
+.footer-star{position:absolute;top:-.02em;right:0;width:.26em;height:.26em;fill:var(--accent);animation:footer-spin 14s linear infinite}
+@keyframes footer-spin{to{transform:rotate(360deg)}}
+.footer-lead{font-size:clamp(18px,1.6vw,24px);letter-spacing:-.01em;line-height:1.25;max-width:26ch}
+.footer-list{display:flex;flex-direction:column;align-items:flex-start;font-size:clamp(18px,1.6vw,24px);line-height:1.3;letter-spacing:-.01em}
+.footer-col .footer-list{margin-top:28px}
+.site-footer a{color:inherit;text-decoration:none;cursor:none}
+.site-footer .u{background:linear-gradient(currentColor,currentColor) 0 100%/100% 1.5px no-repeat;transition:color .2s}
+.site-footer .u:hover,.footer-top:hover{color:var(--accent)}
+.footer-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:12px 32px;border:1.5px solid var(--text-strong);border-radius:999px;font-size:16px;letter-spacing:-.02em}
+
+@media (max-width:1024px){
+  .footer-main{grid-template-columns:1fr 1fr;row-gap:56px}
+  .footer-mark{grid-column:1/-1}
+}
+@media (max-width:720px){
+  :root{--chrome-pad:20px}
+  .site-header{padding-top:16px;gap:8px}
+  .site-header .nav{gap:6px}
+  .pill{height:36px;padding:0 12px;font-size:14px}
+  .pill-logo{height:40px;padding:0 16px;font-size:17px}
+  .pill-lang{padding:0 10px}
+  .pill-lang .lang-option{font-size:13px}
+  .site-header .theme-toggle{width:36px;height:36px}
+  .site-header .theme-toggle svg{width:15px;height:15px}
+  .nav-hide,.logo-last{display:none}
+  .site-footer{margin-top:80px}
+  .footer-main{grid-template-columns:1fr;row-gap:40px;padding:64px 0 56px}
+  .footer-mark{font-size:30vw}
+  .footer-bar{flex-direction:column;border-radius:28px;padding:20px;gap:6px;text-align:center}
+}
+@media (max-width:420px){
+  .site-header .nav .pill:not(.pill-lang){padding:0 10px}
+}
+@media (prefers-reduced-motion:reduce){.footer-star{animation:none}}
