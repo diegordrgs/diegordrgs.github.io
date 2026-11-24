@@ -121,3 +121,14 @@
     });
   });
 })();
+
+(function(){
+  // Footer clock (São Paulo time)
+  const els=document.querySelectorAll('.site-clock');
+  if(!els.length)return;
+  function tick(){
+    const s=new Date().toLocaleTimeString('pt-BR',{timeZone:'America/Sao_Paulo',hour:'2-digit',minute:'2-digit'});
+    els.forEach(el=>{el.textContent='GMT-3 '+s});
+  }
+  tick();setInterval(tick,15000);
+})();
