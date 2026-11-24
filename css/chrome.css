@@ -24,13 +24,11 @@
 .footer-mark{position:relative;display:inline-block;justify-self:start;font-weight:500;font-size:clamp(96px,12.5vw,210px);line-height:.8;letter-spacing:-.055em;padding-right:.32em;color:var(--text-strong);text-decoration:none;cursor:none}
 .footer-star{position:absolute;top:-.02em;right:0;width:.26em;height:.26em;fill:var(--accent);animation:footer-spin 14s linear infinite}
 @keyframes footer-spin{to{transform:rotate(360deg)}}
-.footer-lead{font-size:clamp(18px,1.6vw,24px);letter-spacing:-.01em;line-height:1.25;max-width:26ch}
 .footer-list{display:flex;flex-direction:column;align-items:flex-start;font-size:clamp(18px,1.6vw,24px);line-height:1.3;letter-spacing:-.01em}
-.footer-col .footer-list{margin-top:28px}
 .site-footer a{color:inherit;text-decoration:none;cursor:none}
 .site-footer .u{background:linear-gradient(currentColor,currentColor) 0 100%/100% 1.5px no-repeat;transition:color .2s}
 .site-footer .u:hover,.footer-top:hover{color:var(--accent)}
-.footer-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:12px 32px;border:1.5px solid var(--text-strong);border-radius:999px;font-size:16px;letter-spacing:-.02em}
+.footer-bar{display:flex;align-items:center;justify-content:center;gap:16px;min-height:64px;padding:12px 32px;border:1.5px solid var(--text-strong);border-radius:999px;font-size:16px;letter-spacing:-.02em}
 
 @media (max-width:1024px){
   .footer-main{grid-template-columns:1fr 1fr;row-gap:56px}
@@ -50,9 +48,21 @@
   .site-footer{margin-top:80px}
   .footer-main{grid-template-columns:1fr;row-gap:40px;padding:64px 0 56px}
   .footer-mark{font-size:30vw}
-  .footer-bar{flex-direction:column;border-radius:28px;padding:20px;gap:6px;text-align:center}
+  .footer-bar{min-height:56px;padding:12px 20px}
 }
 @media (max-width:420px){
   .site-header .nav .pill:not(.pill-lang){padding:0 10px}
 }
 @media (prefers-reduced-motion:reduce){.footer-star{animation:none}}
+
+/* Copy-email button (next to every email link) */
+.email-copy{display:inline-flex;align-items:center;gap:.35em}
+.copy-email{position:relative;display:inline-flex;align-items:center;justify-content:center;width:1.5em;height:1.5em;margin:0;padding:0;border:0;border-radius:6px;background:none;color:inherit;font:inherit;line-height:1;cursor:none;opacity:.55;transition:opacity .2s,color .2s}
+.copy-email:hover,.copy-email:focus-visible{opacity:1;color:var(--accent)}
+.copy-email svg{width:.85em;height:.85em;display:block}
+.copy-email .ce-check{display:none}
+.copy-email.copied{opacity:1;color:var(--accent)}
+.copy-email.copied .ce-copy{display:none}
+.copy-email.copied .ce-check{display:block}
+.copy-email::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translate(-50%,4px);padding:5px 8px;border-radius:6px;background:#0A0A0A;color:#fff;font-size:12px;font-weight:400;letter-spacing:0;line-height:1;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.copy-email.copied::after{opacity:1;transform:translate(-50%,0)}

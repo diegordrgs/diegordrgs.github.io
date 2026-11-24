@@ -49,26 +49,3 @@ if(canvas){
   }
   draw();
 }
-
-// Sticker trail: moving the mouse over the hero leaves a sticker behind, at most one per second
-(function(){
-  const hero=document.querySelector('.pf-hero');
-  if(!hero||window.matchMedia('(pointer: coarse), (prefers-reduced-motion: reduce)').matches)return;
-  const SRC='images/home/sticker-oi.svg',INTERVAL=1000;
-  const layer=document.createElement('div');
-  layer.className='sticker-trail';layer.setAttribute('aria-hidden','true');
-  hero.appendChild(layer);
-  new Image().src=SRC;
-  let last=-Infinity;
-  hero.addEventListener('mousemove',e=>{
-    if(e.timeStamp-last<INTERVAL)return;
-    last=e.timeStamp;
-    const r=hero.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
-    const img=document.createElement('img');
-    img.src=SRC;img.alt='';img.className='trail-sticker';
-    const size=90+Math.random()*40,rot=(Math.random()-.5)*50;
-    img.style.cssText=`left:${x}px;top:${y}px;width:${size}px;--r:${rot}deg`;
-    layer.appendChild(img);
-    img.addEventListener('animationend',()=>img.remove());
-  });
-})();
