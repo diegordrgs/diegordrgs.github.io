@@ -6,9 +6,10 @@
 /* ── Header ── */
 .site-header{position:relative;z-index:200;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:32px var(--chrome-pad) 0;font-family:var(--chrome-sans)}
 .site-header .nav{display:flex;align-items:center;gap:10px}
+.nav-links{display:flex;align-items:center;gap:10px}
 .pill{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 20px;border:1.5px solid var(--text-strong);border-radius:999px;color:var(--text-strong);font-family:var(--chrome-sans);font-size:18px;line-height:1;letter-spacing:-.01em;white-space:nowrap;text-decoration:none;cursor:none;transition:background .2s,color .2s}
 .pill:hover,.pill[aria-current="page"]{background:var(--text-strong);color:var(--bg)}
-.pill-logo{height:56px;padding:0 24px;font-size:24px;font-weight:500;letter-spacing:-.02em}
+.pill-logo{font-weight:500}
 .pill-lang{gap:6px;padding:0 16px}
 .pill-lang .lang-option{font-family:var(--chrome-sans);font-size:15px;font-weight:400;letter-spacing:0;color:var(--text-muted)}
 .pill-lang .lang-option.active{color:var(--text-strong);font-weight:600}
@@ -36,22 +37,21 @@
 }
 @media (max-width:720px){
   :root{--chrome-pad:20px}
-  .site-header{padding-top:16px;gap:8px}
-  .site-header .nav{gap:6px}
+  .site-header{padding-top:16px}
+  .site-header{display:grid;grid-template-columns:minmax(0,1fr) auto auto;column-gap:6px;row-gap:10px;align-items:center}
+  .site-header .nav{display:contents}
+  .pill-logo{justify-self:start}
+  .nav-links{grid-column:1/-1;grid-row:2;display:flex;gap:6px}
+  .nav-links .pill{flex:1 1 auto;min-width:0;padding:0 8px}
   .pill{height:36px;padding:0 12px;font-size:14px}
-  .pill-logo{height:40px;padding:0 16px;font-size:17px}
   .pill-lang{padding:0 10px}
   .pill-lang .lang-option{font-size:13px}
   .site-header .theme-toggle{width:36px;height:36px}
   .site-header .theme-toggle svg{width:15px;height:15px}
-  .nav-hide,.logo-last{display:none}
   .site-footer{margin-top:80px}
   .footer-main{grid-template-columns:1fr;row-gap:40px;padding:64px 0 56px}
   .footer-mark{font-size:30vw}
   .footer-bar{min-height:56px;padding:12px 20px}
-}
-@media (max-width:420px){
-  .site-header .nav .pill:not(.pill-lang){padding:0 10px}
 }
 @media (prefers-reduced-motion:reduce){.footer-star{animation:none}}
 
