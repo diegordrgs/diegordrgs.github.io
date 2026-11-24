@@ -15,26 +15,21 @@
   <link rel="stylesheet" href="css/v2.css">
   <script>(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
 </head>
-<body>
+<body id="top">
 <div class="frame-lines" aria-hidden="true"><span></span><span></span><span></span></div>
 <div class="frame-rows" aria-hidden="true"><i></i><i></i></div>
 
-<header class="bar bar-top">
-  <a class="logo" href="index.html" data-scramble-hover>Diego.Rodrigues</a>
+<header class="site-header">
+  <a class="pill pill-logo" href="index.html" data-scramble-hover>Diego<span class="logo-last"> Rodrigues</span></a>
   <nav class="nav" aria-label="Principal">
-    <a href="index.html#work" aria-current="page" data-scramble-hover data-en="Work">Trabalho</a>
-    <a href="personal.html" class="nav-hide" data-scramble-hover>Playground</a>
-    <a href="about.html" data-scramble-hover data-en="About">Sobre</a>
-    <a href="https://drive.google.com/file/d/1tq70KpDJmJUauMY-ET6yFJ8qXpjYgbsi/view?usp=sharing" class="nav-hide" target="_blank" rel="noopener" data-scramble-hover data-en="Resume">Currículo</a>
-    <button id="themeBtn" type="button" class="nav-hide" aria-label="Alternar tema">TEMA[A]</button>
-    <button id="langBtn" type="button" aria-label="Mudar idioma / Change language">PT[EN]</button>
+    <a class="pill" href="index.html#work" aria-current="page" data-scramble-hover data-en="Work">Trabalho</a>
+    <a class="pill nav-hide" href="personal.html" data-scramble-hover>Playground</a>
+    <a class="pill" href="about.html" data-scramble-hover data-en="About">Sobre</a>
+    <a class="pill nav-hide" href="https://drive.google.com/file/d/1tq70KpDJmJUauMY-ET6yFJ8qXpjYgbsi/view?usp=sharing" target="_blank" rel="noopener" data-scramble-hover data-en="Resume">Currículo</a>
+    <button id="langBtn" class="pill pill-mono" type="button" aria-label="Mudar idioma / Change language">PT[EN]</button>
+    <button id="themeBtn" class="dot" type="button" aria-label="Alternar tema">A</button>
   </nav>
 </header>
-<div class="bar bar-bottom" aria-hidden="true">
-  <span class="mono" id="clock">GMT-3 SP 00:00</span>
-  <span class="mono coords" id="coords">0000 X 0000 Y</span>
-  <span class="globe"><svg viewBox="0 0 46 24" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="23" cy="12" rx="21" ry="10.5"/><path d="M2 12h42M6 6.5h34M6 17.5h34"/><ellipse class="meridian" cx="23" cy="12" rx="9" ry="10.5"/></svg></span>
-</div>
 
 <main>
 <section class="hero">
@@ -109,19 +104,32 @@
 </section>
 </main>
 
-<section class="outro" id="contact">
-  <canvas id="warp" aria-hidden="true"></canvas>
-  <div class="outro-inner">
-    <h2 class="outro-title"><span data-en="Let's build" data-scramble-view style="display:block">Vamos criar</span><span data-en="something" data-scramble-view style="display:block">algo</span><span data-en="together" data-scramble-view style="display:block">juntos</span></h2>
-    <a class="outro-mail" href="mailto:diegorodrigues@me.com?subject=Portfolio%20Contact">diegorodrigues@me.com</a>
-    <div class="outro-links">
-      <a href="https://www.linkedin.com/in/diegordrgs/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://dribbble.com/diegorodrigues" target="_blank" rel="noopener">Dribbble</a>
-      <a href="https://medium.com/@dirdrgs" target="_blank" rel="noopener">Medium</a>
-      <a href="https://fable.co/" target="_blank" rel="noopener">Fable</a>
+<footer class="site-footer wrap" id="contact">
+  <div class="footer-main">
+    <a class="footer-mark" href="index.html" aria-label="Diego Rodrigues — início">Diego<svg class="footer-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.5l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.6l-6.4 3.5L7 14l-5.3-5 7.2-.9z"/></svg></a>
+    <div class="footer-col">
+      <p class="footer-lead" data-en="Complex rules, clear products. Let's build something together.">Regras complexas, produtos claros. Vamos criar algo juntos.</p>
+      <div class="footer-list">
+        <span class="footer-label" data-en="#Contact">#Contato</span>
+        <span>São Paulo, Brasil</span>
+        <span id="clock">GMT-3 00:00</span>
+        <a class="u" href="mailto:diegorodrigues@me.com?subject=Portfolio%20Contact">Email</a>
+      </div>
+    </div>
+    <div class="footer-list footer-social">
+      <span class="footer-label">#Social</span>
+      <a class="u" href="https://www.linkedin.com/in/diegordrgs/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="u" href="https://dribbble.com/diegorodrigues" target="_blank" rel="noopener">Dribbble</a>
+      <a class="u" href="https://medium.com/@dirdrgs" target="_blank" rel="noopener">Medium</a>
+      <a class="u" href="https://fable.co/" target="_blank" rel="noopener">Fable</a>
     </div>
   </div>
-</section>
+  <div class="footer-bar">
+    <span>©Diego Rodrigues 2026</span>
+    <span class="footer-made"><span data-en="Designed &amp; coded by">Design e código por</span> <a class="u" href="about.html">Diego</a></span>
+    <a class="footer-top" href="#top" data-en="Back to top ↑">Voltar ao topo ↑</a>
+  </div>
+</footer>
 
 <script src="js/v2.js"></script>
 </body>
